@@ -56,15 +56,12 @@ session_start();
         <Button class="NavBtn">Home</Button>
         <Button class="NavBtn">About</Button>
         <Button class="NavBtn" style=" margin-left: 60%;"><a href="UserLogin.php">Login</a></Button>
-        <Button class="NavBtn"><a href="UserLogout.php">Logout</a>
-            <?php session_destroy();
-            ?>
-        </Button>
+        <Button class="NavBtn"><a href="UserLogout.php">Logout</a></Button>
     </div>
     <div class="Body">
         <?php
-        $username = $_SESSION['username'];
-        echo "Welcome," . $username ?>
+
+        echo "Welcome," . $_SESSION['username'] ?>
 
     </div>
 </body>
