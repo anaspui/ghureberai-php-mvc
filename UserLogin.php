@@ -143,6 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="page login-page">
         <div>
             <img src="logo.png" alt="logo">
+            <h3 align="center">You won't miss a thing!</h3>
         </div>
         <div class="box login" align="center">
             <div>
@@ -157,12 +158,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     <table>
                         <tr>
-                            <th><label for="Username">Username </label></th>
+                            <td><label for="Username">Username </label></td>
                             <td>:</td>
                             <td><Input type="text" name="username" id="username"></Input></td>
                         </tr>
                         <tr>
-                            <th><label for="password">Password </label></th>
+                            <td><label for="password">Password </label></td>
                             <td>:</td>
                             <td><input type="text" name="password" id="password"></td>
                         </tr>

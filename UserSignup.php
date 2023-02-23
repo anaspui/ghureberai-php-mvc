@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="page">
         <div class="box reg" align="center">
             <img src="logo.png" alt="logo" style="height: 100px"><br><br>
+
             <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
                     <h1 align="center">Sign Up</h1>
@@ -65,17 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <form method="post" action="UserSignup.php">
                 <table align="center" style="text-align: left">
                     <tr>
-                        <th><label for="fname">First Name</label></th>
+                        <td><label for="fname">First Name</label></td>
                         <td>:</td>
                         <td><Input type="text" name="fname" id="fname"></Input></td>
                     </tr>
                     <tr>
-                        <th><label for="lname">Last Name</label></th>
+                        <td><label for="lname">Last Name</label></td>
                         <td>:</td>
                         <td><Input type="text" name="lname" id="lname"></Input></td>
                     </tr>
                     <tr>
-                        <th><label for="male">Gender </label> </th>
+                        <td><label for="male">Gender </label> </td>
                         <td>:</td>
                         <td>
                             <input type="radio" id="male" name="gender" value="Male">
@@ -85,27 +86,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="date">Date of Birth</label></th>
+                        <td><label for="date">Date of Birth</label></td>
                         <td>:</td>
                         <td><input type="date" name="date" id="date"></td>
                     </tr>
                     <tr>
-                        <th><label for="email">Email </label></th>
+                        <td><label for="email">Email </label></td>
                         <td>:</td>
                         <td><Input type="text" name="email" id="email"></Input></td>
                     </tr>
                     <tr>
-                        <th><label for="phn">Phone/Mobile</label></th>
+                        <td><label for="phn">Phone/Mobile</label></td>
                         <td>:</td>
                         <td><input type="text" name="phn" id="phn"></td>
                     </tr>
                     <tr>
-                        <th><label for="Username">Username </label></th>
+                        <td><label for="Username">Username </label></td>
                         <td>:</td>
                         <td><Input type="text" name="username" id="username"></Input></td>
                     </tr>
                     <tr>
-                        <th><label for="password">Password </label></th>
+                        <td><label for="password">Password </label></td>
                         <td>:</td>
                         <td><input type="text" name="password" id="password"></td>
                     </tr>
