@@ -14,11 +14,24 @@ session_start();
     .NavBar {
         vertical-align: ;
         border: 1px black solid;
-        height: 30px;
+        background-color: #497174;
+        height: 100px;
         width: 90%;
         margin: auto;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        /* padding-top: 1rem; */
+        /* padding-bottom: 1rem; */
+    }
+
+
+    .logo {
+        border: 1px black solid;
+        height: 80px;
+        width: 200px;
+    }
+
+    .logo img {
+        height: 80px;
+        width: 200px;
     }
 
     .Body {
@@ -49,14 +62,18 @@ session_start();
 
 <body>
     <div class="NavBar">
-        <div style="border: 1px solid black">
+        <div class="logo">
 
+            <img src="logo.png" alt="logo">
         </div>
 
-        <Button class="NavBtn">Home</Button>
-        <Button class="NavBtn">About</Button>
-        <Button class="NavBtn" style=" margin-left: 60%;"><a href="UserLogin.php">Login</a></Button>
-        <Button class="NavBtn"><a href="UserLogout.php">Logout</a></Button>
+        <div>
+            <Button class="NavBtn">Home</Button>
+            <Button class="NavBtn">About</Button>
+            <Button class="NavBtn" style=" margin-left: 60%;"><a href="UserLogin.php">Login</a></Button>
+            <Button class="NavBtn"><a href="UserLogout.php">Logout</a></Button>
+
+        </div>
     </div>
     <div class="Body">
         <?php
