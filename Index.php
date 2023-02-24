@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +7,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="index.css">
+    <?php
+    session_start();
+    ?>
 </head>
 
 <body>
@@ -19,10 +18,10 @@ session_start();
             <div class="logo">
                 <img src="logo.png" alt="logo">
             </div>
-            <Button class="NavBtn">Home</Button>
-            <Button class="NavBtn">About</Button>
-            <Button class="NavBtn" style=" margin-left: 60%;"><a href="UserLogin.php">Login</a></Button>
-            <Button class="NavBtn"><a href="UserLogout.php">Logout</a></Button>
+            <Button class="button">Home</Button>
+            <Button class="button">About</Button>
+            <Button class="button" style=" margin-left: 60%;"><a href="UserLogin.php"></a>Login</Button>
+            <Button class="button"><a href="UserLogout.php"></a>Logout</Button>
 
 
         </div>
