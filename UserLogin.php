@@ -49,25 +49,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <body>
 
     <style type="text/css">
-    * {
-        margin: 0;
-        padding: 0;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    .page {
-        /* background-color: #DDF5F7; */
-        /* height: 100vh;
+        .page {
+            /* background-color: #DDF5F7; */
+            /* height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center; */
 
-        /* height: 100vh;
+            /* height: 100vh;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
         align-items: center; */
 
-        /* height: 100vh;
+            /* height: 100vh;
 
         display: flex;
         justify-content: center;
@@ -75,9 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         gap: 100px; */
 
 
-    }
+        }
 
-    /* #username {
+        /* #username {
 
         height: 25px;
         border-radius: 5px;
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         border: solid thin #aaa;
         width: 100%;
     } */
-    /* 
+        /* 
     #button {
         margin-left: 160px;
         padding: 10px;
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     } */
 
-    /* #box {
+        /* #box {
 
             background-color: #DDF5F7;
             box-shadow: 1px 1px 30px #434242;
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             border-radius: 10px;
         } */
 
-    /* a:link {
+        /* a:link {
         color: green;
         background-color: transparent;
         text-decoration: none;

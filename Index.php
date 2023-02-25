@@ -15,23 +15,45 @@
 <body>
     <div class="page">
         <div class="NavBar">
-            <div class="logo">
-                <img src="logo.png" alt="logo">
+            <div class="navBody">
+                <div class="nav-left">
+                    <div class="logo">
+                        <img src="logo.png" alt="logo">
+                    </div>
+                    <Button class="button">Home</Button>
+                    <Button class="button">Book</Button>
+                    <Button class="button">Packages</Button>
+                    <Button class="button">Contact</Button>
+                </div>
+                <div class="nav-right">
+                    <Button class="button"><a href="UserLogin.php">Login</a></Button>
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        ?>
+                        <Button class="button"><a href="UserLogout.php">Logout</a></Button>
+                        <?php
+                    } ?>
+
+                </div>
             </div>
-            <Button class="button">Home</Button>
-            <Button class="button">About</Button>
-            <Button class="button" style=" margin-left: 60%;"><a href="UserLogin.php"></a>Login</Button>
-            <Button class="button"><a href="UserLogout.php"></a>Logout</Button>
+
 
 
         </div>
-        <!-- 
+
         <div class="Body">
             <?php
 
             echo "Welcome," . $_SESSION['username'] ?>
 
-        </div> -->
+        </div>
+        <div class="Body">
+            <?php
+
+            echo "Welcome," . $_SESSION['username'] ?>
+
+        </div>
+
     </div>
 </body>
 

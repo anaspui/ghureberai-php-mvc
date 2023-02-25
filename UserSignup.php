@@ -14,28 +14,42 @@ include("Connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $firstName = sanitize($_POST['firstName']);
+    $lastName = sanitize($_POST['lastName']);
+    $gender = sanitize($_POST['gender']);
+    $dob = sanitize($_POST['dob']);
+    $email = sanitize($_POST['email']);
+    $phone = sanitize($_POST['phone']);
+    $username = sanitize($_POST['username']);
+    $password = sanitize($_POST['password']);
 
 
-    $query1 = "select * from user where username = '$username' limit 1";
-    $result = mysqli_query($con, $query1);
+    $chkUsername = "select * from user where username = '$username' limit 1";
+    $result1 = mysqli_query($con, $chkUsername);
+    $chkEmail = "select * from user where email = '$email' limit 1";
+    $result2 = mysqli_query($con, $chkEmail);
     $isValid = false;
-    if ($result) {
-        if ($result && mysqli_num_rows($result) === 0) {
-            $isValid = true;
+    if ($chkUsername) {
+        if ($result1 && mysqli_num_rows($result1) === 0) {
+
+            if ($chkEmail) {
+                if ($result2 && mysqli_num_rows($result2) === 0) {
+                    $isValid = true;
+                } else {
+                    echo "You're already registered.";
+                }
+            }
         } else {
             echo "Username is taken, try again";
-
         }
     }
 
+    if (
+        !empty($username) && !empty($password) && !is_numeric($username) && !empty($firstName) && !empty($lastName) &&
+        !empty($gender) && !empty($dob) && !empty($phone) && !empty($email) && $isValid === true
+    ) {
 
-
-
-    if (!empty($username) && !empty($password) && !is_numeric($username) && $isValid === true) {
-
-        $query2 = "insert into user (username,password) values ('$username','$password')";
+        $query2 = "insert into user (username,password,firstName,lastName,gender,dob,email,phone) values ('$username','$password','$firstName','$lastName','$gender','$dob','$email','$phone')";
 
         mysqli_query($con, $query2);
 
@@ -44,11 +58,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         echo "Please enter some valid information!";
     }
-
-
-
+}
+function sanitize($data)
+{
+    $data = stripcslashes($data);
+    $data = htmlspecialchars($data);
+    $data = trim($data);
+    return $data;
 
 }
+
+
+
 ?>
 
 <body>
@@ -68,12 +89,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <tr>
                         <td><label for="fname">First Name</label></td>
                         <td>:</td>
-                        <td><Input type="text" name="fname" id="fname"></Input></td>
+                        <td><Input type="text" name="firstName" id="fname"></Input></td>
                     </tr>
                     <tr>
                         <td><label for="lname">Last Name</label></td>
                         <td>:</td>
-                        <td><Input type="text" name="lname" id="lname"></Input></td>
+                        <td><Input type="text" name="lastName" id="lname"></Input></td>
                     </tr>
                     <tr>
                         <td><label for="male">Gender </label> </td>
@@ -86,9 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="date">Date of Birth</label></td>
+                        <td><label for="dob">Date of Birth</label></td>
                         <td>:</td>
-                        <td><input type="date" name="date" id="date"></td>
+                        <td><input type="date" name="dob" id="dob"></td>
                     </tr>
                     <tr>
                         <td><label for="email">Email </label></td>
@@ -96,9 +117,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <td><Input type="text" name="email" id="email"></Input></td>
                     </tr>
                     <tr>
-                        <td><label for="phn">Phone/Mobile</label></td>
+                        <td><label for="phone">Phone/Mobile</label></td>
                         <td>:</td>
-                        <td><input type="text" name="phn" id="phn"></td>
+                        <td><input type="text" name="phone" id="phone"></td>
                     </tr>
                     <tr>
                         <td><label for="Username">Username </label></td>
