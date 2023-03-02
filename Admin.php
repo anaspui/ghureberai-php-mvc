@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +9,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div class="page">
-        <?php
-        session_start();
-        include("Header.php");
-        include("Body.php");
-        include("Footer.php");
+    <?php
+    include("Header.php");
+    include("AdminBody.php");
+    include("Footer.php");
+    ?>
 
-        ?>
-    </div>
 </body>
 
 </html>

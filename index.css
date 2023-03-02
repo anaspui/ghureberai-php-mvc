@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 
-  color: #3b577d !important;
+  /* color: #3b577d !important; */
 }
 .page {
   background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
@@ -34,20 +34,50 @@
 
 .nav-left {
   display: flex;
-  gap: 10px;
 }
-.nav-right {
+.nav-left ul {
+  gap: 25px;
+  font-size: 21px;
+  text-decoration: none;
   display: flex;
-  gap: 10px;
+  color: #ddf5f7 !important;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.nav-left a {
+  color: #ddf5f7 !important;
+  /* background-color: #ddf5f7; */
+  text-decoration: none;
+}
+
+.nav-right ul {
+  gap: 25px;
+  font-size: 21px;
+  text-decoration: none;
+  display: flex;
+  color: #0c0f0f !important;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.nav-right a {
+  color: #ddf5f7 !important;
+  /* background-color: #ddf5f7; */
+  text-decoration: none;
+}
+.nav-right button {
+  color: #010a17 !important;
 }
 
 .button {
-  padding: 10px;
-  width: 100px;
-  color: #3b577d !important;
-  background-color: #ddf5f7;
+  padding: 2px;
+  width: 80px;
+  color: #000000 !important;
+  background-color: #44679f;
   border: none;
-  margin-top: 10px;
   border-radius: 5px;
 }
 
@@ -78,4 +108,89 @@ a {
   color: #3b577d !important;
   /* background-color: #ddf5f7; */
   text-decoration: none;
+}
+/* css for footer */
+/* Footer */
+.site-footer {
+  background-color: #333333;
+  padding: 30px 0;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.site-footer h3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.site-footer p {
+  margin-bottom: 5px;
+}
+
+.bottom-footer {
+  background-color: #222222;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.bottom-footer p {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons li:last-child {
+  margin-right: 0;
+}
+
+.social-icons a {
+  display: inline-block;
+  background-color: #ffffff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #e74c3c;
+}
+
+.social-icons i {
+  font-size: 16px;
+  color: #333333;
+}
+
+/* css for admin body */
+
+.Main {
+  border: black 1px solid;
+  height: 800px;
+  display: flex;
+}
+.MainLeft {
+  border: black 1px solid;
+  height: 800px;
+  width: 20%;
+  background-color: #44679f;
+}
+.MainRight {
+  border: black 1px solid;
+  height: 800px;
+  width: 80%;
 }

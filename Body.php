@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Body</title>
+    <link rel="stylesheet" href="index.css">s
 </head>
 
 <body>
-    <div class="page">
+    <div class="Body">
         <?php
-        session_start();
-        include("Header.php");
-        include("Body.php");
-        include("Footer.php");
 
-        ?>
+        echo "Welcome," . $_SESSION['username'] ?>
+
+    </div>
+    <div class="Body">
+        <?php
+
+        echo "Welcome," . $_SESSION['username'] ?>
+
     </div>
 </body>
 
