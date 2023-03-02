@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <tr>
                             <td><label for="password">Password </label></td>
                             <td>:</td>
-                            <td><input type="text" name="password" id="password"></td>
+                            <td><input type="password" name="password" id="password"></td>
 
                         </tr>
                         <tr>

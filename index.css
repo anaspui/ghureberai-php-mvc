@@ -1,18 +1,12 @@
 * {
   margin: 0;
   padding: 0;
-
-  /* color: #3b577d !important; */
 }
 .page {
   background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
-
-  /* display: flex; */
 }
 .NavBar {
-  /* margin-left: 5%; */
   margin: 0;
-  /* padding: 10px 20px; */
   border: 1px black solid;
   background-color: #3b577d;
   height: 80px;
@@ -27,7 +21,6 @@
   padding: 0px 20px;
   display: flex;
   justify-content: space-between;
-  /* align-content: center; */
   gap: 10px;
   align-items: center;
 }
@@ -48,7 +41,6 @@
 }
 .nav-left a {
   color: #ddf5f7 !important;
-  /* background-color: #ddf5f7; */
   text-decoration: none;
 }
 
@@ -65,7 +57,6 @@
 }
 .nav-right a {
   color: #ddf5f7 !important;
-  /* background-color: #ddf5f7; */
   text-decoration: none;
 }
 .nav-right button {
@@ -80,19 +71,56 @@
   border: none;
   border-radius: 5px;
 }
-
-.logo {
-  /* border: 1px black solid; */
+.ppage {
+  background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
+  height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.profile-page {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  /* height: 80px; */
-  /* width: 200px; */
+.box {
+  font-size: 20px;
+  border-radius: 10px;
+  color: #3b577d;
+  background-color: #ddf5f7;
+  margin: auto;
+  box-shadow: 1px 1px 10px #3b577d;
+}
+.reg {
+  width: 650px;
+  height: 650px;
+}
+.box input[type="text"] {
+  height: 20px;
+  border-radius: 5px;
+  padding: 4px;
+  border: solid thin #aaa;
+  width: 100%;
+}
+.box table {
+  border-collapse: separate;
+  border-spacing: 0.5em;
+}
+.box input[type="password"] {
+  height: 20px;
+  border-radius: 5px;
+  padding: 4px;
+  border: solid thin #aaa;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
   height: 50px;
-  /* width: 200px; */
   padding-left: 10px;
 }
 
@@ -106,7 +134,6 @@
 }
 a {
   color: #3b577d !important;
-  /* background-color: #ddf5f7; */
   text-decoration: none;
 }
 /* css for footer */
@@ -142,7 +169,6 @@ a {
   margin: 0;
 }
 
-/* Social Icons */
 .social-icons {
   margin-top: 10px;
 }

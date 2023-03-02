@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-
   color: #3b577d !important;
 }
 
@@ -38,19 +37,20 @@
   background-color: #ddf5f7;
   margin: auto;
   box-shadow: 1px 1px 10px #3b577d;
-  /* padding: 80px; */
 }
 .reg {
   width: 650px;
   height: 650px;
 }
+input[type="date"] {
+  padding: 1px;
+  border-radius: 5px;
+  width: 102%;
+}
+
 .login {
   width: 400px;
   height: 350px;
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
-  /* margin-top: 30px; */
 }
 
 .login fieldset {
@@ -68,6 +68,13 @@
   border: solid thin #aaa;
   width: 100%;
 }
+.box input[type="password"] {
+  height: 20px;
+  border-radius: 5px;
+  padding: 4px;
+  border: solid thin #aaa;
+  width: 100%;
+}
 
 a:link {
   color: green;
@@ -75,20 +82,8 @@ a:link {
   text-decoration: none;
 }
 
-a:visited {
-  color: pink;
-  background-color: transparent;
-  text-decoration: none;
-}
-
 a:hover {
   color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-a:active {
-  color: yellow;
   background-color: transparent;
   text-decoration: underline;
 }
