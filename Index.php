@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="index.css">
-    <?php
-    session_start();
-    ?>
 </head>
 
 <body>
     <div class="page">
+        <?php
+        session_start();
+        ?>
         <div class="NavBar">
             <div class="navBody">
                 <div class="nav-left">
@@ -45,6 +45,7 @@
             <?php
 
             echo "Welcome," . $_SESSION['username'] ?>
+            hi
 
         </div>
         <div class="Body">

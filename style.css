@@ -41,8 +41,8 @@
   /* padding: 80px; */
 }
 .reg {
-  width: 700px;
-  height: 800px;
+  width: 650px;
+  height: 650px;
 }
 .login {
   width: 400px;
@@ -88,5 +88,3 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
-/* index
- */
