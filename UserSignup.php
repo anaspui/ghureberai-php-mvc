@@ -84,7 +84,7 @@ function sanitize($data)
                     <h1 align="center">Sign Up</h1>
                 </legend>
             </fieldset><br><br>
-            <form method="post" action="UserSignup.php">
+            <form method="post" action="LoginAction.php">
                 <table align="center" style="text-align: left">
                     <tr>
                         <td><label for="fname">First Name</label></td>

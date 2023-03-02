@@ -56,7 +56,11 @@
 .login fieldset {
   margin-top: 30px;
 }
-
+.box p {
+  color: red !important;
+  font-size: 18px;
+  text-align: center;
+}
 .box input[type="text"] {
   height: 20px;
   border-radius: 5px;

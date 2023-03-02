@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 include("Connection.php");
@@ -9,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $_SESSION['LoginError'] = "";
 
     if (!empty($username) && !empty($password) && !is_numeric($username)) {
 
@@ -25,12 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $_SESSION['username'] = $username;
                     header("Location: Index.php");
                 }
-            }
-        }
+                $_SESSION['LoginError'] = "Incorrect username or password!";
 
-        echo "wrong username or password!";
-    } else {
-        echo "wrong username or password!";
+            }
+            $_SESSION['LoginError'] = "Incorrect username or password!";
+        }
+        // else {
+        //     $_SESSION['LoginError'] = "The Username or Password that you've entered is incorrect.";
+
+        // }
+
+        // echo "wrong username or password!";
+    } else if (empty($username) && empty($password)) {
+        $_SESSION['LoginError'] = "Please enter your username and password.";
     }
     $query2 = "SELECT * FROM user WHERE username = '" . $username . "' AND role = 'admin' LIMIT 1;";
     $result2 = mysqli_query($con, $query2);
@@ -43,8 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -79,17 +84,31 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <td>:</td>
                             <td><Input type="text" name="username" id="username"></Input></td>
                         </tr>
+
                         <tr>
                             <td><label for="password">Password </label></td>
                             <td>:</td>
                             <td><input type="text" name="password" id="password"></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <?php if (isset($_SESSION['LoginError'])) { ?>
+                                    <p class="error">
+                                        <?php echo $_SESSION['LoginError']; ?>
+                                    </p>
+                                    <?php
+                                } ?>
+                            </td>
                         </tr>
                     </table>
 
                     <input class="button" type="submit" value="Login"><br><br>
 
                     <div style="display: flex; justify-content: center;">
-                        <a href="UserSignup.php">Click to Signup</a>
+                        <a href="UserSignup.php">Click to Signup
+                            <?php $_SESSION['LoginError'] = ""; ?>
+                        </a>
                     </div>
                     <br><br>
                 </form>
