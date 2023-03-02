@@ -32,6 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         echo "wrong username or password!";
     }
+    $query2 = "SELECT * FROM user WHERE username = '" . $username . "' AND role = 'admin' LIMIT 1;";
+    $result2 = mysqli_query($con, $query2);
+    if ($result2 && mysqli_num_rows($result2) > 0) {
+        $_SESSION['role'] = 'admin';
+    } else {
+        $_SESSION['role'] = 'notAdmin';
+    }
+
 }
 
 ?>

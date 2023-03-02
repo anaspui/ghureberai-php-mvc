@@ -21,7 +21,11 @@
                     <li>Book</li>
                     <li>Packages</li>
                     <li>Contact</li>
-                    <li><a href="Admin.php">Admin Panel</a></li>
+                    <?php
+                    if ($_SESSION['role'] == 'admin') {
+                        ?>
+                        <li><a href="Admin.php">Admin Panel</a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="nav-right">
@@ -29,14 +33,14 @@
                     <li>
                         <?php
                         if (isset($_SESSION["username"])) { ?>
-                        <p><a href="Profile.php">
-                                <?php
+                            <p><a href="Profile.php">
+                                    <?php
                                     echo "Welcome, " . $_SESSION["username"];
 
                                     ?>
-                            </a></p>
+                                </a></p>
                         <?php } else { ?>
-                        <Button class="button"><a href="UserLogin.php">Login</a></Button>
+                            <Button class="button"><a href="UserLogin.php">Login</a></Button>
                         <?php } ?>
 
                     </li>
@@ -44,8 +48,8 @@
                         <?php
                         if (isset($_SESSION['username'])) {
                             ?>
-                        <Button class="button"><a href="UserLogout.php">Logout</a></Button>
-                        <?php
+                            <Button class="button"><a href="UserLogout.php">Logout</a></Button>
+                            <?php
                         } ?>
 
                     </li>

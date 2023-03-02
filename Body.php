@@ -14,6 +14,9 @@
         <?php
 
         echo "Welcome," . $_SESSION['username'] ?>
+        <?php
+
+        echo "Welcome," . $_SESSION['role'] ?>
 
     </div>
     <div class="Body">
