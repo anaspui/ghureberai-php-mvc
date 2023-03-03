@@ -44,13 +44,14 @@ $password = $user_data['Password'];
                     <tr>
                         <td><label for="fname">First Name</label></td>
                         <td>:</td>
-                        <td><Input type="text" name="firstName" id="fname" value="<?php echo $firstName ?>"></Input>
+                        <td><Input type="text" name="firstName" id="firstName" value="<?php echo $firstName ?>"></Input>
                         </td>
                     </tr>
                     <tr>
                         <td><label for="lname">Last Name</label></td>
                         <td>:</td>
-                        <td><Input type="text" name="lastName" id="lname" value="<?php echo $lastName ?>"></Input></td>
+                        <td><Input type="text" name="lastName" id="lastName" value="<?php echo $lastName ?>"></Input>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="dob">Date of Birth</label></td>
