@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($user_data['Password'] === $password) {
 
                     $_SESSION['username'] = $username;
+                    $_SESSION['email'] = $user_data['Email'];
                     header("Location: Index.php");
                 }
                 $_SESSION['LoginError'] = "Incorrect username or password!";

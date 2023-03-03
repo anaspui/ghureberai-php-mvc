@@ -36,7 +36,7 @@ $password = $user_data['Password'];
 
             <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
-                    <h1 align="center">Sign Up</h1>
+                    <h1 align="center">Update Information</h1>
                 </legend>
             </fieldset><br><br>
             <form method="post" action="UpdateAction.php">
