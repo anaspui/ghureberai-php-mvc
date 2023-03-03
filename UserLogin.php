@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (!empty($username) && !empty($password) && !is_numeric($username)) {
 
-        $query = "select * from user where username = '$username' limit 1";
+        $query = "select * from users where Username = '$username' limit 1";
         $result = mysqli_query($con, $query);
 
         if ($result) {
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 $user_data = mysqli_fetch_assoc($result);
 
-                if ($user_data['password'] === $password) {
+                if ($user_data['Password'] === $password) {
 
                     $_SESSION['username'] = $username;
                     header("Location: Index.php");
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else if (empty($username) && empty($password)) {
         $_SESSION['LoginError'] = "Please enter your username and password.";
     }
-    $query2 = "SELECT * FROM user WHERE username = '" . $username . "' AND role = 'admin' LIMIT 1;";
+    $query2 = "SELECT * FROM users WHERE username = '" . $username . "' AND role = 'admin' LIMIT 1;";
     $result2 = mysqli_query($con, $query2);
     if ($result2 && mysqli_num_rows($result2) > 0) {
         $_SESSION['role'] = 'admin';
@@ -94,10 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <tr>
                             <td colspan="3">
                                 <?php if (isset($_SESSION['LoginError'])) { ?>
-                                    <p class="error">
-                                        <?php echo $_SESSION['LoginError']; ?>
-                                    </p>
-                                    <?php
+                                <p class="error">
+                                    <?php echo $_SESSION['LoginError']; ?>
+                                </p>
+                                <?php
                                 } ?>
                             </td>
                         </tr>

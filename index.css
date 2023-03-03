@@ -7,7 +7,7 @@
 }
 .NavBar {
   margin: 0;
-  border: 1px black solid;
+  /* border: 1px black solid; */
   background-color: #3b577d;
   height: 80px;
   width: 100%;
@@ -79,8 +79,7 @@
   justify-content: center;
 }
 .profile-page {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  padding-top: 50px;
 }
 
 .box {
@@ -125,7 +124,7 @@
 }
 
 .Body {
-  border: 1px black solid;
+  /* border: 1px black solid; */
   height: 848px;
   width: 95%;
   margin: auto;
@@ -205,18 +204,18 @@ a {
 /* css for admin body */
 
 .Main {
-  border: black 1px solid;
+  /* border: black 1px solid; */
   height: 800px;
   display: flex;
 }
 .MainLeft {
-  border: black 1px solid;
+  /* border: black 1px solid; */
   height: 800px;
   width: 20%;
   background-color: #44679f;
 }
 .MainRight {
-  border: black 1px solid;
+  /* border: black 1px solid; */
   height: 800px;
   width: 80%;
 }

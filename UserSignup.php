@@ -10,13 +10,13 @@
 session_start();
 
 include("Connection.php");
-
+$_SESSION['RegError'] = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $firstName = sanitize($_POST['firstName']);
     $lastName = sanitize($_POST['lastName']);
-    $gender = sanitize($_POST['gender']);
+    $gender = isset($_POST['gender']) ? sanitize($_POST['gender']) : "";
     $dob = sanitize($_POST['dob']);
     $email = sanitize($_POST['email']);
     $phone = sanitize($_POST['phone']);
@@ -24,23 +24,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = sanitize($_POST['password']);
 
 
-    $chkUsername = "select * from user where username = '$username' limit 1";
+    $chkUsername = "select * from users where username = '$username' limit 1";
     $result1 = mysqli_query($con, $chkUsername);
-    $chkEmail = "select * from user where email = '$email' limit 1";
+    $chkEmail = "select * from users where email = '$email' limit 1";
     $result2 = mysqli_query($con, $chkEmail);
     $isValid = false;
     if ($chkUsername) {
+        $_SESSION['RegError'] = "Username is taken, try again";
         if ($result1 && mysqli_num_rows($result1) === 0) {
-
             if ($chkEmail) {
                 if ($result2 && mysqli_num_rows($result2) === 0) {
                     $isValid = true;
                 } else {
-                    echo "You're already registered.";
+                    $_SESSION['RegError'] = "You're already registered.";
                 }
             }
-        } else {
-            echo "Username is taken, try again";
         }
     }
 
@@ -48,15 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         !empty($username) && !empty($password) && !is_numeric($username) && !empty($firstName) && !empty($lastName) &&
         !empty($gender) && !empty($dob) && !empty($phone) && !empty($email) && $isValid === true
     ) {
-
-        $query2 = "insert into user (username,password,firstName,lastName,gender,dob,email,phone) values ('$username','$password','$firstName','$lastName','$gender','$dob','$email','$phone')";
-
+        $query2 = "insert into Users (Username,Password,Firstname,Lastname,Gender,Dob,Email) values ('$username','$password','$firstName','$lastName','$gender','$dob','$email')";
         mysqli_query($con, $query2);
-
         header("Location: UserLogin.php");
         die;
-    } else {
-        echo "Please enter some valid information!";
+    } else if (
+        empty($username) || empty($password) || is_numeric($username) || empty($firstName) || empty($lastName) ||
+        empty($gender) || empty($dob) || empty($phone) || empty($email) || $isValid === false
+    ) {
+        $_SESSION['RegError'] = "Please enter some valid information!";
     }
 }
 function sanitize($data)
@@ -67,9 +65,6 @@ function sanitize($data)
     return $data;
 
 }
-
-
-
 ?>
 
 <body>
@@ -84,7 +79,7 @@ function sanitize($data)
                     <h1 align="center">Sign Up</h1>
                 </legend>
             </fieldset><br><br>
-            <form method="post" action="LoginAction.php">
+            <form method="post" action="UserSignup.php">
                 <table align="center" style="text-align: left">
                     <tr>
                         <td><label for="fname">First Name</label></td>
@@ -131,7 +126,13 @@ function sanitize($data)
                         <td>:</td>
                         <td><input type="password" name="password" id="password"></td>
                     </tr>
-
+                    <tr>
+                        <td colspan="3">
+                            <p>
+                                <?php echo $_SESSION['RegError']; ?>
+                            </p>
+                        </td>
+                    </tr>
 
                 </table>
                 <div>
@@ -139,7 +140,9 @@ function sanitize($data)
 
                 </div>
 
-                <a href=" UserLogin.php">Already have an account?</a>
+                <a href=" UserLogin.php">Already have an account?
+                    <?php $_SESSION['RegError'] = ""; ?>
+                </a>
 
 
                 <!-- <div style="font-size: 20px;margin: 10px;color: white;">Signup</div> -->
