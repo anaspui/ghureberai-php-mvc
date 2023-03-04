@@ -23,6 +23,7 @@
   justify-content: space-between;
   gap: 10px;
   align-items: center;
+  box-shadow: 10px 10px 10px #3b577d;
 }
 
 .nav-left {
@@ -203,19 +204,34 @@ a {
 
 /* css for admin body */
 
-.Main {
-  /* border: black 1px solid; */
+.AdminPage {
+  background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
   height: 800px;
   display: flex;
 }
-.MainLeft {
+.AdminMenu {
   /* border: black 1px solid; */
-  height: 800px;
+  height: 680px;
   width: 20%;
   background-color: #44679f;
+  padding-top: 120px;
+  align-items: center;
+  text-align: center;
 }
-.MainRight {
+.AdminMenu button {
+  padding: 10px;
+  width: 250px;
+  color: #c0d9e5 !important;
+  background-color: #ddf5f7;
+  border: none;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.AdminDash {
   /* border: black 1px solid; */
-  height: 800px;
+  height: 700px;
   width: 80%;
+  background-color: #ddf5f7;
+  padding-top: 100px;
+  padding-left: 25px;
 }

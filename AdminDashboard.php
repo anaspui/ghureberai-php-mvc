@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,17 +10,18 @@ session_start();
 </head>
 
 <body>
-    <div class="page">
-        <div class="Main">
-            <div class="MainLeft">
 
-            </div>
-            <div class="MainRight">
-
-            </div>
-        </div>
-
+    <div class="AdminDash">
+        <H2>ADWWD</H2>
+        <H2>ADWWD</H2>
+        <H2>ADWWD</H2>
+        <H2>ADWWD</H2>
+        <H2>ADWWD</H2>
+        <H2>ADWWD</H2>
     </div>
+
+
+
 </body>
 
 </html>

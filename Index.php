@@ -16,7 +16,6 @@
         include("Header.php");
         include("Body.php");
         include("Footer.php");
-
         ?>
     </div>
 </body>

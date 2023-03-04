@@ -18,13 +18,13 @@
                 </div>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li>Book</li>
+                    <li><a href="Bookings.php">Book</a></li>
                     <li>Packages</li>
-                    <li>Contact</li>
+                    <li><a href="#footer">Contact</a></li>
                     <?php
                     if ($_SESSION['role'] == 'admin') {
                         ?>
-                        <li><a href="Admin.php">Admin Panel</a></li>
+                        <li><a href="AdminPanel.php">Admin Panel</a></li>
                     <?php } ?>
                 </ul>
             </div>
