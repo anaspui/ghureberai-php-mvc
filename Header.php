@@ -14,12 +14,13 @@
         <div class="navBody">
             <div class="nav-left">
                 <div class="logo">
-                    <img src="logo.png" alt="logo">
+                    <a href="Index.php"><img src="logo.png" alt="logo"> </a>
+
                 </div>
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Bookings.php">Book</a></li>
-                    <li>Packages</li>
+                    <li><a href="Packages.php">Packages</a></li>
                     <li><a href="#footer">Contact</a></li>
                     <?php
                     if ($_SESSION['role'] == 'admin') {
@@ -38,7 +39,8 @@
                                     echo "Welcome, " . $_SESSION["username"];
 
                                     ?>
-                                </a></p>
+
+                            </p>
                         <?php } else { ?>
                             <Button class="button"><a href="UserLogin.php">Login</a></Button>
                         <?php } ?>

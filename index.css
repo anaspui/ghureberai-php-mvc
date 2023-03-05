@@ -229,9 +229,10 @@ a {
 }
 .AdminDash {
   /* border: black 1px solid; */
-  height: 700px;
+  color: #3b577d;
+  height: 715px;
   width: 80%;
   background-color: #ddf5f7;
-  padding-top: 100px;
-  padding-left: 25px;
+  padding-top: 85px;
+  padding-left: 20px;
 }

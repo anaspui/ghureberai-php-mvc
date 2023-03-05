@@ -12,12 +12,12 @@
 <body>
 
     <div class="AdminDash">
-        <H2>ADWWD</H2>
-        <H2>ADWWD</H2>
-        <H2>ADWWD</H2>
-        <H2>ADWWD</H2>
-        <H2>ADWWD</H2>
-        <H2>ADWWD</H2>
+        <!-- <h2>Dashboard</h2> -->
+        <fieldset style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+            <legend style="text-align: left">
+                <h1 align="center">Dashboard</h1>
+            </legend>
+        </fieldset>
     </div>
 
 

@@ -21,11 +21,49 @@
             include("AdminPanelMenu.php");
             ?>
             <div class="AdminDash">
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
+                <fieldset
+                    style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+                    <legend style="text-align: left">
+                        <h1 align="center">Add Employee</h1>
+                    </legend>
+                </fieldset>
+                <div class="" align="center">
+                    <form method="POST" action="AddEmployeeAction.php">
+                        <table align="center" style="text-align: left">
+                            <tr>
+                                <td><label for="fname">First Name</label></td>
+                                <td>:</td>
+                                <td><Input type="text" name="firstName" id="fname"></Input></td>
+                            </tr>
+                            <tr>
+                                <td><label for="lname">Last Name</label></td>
+                                <td>:</td>
+                                <td><Input type="text" name="lastName" id="lname"></Input></td>
+                            </tr>
+                            <tr>
+                                <td><label for="Username">Username </label></td>
+                                <td>:</td>
+                                <td><Input type="text" name="username" id="username"></Input></td>
+                            </tr>
+                            <tr>
+                                <td><label for="password">Password </label></td>
+                                <td>:</td>
+                                <td><input type="password" name="password" id="password"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <p>
+                                        <?php echo $_SESSION['AddEmpError']; ?>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <div>
+
+                            <input type="submit">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 

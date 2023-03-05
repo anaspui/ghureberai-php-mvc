@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Customers</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+    #viewEmp th,
+    td,
+    tr {
+        border: 1px solid black;
+        width: 250px;
+        text-align: center;
+    }
+    </style>
 </head>
 
 <body>
@@ -21,11 +30,36 @@
             include("AdminPanelMenu.php");
             ?>
             <div class="AdminDash">
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
-                <H2>This is Add Employee</H2>
+                <fieldset
+                    style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+                    <legend style="text-align: left">
+                        <h1 align="center">Customers</h1>
+                    </legend>
+                </fieldset>
+                <table id="viewEmp">
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                    </tr>
+                    <?php
+                    include('Connection.php');
+                    // $conn = mysqli_connect("localhost", "root", "", "GhureBerai");
+                    $sql = "SELECT * FROM users WHERE role = 'customer'";
+
+                    $result = $con->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr><td>' . $row["User_Id"] . '</td><td>' . $row["Firstname"] . '</td><td>' . $row["Lastname"] . '</td><td>' . $row["Username"] . '</td><td>' . $row["Phone"] . '</td><td>' . $row["Address"] . '</td></tr>';
+
+
+                        }
+                    }
+                    ?>
+                </table>
             </div>
         </div>
 

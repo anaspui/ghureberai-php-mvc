@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         !empty($username) && !empty($password) && !is_numeric($username) && !empty($firstName) && !empty($lastName) &&
         !empty($gender) && !empty($dob) && !empty($phone) && !empty($email) && $isValid === true
     ) {
-        $query2 = "insert into Users (Username,Password,Firstname,Lastname,Gender,Dob,Email) values ('$username','$password','$firstName','$lastName','$gender','$dob','$email')";
+        $query2 = "insert into Users (Username,Password,Firstname,Lastname,Gender,Dob,Email,Phone,Role) values ('$username','$password','$firstName','$lastName','$gender','$dob','$email', '$phone', 'customer')";
         mysqli_query($con, $query2);
         header("Location: UserLogin.php");
         die;
