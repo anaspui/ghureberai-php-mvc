@@ -24,6 +24,9 @@
             <a href="CreatePackage.php">Create Package</a>
         </button>
         <button class="button">
+            <a href="ViewPackages.php">View Package</a>
+        </button>
+        <button class="button">
             <a href="ViewCustomers.php">View Customers</a>
         </button>
         <button class="button">

@@ -18,7 +18,73 @@
                 <h1 align="center">Dashboard</h1>
             </legend>
         </fieldset>
+        <div class="cardContainer">
+
+            <a href="ViewCustomers.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Customers</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>100</p>
+                    </div>
+                </div>
+            </a>
+            <a href="ViewEmployee.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Employees</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>100</p>
+                    </div>
+                </div>
+            </a>
+            <a href="ViewHotel.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Hotels</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>100</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="cardContainer">
+            <a href="ViewPackages.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Packages</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>100</p>
+                    </div>
+                </div>
+            </a>
+            <a href="TopSelling.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Package Sold</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>100</p>
+                    </div>
+                </div>
+            </a>
+            <a href="TopSelling.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Top Selling</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>100</p>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
+
 
 
 

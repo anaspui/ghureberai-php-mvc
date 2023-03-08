@@ -236,22 +236,22 @@ a {
   cursor: pointer;
 }
 .LandingBody {
-  /* padding-top: 100px; */
+  padding-top: 80px;
   background-image: url("background.svg");
   background-size: 100% 100%;
   width: 100%; /* adjust to your desired width */
-  height: 950px;
+  height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .LandingBox {
-  padding: 20px;
+  /* padding: 20px; */
   align-items: center;
   border: 10px solid rgba(255, 255, 255, 0.746);
   color: white;
   box-shadow: 1px 1px 20px #565555;
-  height: 650px;
+  height: 550px;
   width: 80%;
   text-align: center;
 }
@@ -272,4 +272,43 @@ a {
 }
 .btn-crud-2 a {
   color: white !important ;
+}
+.cardContainer {
+  display: flex !important;
+  justify-content: center;
+
+  gap: 50px;
+}
+.card {
+  margin-top: 50px;
+  text-align: center !important;
+  width: 330px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 80px;
+  line-height: 1.5;
 }
