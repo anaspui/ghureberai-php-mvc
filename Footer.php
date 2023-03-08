@@ -25,13 +25,7 @@
                     <p><i class="fa fa-envelope"></i> Email: info@ghureberai.com</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>Connect with Us</h3>
-                    <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
+
                 </div>
             </div>
         </div>

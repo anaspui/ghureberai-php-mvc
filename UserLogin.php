@@ -1,5 +1,7 @@
 <?php
+session_set_cookie_params(0);
 session_start();
+
 
 include("Connection.php");
 
@@ -95,10 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <tr>
                             <td colspan="3">
                                 <?php if (isset($_SESSION['LoginError'])) { ?>
-                                <p class="error">
-                                    <?php echo $_SESSION['LoginError']; ?>
-                                </p>
-                                <?php
+                                    <p class="error">
+                                        <?php echo $_SESSION['LoginError']; ?>
+                                    </p>
+                                    <?php
                                 } ?>
                             </td>
                         </tr>

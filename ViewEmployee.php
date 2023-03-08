@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="index.css">
     <style>
     #viewEmp th,
-    td,
-    tr {
-        border: 1px solid black;
+    tr,
+    td {
+        /* border: 1px solid black; */
         width: 250px;
         text-align: center;
+        border-bottom: 1px solid #3B577D;
+        border-right: 1px solid #3B577D;
+        ;
     }
     </style>
 </head>

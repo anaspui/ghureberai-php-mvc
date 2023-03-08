@@ -11,8 +11,6 @@
 
 <body>
 
-
-
     <div class="page">
         <div class="AdminPage">
             <?php
