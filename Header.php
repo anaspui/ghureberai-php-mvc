@@ -23,10 +23,14 @@
                     <li><a href="Packages.php">Packages</a></li>
                     <li><a href="#footer">Contact</a></li>
                     <?php
-                    if ($_SESSION['role'] == 'admin') {
-                        ?>
-                        <li><a href="AdminPanel.php">Admin Panel</a></li>
-                    <?php } ?>
+                    if (isset($_SESSION['username'])) {
+
+                        if ($_SESSION['role'] == 'admin') {
+
+                            ?>
+                            <li><a href="AdminPanel.php">Admin Panel</a></li>
+                        <?php }
+                    } ?>
                 </ul>
             </div>
             <div class="nav-right">

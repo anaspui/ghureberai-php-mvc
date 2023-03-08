@@ -30,9 +30,6 @@
             <a href="ViewHotel.php">View Hotels</a>
         </button>
         <button class="button">
-            <a href="ViewHotelListings.php">Hotel Listings</a>
-        </button>
-        <button class="button">
             <a href="TopSelling.php">Top Selling Packages</a>
         </button>
         <button class="button">

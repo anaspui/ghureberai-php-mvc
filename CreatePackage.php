@@ -36,7 +36,7 @@
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
-                                        <td><label for="Name">Name</label></td>
+                                        <td><label for="Name">Package Name</label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="Name" id="Name"></Input></td>
                                         <td>*</td>

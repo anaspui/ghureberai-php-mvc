@@ -269,3 +269,23 @@ a {
   border-radius: 5px;
   cursor: pointer;
 }
+.LandingBody {
+  /* padding-top: 100px; */
+  background-image: url("background.svg");
+  background-size: 100% 100%;
+  width: 100%; /* adjust to your desired width */
+  height: 950px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.LandingBox {
+  padding: 20px;
+  align-items: center;
+  border: 10px solid rgba(255, 255, 255, 0.746);
+  color: white;
+  box-shadow: 1px 1px 20px #565555;
+  height: 650px;
+  width: 80%;
+  text-align: center;
+}

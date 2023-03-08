@@ -39,21 +39,25 @@
                                         <td><label for="fname">First Name</label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="firstName" id="fname"></Input></td>
+                                        <td>*</td>
                                     </tr>
                                     <tr>
                                         <td><label for="lname">Last Name</label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="lastName" id="lname"></Input></td>
+                                        <td>*</td>
                                     </tr>
                                     <tr>
                                         <td><label for="Username">Username </label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="username" id="username"></Input></td>
+                                        <td>*</td>
                                     </tr>
                                     <tr>
                                         <td><label for="password">Password </label></td>
                                         <td>:</td>
                                         <td><input type="text" name="password" id="password"></td>
+                                        <td>*</td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">

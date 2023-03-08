@@ -10,19 +10,17 @@
 </head>
 
 <body>
-    <div class="Body">
-        <?php
+    <div class="LandingBody">
+        <div class="LandingBox">
+            <h1>Experience the magic of travel with GhureBerai's immersive experiences</h1>
+        </div>
 
-        echo "Welcome," . $_SESSION['username'] ?>
-        <?php
-
-        echo "Welcome," . $_SESSION['role'] ?>
 
     </div>
     <div class="Body">
-        <?php
 
-        echo "Welcome," . $_SESSION['username'] ?>
+
+
 
     </div>
 </body>
