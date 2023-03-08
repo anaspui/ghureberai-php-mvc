@@ -47,6 +47,7 @@
                         <th>Username</th>
                         <th>Phone</th>
                         <th>Address</th>
+                        <th colspan="2">Action</th>
                     </tr>
                     <?php
                     include('Connection.php');
@@ -56,12 +57,28 @@
                     $result = $con->query($sql);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<tr><td>' . $row["User_Id"] . '</td><td>' . $row["Firstname"] . '</td><td>' . $row["Lastname"] . '</td><td>' . $row["Username"] . '</td><td>' . $row["Phone"] . '</td><td>' . $row["Address"] . '</td></tr>';
-
-
+                            echo '<tr>
+                            <td>' . $row["User_Id"] . '</td>
+                            <td>' . $row["Firstname"] . '</td>
+                            <td>' . $row["Lastname"] . '</td>
+                            <td>' . $row["Username"] . '</td>
+                            <td>' . $row["Phone"] . '</td>
+                            <td>' . $row["Address"] . '</td>
+                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteid=' . $row["User_Id"] . '">Delete</a></button></td>
+                            </tr>';
                         }
                     }
                     ?>
+                    <tr>
+                        <td colspan="8">
+                            <p style="color:red; font-weight:500">
+                                <?php if (!empty($_SESSION['message'])) {
+                                    echo $_SESSION['message'];
+                                    unset($_SESSION['message']);
+                                } ?>
+                            </p>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>

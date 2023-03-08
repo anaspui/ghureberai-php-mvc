@@ -50,8 +50,8 @@
                         <th>Username</th>
                         <th>Phone</th>
                         <th>Address</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th colspan="2">Action</th>
+
                     </tr>
                     <?php
                     include('Connection.php');

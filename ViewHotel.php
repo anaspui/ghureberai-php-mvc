@@ -46,6 +46,7 @@
                         <th>Location</th>
                         <th>Description</th>
                         <th>Created At</th>
+                        <th colspan="2">Action</th>
                     </tr>
                     <?php
                     include('Connection.php');
@@ -54,8 +55,15 @@
                     $result = $con->query($sql);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<tr><td>' . $row["Hotel_Id"] . '</td><td>' . $row["Hotel_Name"] . '</td><td>' . $row["Location"] . '</td><td>' . $row["Description"] . '</td><td>' . $row["Created_at"];
-
+                            echo '<tr>
+                            <td>' . $row["Hotel_Id"] . '</td>
+                            <td>' . $row["Hotel_Name"] . '</td>
+                            <td>' . $row["Location"] . '</td>
+                            <td>' . $row["Description"] . '</td>
+                            <td>' . $row["Created_at"] . '</td>
+                            <td><button class="button btn-crud"><a href="UpdateEmployee.php?updateid=' . $row["Hotel_Id"] . '">Update</a></button></td>
+                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteid=' . $row["Hotel_Id"] . '">Delete</a></button></td>
+                            </tr>';
 
                         }
                     }

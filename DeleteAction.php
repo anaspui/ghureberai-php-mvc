@@ -9,10 +9,10 @@ if (isset($_GET['deleteid'])) {
     $result = mysqli_query($con, $query);
     if ($result) {
         $_SESSION['message'] = "Operation completed successfully";
-        header('location: ViewEmployee.php');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     } else {
         $_SESSION['message'] = "Error deleting record";
-        header('location: ViewEmployee.php');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 ?>

@@ -27,6 +27,9 @@
             <a href="ViewCustomers.php">View Customers</a>
         </button>
         <button class="button">
+            <a href="AddHotel.php">Add Hotel</a>
+        </button>
+        <button class="button">
             <a href="ViewHotel.php">View Hotels</a>
         </button>
         <button class="button">
