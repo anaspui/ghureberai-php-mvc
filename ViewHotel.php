@@ -8,16 +8,16 @@
     <title>View Hotels</title>
     <link rel="stylesheet" href="index.css">
     <style>
-        #viewEmp th,
-        tr,
-        td {
-            /* border: 1px solid black; */
-            width: 250px;
-            text-align: center;
-            border-bottom: 1px solid #3B577D;
-            border-right: 1px solid #3B577D;
-            ;
-        }
+    #viewEmp th,
+    tr,
+    td {
+        /* border: 1px solid black; */
+        width: 250px;
+        text-align: center;
+        border-bottom: 1px solid #3B577D;
+        border-right: 1px solid #3B577D;
+        ;
+    }
     </style>
 </head>
 
@@ -61,13 +61,22 @@
                             <td>' . $row["Location"] . '</td>
                             <td>' . $row["Description"] . '</td>
                             <td>' . $row["Created_at"] . '</td>
-                            <td><button class="button btn-crud"><a href="UpdateEmployee.php?updateid=' . $row["Hotel_Id"] . '">Update</a></button></td>
-                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteid=' . $row["Hotel_Id"] . '">Delete</a></button></td>
+                            <td><button class="button btn-crud"><a href="UpdateHotel.php?updateid=' . $row["Hotel_Id"] . '">Update</a></button></td>
+                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '">Delete</a></button></td>
                             </tr>';
-
                         }
                     }
                     ?>
+                    <tr>
+                        <td colspan="8">
+                            <p style="color:red; font-weight:500">
+                                <?php if (!empty($_SESSION['message'])) {
+                                    echo $_SESSION['message'];
+                                    unset($_SESSION['message']);
+                                } ?>
+                            </p>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
