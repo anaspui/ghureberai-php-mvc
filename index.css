@@ -136,7 +136,6 @@ a {
   color: #3b577d !important;
   text-decoration: none;
 }
-/* css for footer */
 /* Footer */
 .site-footer {
   background-color: #333333;
@@ -167,39 +166,6 @@ a {
   color: #ffffff;
   font-size: 12px;
   margin: 0;
-}
-
-.social-icons {
-  margin-top: 10px;
-}
-
-.social-icons li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.social-icons li:last-child {
-  margin-right: 0;
-}
-
-.social-icons a {
-  display: inline-block;
-  background-color: #ffffff;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.social-icons a:hover {
-  background-color: #e74c3c;
-}
-
-.social-icons i {
-  font-size: 16px;
-  color: #333333;
 }
 
 /* css for admin body */
@@ -288,4 +254,22 @@ a {
   height: 650px;
   width: 80%;
   text-align: center;
+}
+
+.btn-crud {
+  padding: 2px;
+  width: 80px;
+  color: #000000 !important;
+  background-color: #59c757;
+  border: none;
+  border-radius: 5px;
+}
+.btn-crud a {
+  color: white !important ;
+}
+.btn-crud-2 {
+  background-color: red;
+}
+.btn-crud-2 a {
+  color: white !important ;
 }
