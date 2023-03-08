@@ -24,19 +24,19 @@ $password = $user_data['Password'];
     <link rel="stylesheet" href="index.css">
     <title>Update Profile</title>
     <style>
-        .check {
-            padding-top: 150px;
-            padding-left: 420px;
-            align-items: center;
-            color: #3B577D;
-            text-align: center;
-        }
+    .check {
+        padding-top: 150px;
+        padding-left: 420px;
+        align-items: center;
+        color: #3B577D;
+        text-align: center;
+    }
 
-        .check button {
-            color: white !important;
-            background-color: green;
-            align: center;
-        }
+    .check button {
+        color: white !important;
+        background-color: green;
+        align: center;
+    }
     </style>
 </head>
 
@@ -56,7 +56,7 @@ $password = $user_data['Password'];
                         <h1 align="center">Update Employee</h1>
                     </legend>
                 </fieldset><br><br>
-                <form method="POST" action="UpdateEmpAction.php?userid=<?php echo $userid ?>">
+                <form method="POST" action="UpdateEmpAction.php?updateid=<?php echo $userid ?>">
                     <table align="center" style="text-align: left">
                         <tr>
                             <td><label for="fname">First Name</label></td>

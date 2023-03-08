@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $usernameValidity = true;
         } else {
             $_SESSION['UpdateEmpError'] = "Username is taken, try again";
-            header("Location: UpdateEmployee.php?updateid=$userid");
+            header('Location: UpdateEmployee.php?updateid=' . $userid . '');
             exit();
         }
     } else if (mysqli_num_rows($result1) == 0) {
@@ -39,20 +39,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         empty($username) && empty($password) && empty($firstName) && empty($lastName)
     ) {
         $_SESSION['UpdateEmpError'] = "Please some valid information";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
         exit();
 
     } else if (empty($firstName)) {
         $_SESSION['UpdateEmpError'] = "Please insert first name";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (empty($lastName)) {
         $_SESSION['UpdateEmpError'] = "Please insert last name";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (empty($username)) {
         $_SESSION['UpdateEmpError'] = "Please Enter a User Name";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (empty($password)) {
         $_SESSION['UpdateEmpError'] = "Password cannot be empty";
@@ -65,13 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     //Update database
     if (
-        !empty($username) && !empty($password) && !is_numeric($username) && !empty($firstName) && !empty($lastName) && $isValid === true && $usernameValidity = true
+        !empty($username) && !empty($password) && !is_numeric($username) && !empty($firstName) && !empty($lastName) && $isValid === true && $usernameValidity === true
     ) {
 
-        $query2 = "UPDATE users SET Username= '$username',Password='$password',firstName= '$lastName',Lastname='$lastName' WHERE User_Id = $userid";
+        $query2 = "UPDATE users SET Username= '$username', Password='$password', firstName= '$firstName', Lastname='$lastName' WHERE User_Id = $userid";
         mysqli_query($con, $query2);
         $_SESSION['UpdateEmpError'] = "Updated Successfully";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
 
 
     } else if (
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $isValid === false || $usernameValidity === false
     ) {
         $_SESSION['UpdateEmpError'] = "Please enter some valid information!";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
     }
 }
 
