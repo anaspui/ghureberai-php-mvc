@@ -56,6 +56,7 @@
                                             echo "</select>";
                                             ?>
                                         </td>
+                                        <td>*</td>
                                     </tr>
                                     <tr>
                                         <td><label for="Description">Description </label></td>
@@ -78,6 +79,12 @@
                                         <td><label for="TotalPackages">Total Package </label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="TotalPackages" id="TotalPackages"></Input></td>
+                                        <td>*</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="Start_Date">Start Date </label></td>
+                                        <td>:</td>
+                                        <td><Input type="date" name="Start_Date" id="Start_Date"></Input></td>
                                         <td>*</td>
                                     </tr>
                                     <tr>

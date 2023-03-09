@@ -15,6 +15,7 @@ $email = $user_data['Email'];
 $address = $user_data['Address'];
 $phone = $user_data['Phone'];
 $password = $user_data['Password'];
+$Picture = $user_data['Picture'];
 
 ?>
 <!DOCTYPE html>
@@ -34,12 +35,11 @@ $password = $user_data['Password'];
     ?>
     <div class="ppage profile-page">
         <div class="box reg" align="center">
-
             <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
                     <h1 align="center">Update Information</h1>
                 </legend>
-            </fieldset><br><br>
+            </fieldset><br>
             <form method="post" action="UpdateAction.php">
                 <table align="center" style="text-align: left">
                     <tr>

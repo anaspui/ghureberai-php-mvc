@@ -100,7 +100,7 @@
             <a href="TopSelling.php">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Package Sold</h3>
+                        <h3>Packages Sold</h3>
                     </div>
                     <div class="card-body">
                         <?php
@@ -115,15 +115,15 @@
                     </div>
                 </div>
             </a>
-            <a href="TopSelling.php">
+            <a href="ViewBookings.php">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Top Selling</h3>
+                        <h3>Bookings</h3>
                     </div>
                     <div class="card-body">
                         <?php
                         include('Connection.php');
-                        $sql = "SELECT * FROM packages WHERE P_sold ORDER BY P_sold DESC";
+                        $sql = "SELECT * FROM bookings";
                         $result = mysqli_query($con, $sql);
                         $num_rows = mysqli_num_rows($result);
                         ?>

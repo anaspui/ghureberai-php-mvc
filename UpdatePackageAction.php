@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Price = $_POST['Price'];
     $Days = $_POST['Days'];
     $P_left = $_POST['TotalPackages'];
+    $Start_Date = $_POST['Start_Date'];
+    $End_Date = date('Y-m-d', strtotime($Start_Date . ' + ' . $Days . ' days'));
     $Image_url = $_POST['img'];
 
 
@@ -55,12 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['updatePackError'] = "Trip Duration cannot be empty";
         header("Location: UpdatePackage.php?updatePack=$Package_Id");
         exit();
+    } else if (empty($Start_Date)) {
+        $_SESSION['CreatePkgError'] = "Starting Date cannot be empty";
+        header("Location: CreatePackage.php");
+        exit();
     } else if (empty($P_left)) {
         $_SESSION['updatePackError'] = "Total Package cannot be empty";
         header("Location: UpdatePackage.php?updatePack=$Package_Id");
         exit();
     } else if (
-        !empty($Name) && !empty($Hotel_Name) && !empty($Price) && !empty($Days) && !empty($P_left)
+        !empty($Name) && !empty($Hotel_Name) && !empty($Price) && !empty($Days) && !empty($P_left) && !empty($Start_Date)
     ) {
         $isValid = true;
     }
@@ -68,15 +74,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (
         !empty($Name) && !empty($Hotel_Name) && !is_numeric($Name) && !empty($Price) && !empty($P_left) && !empty($Days) && is_numeric($Price)
-        && is_numeric($P_left) && is_numeric($Days) && $isValid === true && $pkgNameValidity = true
+        && is_numeric($P_left) && is_numeric($Days) && !empty($Start_Date) && $isValid === true && $pkgNameValidity = true
     ) {
-        $update = "UPDATE `packages` SET `Name`='$Name', `Hotel_Name`='$Hotel_Name', `Description`='$Description', `Price`=$Price, `Days`=$Days, `P_left`=$P_left, `Image_url`='$Img_url' WHERE `Package_Id`=$Package_Id";
+        $update = "UPDATE `packages` SET `Name`='$Name', `Hotel_Name`='$Hotel_Name', `Description`='$Description', `Price`=$Price, `Days`=$Days, `P_left`=$P_left, `Image_url`='$Img_url', `Start_Date` ='$Start_Date', `End_Date`='$End_Date' WHERE `Package_Id`=$Package_Id";
         $result = mysqli_query($con, $update);
 
         $_SESSION['updatePackError'] = "Package Updated Successfully";
         header("Location: UpdatePackage.php?updatePack=$Package_Id");
     } else {
-        $_SESSION['updatePackError'] = "Please provide correct data for the fields";
+        $_SESSION['updatePackError'] = "Please provide correct informations";
         header("Location: UpdatePackage.php?updatePack=$Package_Id");
     }
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
-    <link rel="stylesheet" href="index.css">s
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -19,14 +19,13 @@
                 </div>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="Bookings.php">Book</a></li>
+                    <li><a href="Hotels.php">Hotel</a></li>
                     <li><a href="Packages.php">Packages</a></li>
                     <li><a href="#footer">Contact</a></li>
                     <?php
                     if (isset($_SESSION['username'])) {
 
                         if ($_SESSION['role'] == 'admin') {
-
                             ?>
                             <li><a href="AdminPanel.php">Admin Panel</a></li>
                         <?php }
@@ -57,11 +56,8 @@
                             <Button class="button"><a href="UserLogout.php">Logout</a></Button>
                             <?php
                         } ?>
-
                     </li>
-
                 </ul>
-
             </div>
         </div>
     </div>

@@ -131,11 +131,10 @@
 
 .Body {
   /* border: 1px black solid; */
-  height: 848px;
-  width: 95%;
+  background-color: #ddf5f7;
+  height: 700px;
+  width: 100%;
   margin: auto;
-  margin-top: 80px;
-  padding-top: 20px;
 }
 a {
   color: #3b577d !important;
@@ -326,4 +325,130 @@ a {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+/* packages card */
+.PackagesBody {
+  /* border: black 1px solid; */
+  color: #3b577d;
+  height: 800px;
+  width: 99%%;
+  background-color: #ddf5f7;
+  padding-top: 85px;
+  padding-left: 20px;
+}
+.PcardContainer {
+  display: flex !important;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.Pcard {
+  margin-top: 20px;
+  text-align: center !important;
+  width: 320px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.Pcard-header {
+  background-color: #3b577d;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.Pcard-header p {
+  color: white;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.Pcard-body {
+  padding: 10px;
+}
+.Pcard-body table {
+  text-align: left;
+}
+
+.Pcard-body p {
+  margin: 0;
+  font-size: 80px;
+  line-height: 1.5;
+}
+/* Book-btn */
+.BookBtn a {
+  color: white !important;
+}
+.BookBtn button {
+  padding: 2px;
+  border-radius: 5px;
+  background-color: #3b577d;
+  border: none;
+  color: white !important;
+}
+.BookBtn {
+  align-items: right;
+  display: flex !important;
+  justify-content: right;
+  justify-items: right;
+}
+/* bookbody */
+.BookBodyControl {
+  /* display: flex !important;
+  justify-content: center; */
+  /* margin-left: 100px; */
+  background-color: #ddf5f7;
+  border: 1px solid black;
+  height: 800px;
+  width: 1470px;
+}
+.BookBox {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  background-color: #44679f;
+  margin-top: 100px;
+  margin-left: 130px;
+  /* border: 1px solid black; */
+  box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+  height: 60px;
+  width: 1200px;
+}
+.BookBox input[type="text"],
+select {
+  height: 30px;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.BookBox button[type="submit"] {
+  height: 30px;
+  width: 100px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.BookBoxResult {
+  background-color: #44679f;
+  margin-top: 20px;
+  margin-left: 130px;
+  /* border: 1px solid black; */
+  box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+  height: 550px;
+  width: 1200px;
+}
+.BookBodyControl p {
+  color: #ffffff;
 }

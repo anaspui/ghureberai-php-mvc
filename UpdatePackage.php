@@ -14,6 +14,7 @@ if (isset($_GET['updatePack'])) {
     $Days = $data['Days'];
     $P_left = $data['P_left'];
     $P_sold = $data['P_sold'];
+    $Start_Date = $data['Start_Date'];
     $Image_url = $data['Image_url'];
 }
 ?>
@@ -27,19 +28,19 @@ if (isset($_GET['updatePack'])) {
     <link rel="stylesheet" href="index.css">
     <title>Update Hotel</title>
     <style>
-    .check {
-        padding-top: 150px;
-        padding-left: 420px;
-        align-items: center;
-        color: #3B577D;
-        text-align: center;
-    }
+        .check {
+            padding-top: 150px;
+            padding-left: 420px;
+            align-items: center;
+            color: #3B577D;
+            text-align: center;
+        }
 
-    .check button {
-        color: white !important;
-        background-color: green;
-        align: center;
-    }
+        .check button {
+            color: white !important;
+            background-color: green;
+            align: center;
+        }
     </style>
 </head>
 
@@ -93,6 +94,7 @@ if (isset($_GET['updatePack'])) {
                                             echo "</select>";
                                             ?>
                                         </td>
+                                        <td>*</td>
                                     </tr>
                                     <tr>
                                         <td><label for="Description">Description </label></td>
@@ -119,6 +121,13 @@ if (isset($_GET['updatePack'])) {
                                         <td>:</td>
                                         <td><Input type="text" name="TotalPackages" id="TotalPackages"
                                                 value="<?php echo $P_left; ?>"></Input></td>
+                                        <td>*</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="Start_Date">Start Date </label></td>
+                                        <td>:</td>
+                                        <td><Input type="date" name="Start_Date" id="Start_Date"
+                                                value="<?php echo $Start_Date; ?>"></Input></td>
                                         <td>*</td>
                                     </tr>
                                     <tr>

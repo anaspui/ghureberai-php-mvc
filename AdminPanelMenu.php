@@ -39,7 +39,7 @@
             <a href="TopSelling.php">Top Selling Packages</a>
         </button>
         <button class="button">
-            <a href="TopVisited.php">Top Visited Places</a>
+            <a href="ViewBookings.php">Bookings</a>
         </button>
     </div>
 </body>

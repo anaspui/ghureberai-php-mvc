@@ -8,16 +8,16 @@
     <title>View Packages</title>
     <link rel="stylesheet" href="index.css">
     <style>
-    #viewEmp th,
-    tr,
-    td {
-        /* border: 1px solid black; */
-        width: 250px;
-        text-align: center;
-        border-bottom: 1px solid #3B577D;
-        border-right: 1px solid #3B577D;
-        ;
-    }
+        #viewEmp th,
+        tr,
+        td {
+            /* border: 1px solid black; */
+            width: 250px;
+            text-align: center;
+            border-bottom: 1px solid #3B577D;
+            border-right: 1px solid #3B577D;
+            ;
+        }
     </style>
 </head>
 
@@ -45,6 +45,8 @@
                         <th>Hotel Name</th>
                         <th>Created At</th>
                         <th>Updated At</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th colspan="2">Action</th>
                     </tr>
                     <?php
@@ -59,6 +61,8 @@
                             <td>' . $row["Hotel_Name"] . '</td>
                             <td>' . $row["Created_at"] . '</td>
                             <td>' . $row["Updated_at"] . '</td>
+                            <td>' . $row["Start_Date"] . '</td>
+                            <td>' . $row["End_Date"] . '</td>
                             <td><button class="button btn-crud"><a href="UpdatePackage.php?updatePack=' . $row["Package_Id"] . '">Update</a></button></td>
                             <td><button class="button btn-crud-2"><a href="DeleteAction.php?deletePack=' . $row["Package_Id"] . '">Delete</a></button></td>
                             </tr>';

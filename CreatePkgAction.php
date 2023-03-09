@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Price = sanitize($_POST['Price']);
     $Days = sanitize($_POST['Days']);
     $P_left = sanitize($_POST['TotalPackages']);
+    $Start_Date = sanitize($_POST['Start_Date']);
+    $End_Date = date('Y-m-d', strtotime($Start_Date . ' + ' . $Days . ' days'));
     $Img_url = sanitize($_POST['img']);
     $now = new DateTime();
     $CurrentTime = $now->format('Y-m-d H:i:s');
@@ -60,18 +62,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['CreatePkgError'] = "Trip Duration cannot be empty";
         header("Location: CreatePackage.php");
         exit();
+    } else if (empty($P_left)) {
+        $_SESSION['CreatePkgError'] = "Total Package cannot be empty";
+        header("Location: CreatePackage.php");
+        exit();
+    } else if (empty($Start_Date)) {
+        $_SESSION['CreatePkgError'] = "Starting Date cannot be empty";
+        header("Location: CreatePackage.php");
+        exit();
     } else if (
-        !empty($Name) && !empty($Hotel_Name) && !empty($Price) && !empty($Days) && !empty($P_left)
+        !empty($Name) && !empty($Hotel_Name) && !empty($Price) && !empty($Days) && !empty($P_left) && !empty($Start_Date)
     ) {
         $isValid = true;
     }
 
 
     if (
-        !empty($Name) && !empty($Hotel_Name) && !is_numeric($Name) && !empty($Price) && !empty($P_left) && !empty($Days)
+        !empty($Name) && !empty($Hotel_Name) && !is_numeric($Name) && !empty($Price) && !empty($P_left) && !empty($Days) && !empty($Start_Date)
         && $isValid === true && $pkgNameValidity = true
     ) {
-        $insert = "INSERT INTO `packages`(`Name`, `Hotel_Name`, `Description`, `Price`, `Days`, `P_left`, `P_sold`, `Image_url`) VALUES ('$Name','$Hotel_Name','$Description',$Price,$Days,$P_left,0,'$Img_url')";
+        $insert = "INSERT INTO `packages`(`Name`, `Hotel_Name`, `Description`, `Price`, `Days`, `P_left`, `P_sold`, `Start_Date`, `End_Date`, `Image_url`) VALUES ('$Name','$Hotel_Name','$Description',$Price,$Days,$P_left,0,'$Start_Date','$End_Date','$Img_url')";
         $result = mysqli_query($con, $insert);
 
         // if ($result === false) {
@@ -79,6 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // }
 
         $_SESSION['CreatePkgError'] = "Package Added Successfully";
+        header("Location: CreatePackage.php");
+    } else {
+        $_SESSION['CreatePkgError'] = "Please provide valid informations";
         header("Location: CreatePackage.php");
     }
 }

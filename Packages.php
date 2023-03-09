@@ -14,6 +14,7 @@ session_start();
 
 <body>
     <?php include('Header.php'); ?>
+    <?php include('PackagesBody.php'); ?>
     <?php include('Footer.php'); ?>
 </body>
 
