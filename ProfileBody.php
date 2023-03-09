@@ -13,6 +13,7 @@ $dob = $user_data['Dob'];
 $email = $user_data['Email'];
 $phone = $user_data['Phone'];
 $password = $user_data['Password'];
+$Picture = $user_data['Picture'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,7 @@ $password = $user_data['Password'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Body</title>
     <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
@@ -34,6 +36,9 @@ $password = $user_data['Password'];
                     <h1 align="center">Profile Informations</h1>
                 </legend>
             </fieldset><br><br>
+            <div>
+                <img src="<?php echo $Picture ?>" alt="Profile picture" class="profile-pic">
+            </div>
             <table align="center" style="text-align: left">
                 <tr>
                     <td><label for="fname">First Name</label></td>
@@ -96,10 +101,10 @@ $password = $user_data['Password'];
                 </tr>
 
 
-            </table><br><br><br>
-            <div>
+            </table><br>
+            <div class="button btn-crud">
                 <a href="UpdatePage.php">
-                    <p>Update</p>
+                    Update
                 </a>
             </div>
         </div>

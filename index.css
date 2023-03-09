@@ -113,7 +113,12 @@
   border: solid thin #aaa;
   width: 100%;
 }
-
+.profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -237,7 +242,7 @@ a {
 }
 .LandingBody {
   padding-top: 80px;
-  background-image: url("background.svg");
+  background-image: url("images/background.svg");
   background-size: 100% 100%;
   width: 100%; /* adjust to your desired width */
   height: 650px;
@@ -311,4 +316,14 @@ a {
   margin: 0;
   font-size: 80px;
   line-height: 1.5;
+}
+.updatebutton {
+  padding: 2px;
+  width: 80px;
+  height: 25px;
+  color: #fafafa !important;
+  background-color: #44679f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

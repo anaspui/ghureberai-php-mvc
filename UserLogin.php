@@ -11,7 +11,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $_SESSION['LoginError'] = "";
-
+    if (empty($username) && empty($password)) {
+        $_SESSION['LoginError'] = "Please enter your username & password";
+        header("Location: UserLogin.php");
+        exit();
+    }
+    if (empty($username)) {
+        $_SESSION['LoginError'] = "Please enter your username";
+        header("Location: UserLogin.php");
+        exit();
+    }
+    if (empty($password)) {
+        $_SESSION['LoginError'] = "Please enter your password!";
+        header("Location: UserLogin.php");
+        exit();
+    }
     if (!empty($username) && !empty($password) && !is_numeric($username)) {
 
         $query = "select * from users where Username = '$username' limit 1";
@@ -47,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($result2 && mysqli_num_rows($result2) > 0) {
         $_SESSION['role'] = 'admin';
     } else {
-        $_SESSION['role'] = 'notAdmin';
+        $_SESSION['role'] = 'customer';
     }
 
 }

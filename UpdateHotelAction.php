@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Location = sanitize($_POST['Location']);
     $Description = sanitize($_POST['Description']);
     $Image = sanitize($_POST['Image']);
+    $now = new DateTime();
+    $CurrentTime = $now->format('Y-m-d H:i:s');
     $isValid = false;
 
 
@@ -20,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $isValid = false;
     $NameValidity = false;
 
-    //check if Name is valid or not
+    //check if Hotel Name is valid or not
     if (mysqli_num_rows($result1) > 0) {
         $CheckHotel = "select * from hotels where Hotel_Name = '$Hotel_Name' and Hotel_Id = '$Hotel_Id'";
         $result2 = mysqli_query($con, $CheckHotel);
@@ -57,11 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     //Update database
     if (
-        !empty($Hotel_Name) && !empty($Location) && !is_numeric($Hotel_Name) && $isValid === true && $NameValidity === true
+        !empty($Hotel_Name) && !empty($Location) && !is_numeric($Hotel_Name) && !is_numeric($Location) && $isValid === true && $NameValidity === true
     ) {
 
-        $query2 = "UPDATE hotels SET Hotel_Name= '$Hotel_Name', Location='$Location', Description= '$Description', Image='$Image' WHERE Hotel_Id = $Hotel_Id";
+        $query2 = "UPDATE hotels SET Hotel_Name= '$Hotel_Name', Location='$Location', Description= '$Description', Image='$Image', Created_at='$CurrentTime' WHERE Hotel_Id = '$Hotel_Id'";
         mysqli_query($con, $query2);
+        // die(mysqli_error($con));
         $_SESSION['UpdateHotelError'] = "Updated Successfully";
         header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
 

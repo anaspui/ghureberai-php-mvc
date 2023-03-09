@@ -50,7 +50,7 @@
                     </tr>
                     <?php
                     include('Connection.php');
-                    $sql = "SELECT * FROM packages WHERE P_sold ORDER BY P_sold DESC;";
+                    $sql = "SELECT * FROM packages WHERE P_sold ORDER BY P_sold DESC LIMIT 10;";
 
                     $result = $con->query($sql);
                     if ($result->num_rows > 0) {

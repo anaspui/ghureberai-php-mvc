@@ -5,12 +5,12 @@ if (isset($_GET['updateid'])) {
     $Hotel_Id = $_GET['updateid'];
     $query = "select * from hotels where Hotel_Id = '$Hotel_Id' limit 1";
     $result = mysqli_query($con, $query);
-    $user_data = mysqli_fetch_assoc($result);
+    $hotel_data = mysqli_fetch_assoc($result);
 }
-$Hotel_Name = $user_data['Hotel_Name'];
-$Location = $user_data['Location'];
-$Description = $user_data['Description'];
-$Image_url = $user_data['Image'];
+$Hotel_Name = $hotel_data['Hotel_Name'];
+$Location = $hotel_data['Location'];
+$Description = $hotel_data['Description'];
+$Image_url = $hotel_data['Image'];
 
 ?>
 <!DOCTYPE html>

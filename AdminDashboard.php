@@ -12,6 +12,9 @@
 <body>
 
     <div class="AdminDash">
+        <?php
+        include('Connection.php');
+        ?>
         <!-- <h2>Dashboard</h2> -->
         <fieldset style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
             <legend style="text-align: left">
@@ -26,7 +29,15 @@
                         <h3>Customers</h3>
                     </div>
                     <div class="card-body">
-                        <p>100</p>
+                        <?php
+                        include('Connection.php');
+                        $sql = "SELECT * FROM users Where role = 'customer'";
+                        $result = mysqli_query($con, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        ?>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -36,7 +47,15 @@
                         <h3>Employees</h3>
                     </div>
                     <div class="card-body">
-                        <p>100</p>
+                        <?php
+                        include('Connection.php');
+                        $sql = "SELECT * FROM users Where role = 'employee'";
+                        $result = mysqli_query($con, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        ?>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -46,7 +65,15 @@
                         <h3>Hotels</h3>
                     </div>
                     <div class="card-body">
-                        <p>100</p>
+                        <?php
+                        include('Connection.php');
+                        $sql = "SELECT * FROM hotels";
+                        $result = mysqli_query($con, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        ?>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -58,7 +85,15 @@
                         <h3>Packages</h3>
                     </div>
                     <div class="card-body">
-                        <p>100</p>
+                        <?php
+                        include('Connection.php');
+                        $sql = "SELECT * FROM packages";
+                        $result = mysqli_query($con, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        ?>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -68,7 +103,15 @@
                         <h3>Package Sold</h3>
                     </div>
                     <div class="card-body">
-                        <p>100</p>
+                        <?php
+                        include('Connection.php');
+                        $sql = "SELECT * FROM packages WHERE P_sold";
+                        $result = mysqli_query($con, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        ?>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
                 </div>
             </a>
@@ -78,7 +121,15 @@
                         <h3>Top Selling</h3>
                     </div>
                     <div class="card-body">
-                        <p>100</p>
+                        <?php
+                        include('Connection.php');
+                        $sql = "SELECT * FROM packages WHERE P_sold ORDER BY P_sold DESC";
+                        $result = mysqli_query($con, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        ?>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
                 </div>
             </a>

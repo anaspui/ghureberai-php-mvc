@@ -14,7 +14,7 @@
         <div class="navBody">
             <div class="nav-left">
                 <div class="logo">
-                    <a href="Index.php"><img src="logo.png" alt="logo"> </a>
+                    <a href="Index.php"><img src="images/logo.png" alt="logo"> </a>
 
                 </div>
                 <ul>
