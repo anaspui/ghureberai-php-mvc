@@ -175,7 +175,8 @@ a {
 /* css for admin body */
 
 .AdminPage {
-  background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
+  background-color: #ddf5f7;
+  /* background-image: linear-gradient(, #c0d9e5, #b5cbee); */
   height: 800px;
   display: flex;
 }
@@ -422,6 +423,7 @@ a {
 }
 .BookBox input[type="text"],
 select {
+  color: #3b577d;
   height: 30px;
   font-size: 16px;
   padding: 5px;

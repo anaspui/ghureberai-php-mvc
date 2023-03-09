@@ -10,6 +10,19 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotels</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+        #viewEmp th,
+        tr {
+            /* border-radius: 5px; */
+            background-color: #ddf5f7;
+            color: #3b577d;
+            width: 500px;
+            text-align: center;
+            border-bottom: 1px solid #3B577D;
+            border-right: 1px solid #3B577D;
+            ;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +30,7 @@ session_start();
 
     <div class="BookBodyControl">
         <div class="BookBox">
-            <form action="/search">
+            <form action="Hotels.php">
                 <input type="text" placeholder="Search...">
                 <?php
                 include('Connection.php');
@@ -45,9 +58,34 @@ session_start();
             </form>
         </div>
         <div class="BookBoxResult">
+            <br>
+            <table id="viewEmp">
+                <tr>
+                    <th>Hotel Name</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                </tr>
+                <?php
+                include('Connection.php');
+                $sql = "SELECT * FROM hotels";
+
+                $result = $con->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<tr>
+                            <td>' . $row["Hotel_Name"] . '</td>
+                            <td>' . $row["Location"] . '</td>
+                            <td>' . $row["Description"] . '</td>
+                            </tr>';
+                    }
+                }
+                ?>
+            </table>
         </div>
 
     </div>
+    </div>
+
 
 
     <?php include('Footer.php'); ?>

@@ -12,6 +12,7 @@
 <body>
     <div class="LandingBody">
         <div class="LandingBox">
+            <br><br><br>
             <h1>Experience the magic of travel with GhureBerai's immersive experiences</h1>
         </div>
     </div>
