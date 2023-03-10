@@ -41,9 +41,6 @@ CREATE TABLE `bookings` (
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`Booking_Id`, `Package_Id`, `User_Id`, `Start_Date`, `End_Date`, `Price`, `Booked_At`) VALUES
-(1, 2, 16, '2023-03-25', '2023-03-30', '5000.00', '2023-03-09 18:33:51'),
-(2, 9, 16, '2023-04-10', '2023-04-16', '7500.00', '2023-03-09 18:39:44');
 
 -- --------------------------------------------------------
 
@@ -64,12 +61,6 @@ CREATE TABLE `hotels` (
 -- Dumping data for table `hotels`
 --
 
-INSERT INTO `hotels` (`Hotel_Id`, `Hotel_Name`, `Location`, `Description`, `Image`, `Created_at`) VALUES
-(1, 'Long Beach Hotel', 'Coxs Bazar', '', '', '2023-03-10 08:04:37'),
-(2, 'Bono Nibash Hill Resort', 'Bandarban', NULL, NULL, '2023-03-08 13:50:22'),
-(6, 'Orient Bay Hotel', 'Saint Martin', 'Saint 5 Star Hotel', 'c://somehting.jpga', '2023-03-09 05:52:57'),
-(7, 'Princess Heights Hotel', 'Saint Martin', '', '', '2023-03-10 08:03:35'),
-(8, 'Alicias Inn', 'Saint Martin', '4 star', '', '2023-03-10 08:07:35');
 
 -- --------------------------------------------------------
 
@@ -97,15 +88,6 @@ CREATE TABLE `packages` (
 -- Dumping data for table `packages`
 --
 
-INSERT INTO `packages` (`Package_Id`, `Name`, `Hotel_Name`, `Description`, `Price`, `Days`, `P_left`, `P_sold`, `Start_Date`, `End_Date`, `Image_url`, `Created_at`, `Updated_at`) VALUES
-(1, '3 Day Trip To Coxs', 'Long Beach Hotel', '', '3500.00', 3, 99, 12, '2023-03-01', '2023-03-04', '', '2023-03-05 13:16:35', '2023-03-09 16:11:36'),
-(2, '5 Day Trip To Coxs', 'Long Beach Hotel', '', '5000.00', 5, 23, 2, '2023-03-25', '2023-03-30', '', '2023-03-05 13:17:43', '2023-03-09 16:12:42'),
-(4, '10 Days Trip To Coxs', 'Long Beach Hotel', '10 days at coxs', '11000.00', 10, 10, 0, NULL, NULL, 'c/photo.jpg', '2023-03-08 13:40:55', '2023-03-08 13:40:55'),
-(6, '6 Days Trip To Bandarban', 'Bono Nibash Hill Resort', '', '6000.00', 6, 15, 0, NULL, NULL, '', '2023-03-08 13:51:07', '2023-03-08 13:51:07'),
-(7, '10 Days Trip to Bandarban', 'Bono Nibash Hill Resort', '', '11000.00', 10, 15, 0, NULL, NULL, '', '2023-03-09 15:36:20', '2023-03-09 15:36:20'),
-(8, '2 Day Trip to Saint Martin ', 'Orient Bay Hotel', '', '2500.00', 2, 10, 0, NULL, NULL, '', '2023-03-09 15:43:53', '2023-03-09 15:44:17'),
-(9, '6 Days Trip To Saint Martin', 'Orient Bay Hotel', '', '7500.00', 6, 13, 0, '2023-04-10', '2023-04-16', '', '2023-03-09 16:16:58', '2023-03-09 16:16:58'),
-(10, '2 Day trip to Bandaraban', 'Bono Nibash Hill Resort', '', '2500.00', 2, 11, 0, '2023-03-20', '2023-03-22', '', '2023-03-09 16:22:34', '2023-03-09 16:27:25');
 
 -- --------------------------------------------------------
 
@@ -132,16 +114,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`User_Id`, `Username`, `Password`, `Role`, `Firstname`, `Lastname`, `Gender`, `Dob`, `Email`, `Phone`, `Address`, `Picture`) VALUES
-(1, 'Amin', 'Amin', 'employee', 'Amin', 'Hasan', 'female', '2023-03-13', 'omashaw@gmail.com', 192827632, 'ABC Road', 'images/default.jpeg'),
-(2, 'anas', 'anas', 'admin', 'Anas', 'Omar', 'male', '2002-01-09', 'omar24md@gmail.com', 1857816366, 'Waba Daba 24', 'images/default.jpeg'),
-(6, 'jitu', 'jitu', 'employee', 'Hakim', 'Jitu', NULL, '2023-03-14', 'jitu@gmail.com', 192372635, 'ABC Road', NULL),
-(7, 'limon', 'limon', 'employee', 'Limon', 'Das', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'kevin', 'kevin', 'employee', 'Kevin', 'Feige', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'rahid', 'rahid', 'employee', 'Rahid', 'Hasan', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'aminh', 'aminh', 'customer', 'Amin', 'Hasan', 'Male', '2023-03-29', 'amin@gmail.com', 192827632, NULL, NULL),
-(16, 'masud', 'masud', 'customer', 'Mostafa', 'Masud', 'Male', '2023-04-05', 'masud@gmail.com', 193281232, NULL, 'images/default.jpeg'),
-(18, 'khan', 'khan', 'employee', 'Ratul', 'Khan', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
