@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['role'] = 'customer';
         // $_SESSION['validUser'] == true;
     }
+    mysqli_close($con);
 
 }
 

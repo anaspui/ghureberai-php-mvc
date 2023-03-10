@@ -1,19 +1,24 @@
 <?php
 include 'Connection.php';
-$username = $_SESSION['username'];
-$query = "select * from users where Username = '$username' limit 1";
-$result = mysqli_query($con, $query);
-$user_data = mysqli_fetch_assoc($result);
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $query = "select * from users where Username = '$username' limit 1";
+    $result = mysqli_query($con, $query);
+    $user_data = mysqli_fetch_assoc($result);
 
 
-$firstName = $user_data['Firstname'];
-$lastName = $user_data['Lastname'];
-$gender = $user_data['Gender'];
-$dob = $user_data['Dob'];
-$email = $user_data['Email'];
-$phone = $user_data['Phone'];
-$password = $user_data['Password'];
-$Picture = $user_data['Picture'];
+    $firstName = $user_data['Firstname'];
+    $lastName = $user_data['Lastname'];
+    $gender = $user_data['Gender'];
+    $dob = $user_data['Dob'];
+    $email = $user_data['Email'];
+    $phone = $user_data['Phone'];
+    $password = $user_data['Password'];
+    $Picture = $user_data['Picture'];
+} else {
+    header('location: Index.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

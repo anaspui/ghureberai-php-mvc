@@ -27,34 +27,45 @@
 
                         if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'employee') {
                             ?>
-                            <li><a href="AdminPanel.php">Admin Panel</a></li>
-                        <?php }
+                    <li><a href="AdminPanel.php">Admin Panel</a></li>
+                    <?php }
                     } ?>
                 </ul>
             </div>
             <div class="nav-right">
                 <ul>
                     <li>
+
+                        <p>
+                            <a href="MyBookings.php">My Bookings</a>
+                        </p>
+
+
+                    </li>
+
+                    <li>
                         <?php
                         if (isset($_SESSION["username"])) { ?>
-                            <p><a href="Profile.php">
-                                    <?php
+                        <p><a href="Profile.php">
+                                <?php
                                     echo "Welcome, " . $_SESSION["username"];
 
                                     ?>
 
-                            </p>
+                        </p>
                         <?php } else { ?>
-                            <Button class="button"><a href="UserLogin.php">Login</a></Button>
+                        <Button class="button"><a href="UserLogin.php">Login</a></Button>
                         <?php } ?>
 
                     </li>
+
+
                     <li>
                         <?php
                         if (isset($_SESSION['username'])) {
                             ?>
-                            <Button class="button"><a href="UserLogout.php">Logout</a></Button>
-                            <?php
+                        <Button class="button"><a href="UserLogout.php">Logout</a></Button>
+                        <?php
                         } ?>
                     </li>
                 </ul>

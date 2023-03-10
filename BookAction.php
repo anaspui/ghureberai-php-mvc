@@ -23,6 +23,7 @@ if (isset($_SESSION['User_Id'])) {
         header('location: Packages.php');
     }
 } else {
-    header('location: UserLogin.php');
+    setcookie('Saved', $Package_Id, time() + (86400 * 30));
+    header('location: MyBookings.php');
 }
 ?>

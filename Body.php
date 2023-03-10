@@ -17,7 +17,6 @@
         </div>
     </div>
     <div class="Body">
-
         <div class="PcardContainer">
             <?php
             include('Connection.php');
@@ -57,6 +56,7 @@
                             </div>';
                 }
             }
+            mysqli_close($con);
             ?>
         </div>
         <fieldset style=" border: 2px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
