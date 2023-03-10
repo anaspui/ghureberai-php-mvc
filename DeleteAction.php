@@ -1,7 +1,10 @@
 <?php
 session_start();
 include('Connection.php');
-
+if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+    header('location: UserLogin.php');
+    exit();
+}
 
 if (isset($_GET['deleteid'])) {
     $id = $_GET['deleteid'];

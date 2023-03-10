@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['role'] !== "admin") {
+    header('location: UserLogin.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +23,6 @@
     <div>
         <div class="AddEmpForm">
             <?php
-            session_start();
             if (!isset($_SESSION['AddEmpError'])) {
                 $_SESSION['AddEmpError'] = "";
             }

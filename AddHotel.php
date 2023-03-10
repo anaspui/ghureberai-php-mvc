@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+    header('location: UserLogin.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +20,6 @@
     <div>
         <div class="AddEmpForm">
             <?php
-            session_start();
             if (!isset($_SESSION['AddHotelError'])) {
                 $_SESSION['AddHotelError'] = "";
             }

@@ -1,3 +1,10 @@
+<?php
+if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+    header('location: UserLogin.php');
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,12 +21,20 @@
         <button class="button">
             <a href="AdminPanel.php">Dashboard</a>
         </button>
-        <button class="button">
-            <a href="AddEmployee.php">Add Employee</a>
-        </button>
-        <button class="button">
-            <a href="ViewEmployee.php">View Employee</a>
-        </button>
+        <?php
+        if ($_SESSION['role'] == "admin") {
+            ?>
+            <button class="button">
+                <a href="AddEmployee.php">Add Employee</a>
+            </button>
+        <?php } ?>
+        <?php
+        if ($_SESSION['role'] == "admin") {
+            ?>
+            <button class="button">
+                <a href="ViewEmployee.php">View Employee</a>
+            </button>
+        <?php } ?>
         <button class="button">
             <a href="CreatePackage.php">Create Package</a>
         </button>

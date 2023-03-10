@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $_SESSION['User_Id'] = $user_data['User_Id'];
                     $_SESSION['username'] = $username;
                     $_SESSION['email'] = $user_data['Email'];
+                    // $_SESSION['validUser'] == true;
                     header("Location: Index.php");
                 }
                 $_SESSION['LoginError'] = "Incorrect username or password!";
@@ -55,12 +56,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else if (empty($username) && empty($password)) {
         $_SESSION['LoginError'] = "Please enter your username and password.";
     }
+    //for admin
     $query2 = "SELECT * FROM users WHERE username = '" . $username . "' AND role = 'admin' LIMIT 1;";
     $result2 = mysqli_query($con, $query2);
+    //for emp
+    $query3 = "SELECT * FROM users WHERE username = '" . $username . "' AND role = 'employee' LIMIT 1;";
+    $result3 = mysqli_query($con, $query3);
     if ($result2 && mysqli_num_rows($result2) > 0) {
         $_SESSION['role'] = 'admin';
+        // $_SESSION['validUser'] == true;
+    } else if ($result3 && mysqli_num_rows($result3) > 0) {
+        $_SESSION['role'] = 'employee';
+        // $_SESSION['validUser'] == true;
     } else {
         $_SESSION['role'] = 'customer';
+        // $_SESSION['validUser'] == true;
     }
 
 }

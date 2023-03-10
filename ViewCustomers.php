@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+    header('location: UserLogin.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,16 +15,16 @@
     <title>View Customers</title>
     <link rel="stylesheet" href="index.css">
     <style>
-    #viewEmp th,
-    tr,
-    td {
-        /* border: 1px solid black; */
-        width: 250px;
-        text-align: center;
-        border-bottom: 1px solid #3B577D;
-        border-right: 1px solid #3B577D;
-        ;
-    }
+        #viewEmp th,
+        tr,
+        td {
+            /* border: 1px solid black; */
+            width: 250px;
+            text-align: center;
+            border-bottom: 1px solid #3B577D;
+            border-right: 1px solid #3B577D;
+            ;
+        }
     </style>
 </head>
 
@@ -28,7 +35,6 @@
     <div class="page">
         <div class="AdminPage">
             <?php
-            session_start();
             include("Header.php");
             include("AdminPanelMenu.php");
             ?>

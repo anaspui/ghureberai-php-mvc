@@ -25,7 +25,7 @@
                     <?php
                     if (isset($_SESSION['username'])) {
 
-                        if ($_SESSION['role'] == 'admin') {
+                        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'employee') {
                             ?>
                             <li><a href="AdminPanel.php">Admin Panel</a></li>
                         <?php }

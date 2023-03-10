@@ -1,3 +1,9 @@
+<?php
+if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+    header('location: UserLogin.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +28,6 @@
             </legend>
         </fieldset>
         <div class="cardContainer">
-
             <a href="ViewCustomers.php">
                 <div class="card">
                     <div class="card-header">
@@ -41,24 +46,28 @@
                     </div>
                 </div>
             </a>
-            <a href="ViewEmployee.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Employees</h3>
+            <?php
+            if ($_SESSION['role'] == "admin") {
+                ?>
+                <a href="ViewEmployee.php">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Employees</h3>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            include('Connection.php');
+                            $sql = "SELECT * FROM users Where role = 'employee'";
+                            $result = mysqli_query($con, $sql);
+                            $num_rows = mysqli_num_rows($result);
+                            ?>
+                            <p>
+                                <?php echo $num_rows; ?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <?php
-                        include('Connection.php');
-                        $sql = "SELECT * FROM users Where role = 'employee'";
-                        $result = mysqli_query($con, $sql);
-                        $num_rows = mysqli_num_rows($result);
-                        ?>
-                        <p>
-                            <?php echo $num_rows; ?>
-                        </p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            <?php } ?>
             <a href="ViewHotel.php">
                 <div class="card">
                     <div class="card-header">

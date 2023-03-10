@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+    header('location: UserLogin.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +35,6 @@
     <div class="page">
         <div class="AdminPage">
             <?php
-            session_start();
             include("Header.php");
             include("AdminPanelMenu.php");
             ?>

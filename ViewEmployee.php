@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SESSION['role'] !== "admin") {
+    header('location: UserLogin.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +35,6 @@
     <div class="page">
         <div class="AdminPage">
             <?php
-            session_start();
             if (!isset($_SESSION['message'])) {
                 $_SESSION['message'] = "";
             }
