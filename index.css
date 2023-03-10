@@ -405,7 +405,7 @@ a {
   background-color: #ddf5f7;
   border: 1px solid black;
   height: 800px;
-  width: 1470px;
+  width: 100%;
 }
 .BookBox {
   padding-top: 20px;
