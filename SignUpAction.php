@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("Connection.php");
+require_once("Connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $_SESSION['RegError'] = "";
@@ -13,38 +13,69 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $phone = sanitize($_POST['phone']);
     $username = sanitize($_POST['username']);
     $password = sanitize($_POST['password']);
+    $numFormat = "/^(\+?88)?01[3-9]\d{8}$/";
+    $usernameFormat = "/^[a-zA-Z0-9_-]{4,16}$/";
 
 
-    if (empty($firstName)) {
-        $_SESSION['RegError'] = "First Name is required";
+
+
+
+    if (
+        empty($username) && empty($password) && empty($firstName) && empty($lastName) &&
+        empty($gender) && empty($dob) && empty($phone) && empty($email)
+    ) {
+        $_SESSION['fnameError'] = "First Name is required";
+        $_SESSION['lnameError'] = "Last Name is required";
+        $_SESSION['genderError'] = "Gender is required";
+        $_SESSION['dobError'] = "Please enter your Date of Birth";
+        $_SESSION['emailError'] = "Please enter your Email";
+        $_SESSION['phnError'] = "Please enter your Phone Number";
+        $_SESSION['usernameError'] = "Username is required";
+        $_SESSION['passError'] = "Please enter your Password";
+        header("location:UserSignup.php");
+        exit();
+    } else if (empty($firstName)) {
+        $_SESSION['fnameError'] = "First Name is required";
         header("location:UserSignup.php");
         exit();
     } else if (empty($lastName)) {
-        $_SESSION['RegError'] = "Last Name is required";
+        $_SESSION['lnameError'] = "Last Name is required";
         header("location:UserSignup.php");
         exit();
     } else if (empty($gender)) {
-        $_SESSION['RegError'] = "Gender is required";
+        $_SESSION['genderError'] = "Gender is required";
         header("location:UserSignup.php");
         exit();
     } else if (empty($dob)) {
-        $_SESSION['RegError'] = "Please enter your Date of Birth";
+        $_SESSION['dobError'] = "Please enter your Date of Birth";
         header("location:UserSignup.php");
         exit();
     } else if (empty($email)) {
-        $_SESSION['RegError'] = "Please enter your Email";
+        $_SESSION['emailError'] = "Please enter your Email";
+        header("location:UserSignup.php");
+        exit();
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['emailError'] = "Invalid email format";
         header("location:UserSignup.php");
         exit();
     } else if (empty($phone)) {
-        $_SESSION['RegError'] = "Please enter your Phone Number";
+        $_SESSION['phnError'] = "Please enter your Phone Number";
+        header("location:UserSignup.php");
+        exit();
+    } else if (!preg_match($numFormat, $phone)) {
+        $_SESSION['phnError'] = "Invalid phone number";
         header("location:UserSignup.php");
         exit();
     } else if (empty($username)) {
-        $_SESSION['RegError'] = "Username is required";
+        $_SESSION['usernameError'] = "Username is required";
+        header("location:UserSignup.php");
+        exit();
+    } else if (!preg_match($usernameFormat, $username)) {
+        $_SESSION['usernameError'] = "Invalid User Name!";
         header("location:UserSignup.php");
         exit();
     } else if (empty($password)) {
-        $_SESSION['RegError'] = "Please enter your Password";
+        $_SESSION['passError'] = "Please enter your Password";
         header("location:UserSignup.php");
         exit();
     } else if (
@@ -60,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $isValid = false;
     //Username and email validation
     if (mysqli_num_rows($result1) > 0) {
-        $_SESSION['RegError'] = "Username is taken, try again";
+        $_SESSION['usernameError'] = "Username is taken, try again";
         header("location:UserSignup.php");
         exit();
     } else if ($result1 && mysqli_num_rows($result1) === 0) {

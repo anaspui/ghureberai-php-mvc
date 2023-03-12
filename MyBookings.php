@@ -70,9 +70,9 @@ if (isset($_SESSION['User_Id'])) {
                                                     <td>' . date('d F', strtotime($row['Start_Date'])) . '</td>
                                                 </tr>
                                             </table>
-                                            <div class="BookBtn"> <button><a href="RemoveSaved.php?Saved=' . $_COOKIE['Saved'] . '">Remove</a></button></div>
-                                </div>
-                                        </div>
+                                        <div class="BookBtn"> <button><a href="DeleteSaved.php?Saved=' . $_COOKIE['Saved'] . '">Remove</a></button></div>
+                                    </div>
+                             </div>
                         </div>
                         
                         </a>';

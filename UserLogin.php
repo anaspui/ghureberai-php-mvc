@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <div class="page login-page">
         <div>
-            <img src="logo.png" alt="logo">
+            <img src="images/logo.png" alt="logo">
             <h3 align="center">You won't miss a thing!</h3>
         </div>
         <div class="box login" align="center">
