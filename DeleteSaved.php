@@ -1,10 +1,11 @@
 <?php
 session_start();
-if ($_REQUEST['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['Saved'])) {
-        $toDelete = $_GET['Saved'];
-        setcookie($toDelete, '', time() - 3600);
-        header('location: MyBookings,php');
+        // $toDelete = $_GET['Saved'];
+        setcookie('Saved', '', time() - 3600);
+        header('location: MyBookings.php');
+        // exit();
     }
 }
 ?>

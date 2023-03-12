@@ -34,6 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else if (mysqli_num_rows($result1) == 0) {
         $usernameValidity = true;
     }
+
+    /////***********************************************////// /////***********************************************////// 
+    //old code
     //checks if fields are filled or not
     if (
         empty($username) && empty($password) && empty($firstName) && empty($lastName)
