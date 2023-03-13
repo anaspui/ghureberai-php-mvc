@@ -11,17 +11,17 @@ session_start();
     <title>Hotels</title>
     <link rel="stylesheet" href="index.css">
     <style>
-        #viewEmp th,
-        tr {
-            /* border-radius: 5px; */
-            background-color: #ddf5f7;
-            color: #3b577d;
-            width: 500px;
-            text-align: center;
-            border-bottom: 1px solid #3B577D;
-            border-right: 1px solid #3B577D;
-            ;
-        }
+    #viewEmp th,
+    tr {
+        /* border-radius: 5px; */
+        background-color: #ddf5f7;
+        color: #3b577d;
+        width: 500px;
+        text-align: center;
+        border-bottom: 1px solid #3B577D;
+        border-right: 1px solid #3B577D;
+        ;
+    }
     </style>
 </head>
 
@@ -54,7 +54,7 @@ session_start();
                 }
                 echo "</select>";
                 ?>
-                <button type="submit">Search</button>
+                <button type="submit" name="search">Search</button>
             </form>
         </div>
         <div class="BookBoxResult">
@@ -67,23 +67,28 @@ session_start();
                 </tr>
                 <?php
                 include('Connection.php');
-                $sql = "SELECT * FROM hotels";
-
+                if (isset($_GET['search'])) {
+                    $hotelName = $_GET['Hotel_Name'];
+                    $location = $_GET['Location'];
+                    $sql = "SELECT * FROM hotels WHERE Hotel_Name LIKE '%$hotelName%' AND Location LIKE '%$location%'";
+                } else {
+                    $sql = "SELECT * FROM hotels";
+                }
                 $result = $con->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>
-                            <td>' . $row["Hotel_Name"] . '</td>
-                            <td>' . $row["Location"] . '</td>
-                            <td>' . $row["Description"] . '</td>
-                            </tr>';
+                        <td>' . $row["Hotel_Name"] . '</td>
+                        <td>' . $row["Location"] . '</td>
+                        <td>' . $row["Description"] . '</td>
+                        </tr>';
                     }
+                } else {
+                    echo "<tr><td colspan='3'>No hotels found</td></tr>";
                 }
                 ?>
             </table>
         </div>
-
-    </div>
     </div>
 
 
