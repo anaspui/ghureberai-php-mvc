@@ -11,17 +11,17 @@ session_start();
     <title>Hotels</title>
     <link rel="stylesheet" href="index.css">
     <style>
-    #viewEmp th,
-    tr {
-        /* border-radius: 5px; */
-        background-color: #ddf5f7;
-        color: #3b577d;
-        width: 500px;
-        text-align: center;
-        border-bottom: 1px solid #3B577D;
-        border-right: 1px solid #3B577D;
-        ;
-    }
+        #viewEmp th,
+        tr {
+            /* border-radius: 5px; */
+            background-color: #ddf5f7;
+            color: #3b577d;
+            width: 500px;
+            text-align: center;
+            border-bottom: 1px solid #3B577D;
+            border-right: 1px solid #3B577D;
+            ;
+        }
     </style>
 </head>
 
@@ -45,8 +45,10 @@ session_start();
                 ?>
                 <?php
                 include('Connection.php');
-                $sql = "SELECT Location FROM hotels";
+                $sql = "SELECT DISTINCT Location FROM hotels;";
                 $result = $con->query($sql);
+                // $die = mysqli_error($con);
+                // var_dump($die);
                 echo "<select class='hselect' name='Location'>";
                 echo "<option value=''>Location</option>";
                 while ($row = $result->fetch_assoc()) {

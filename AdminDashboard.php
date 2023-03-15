@@ -49,24 +49,24 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
             <?php
             if ($_SESSION['role'] == "admin") {
                 ?>
-                <a href="ViewEmployee.php">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Employees</h3>
-                        </div>
-                        <div class="card-body">
-                            <?php
+            <a href="ViewEmployee.php">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Employees</h3>
+                    </div>
+                    <div class="card-body">
+                        <?php
                             include('Connection.php');
                             $sql = "SELECT * FROM users Where role = 'employee'";
                             $result = mysqli_query($con, $sql);
                             $num_rows = mysqli_num_rows($result);
                             ?>
-                            <p>
-                                <?php echo $num_rows; ?>
-                            </p>
-                        </div>
+                        <p>
+                            <?php echo $num_rows; ?>
+                        </p>
                     </div>
-                </a>
+                </div>
+            </a>
             <?php } ?>
             <a href="ViewHotel.php">
                 <div class="card">
