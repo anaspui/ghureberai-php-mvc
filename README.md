@@ -31,5 +31,9 @@ Once you have set up the local environment, import the database file (sql.txt) i
 Contributions are always welcome!
 
 If you find a bug or want to add a new feature, you can create a pull request with your changes.
+## License
+
+[MIT](LICENSE)
+
 
 
