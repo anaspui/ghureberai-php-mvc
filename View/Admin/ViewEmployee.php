@@ -60,10 +60,8 @@ if ($_SESSION['role'] !== "admin") {
 
                     </tr>
                     <?php
-                    include('Connection.php');
-                    $sql = "SELECT * FROM users WHERE role = 'employee'";
-
-                    $result = $con->query($sql);
+                    include('../../Model/Admin/EmployeeModel.php');
+                    $result = viewEmployee();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr>
@@ -93,10 +91,6 @@ if ($_SESSION['role'] !== "admin") {
                 </table>
             </div>
         </div>
-
-
-
-
         <?php
         include("../Footer.php");
         ?>
