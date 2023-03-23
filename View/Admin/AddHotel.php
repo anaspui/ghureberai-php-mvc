@@ -23,7 +23,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
             if (!isset($_SESSION['AddHotelError'])) {
                 $_SESSION['AddHotelError'] = "";
             }
-            include("../Header.php");
+            include("Header.php");
             include("../Admin/AdminPanelMenu.php");
             ?>
             <div class="AdminDash">

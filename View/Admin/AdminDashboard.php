@@ -43,21 +43,21 @@ include('../../Controller/Admin/AdminDashboardController.php');
             <?php
             if ($_SESSION['role'] == "admin") {
                 ?>
-            <a href="ViewEmployee.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Employees</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            <?php
-                                
+                <a href="ViewEmployee.php">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Employees</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <?php
+
                                 echo getEmployees();
                                 ?>
-                        </p>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
             <?php } ?>
             <a href="ViewHotel.php">
                 <div class="card">
@@ -115,7 +115,9 @@ include('../../Controller/Admin/AdminDashboardController.php');
     </div>
 
 
-
+    <?php
+    include("../Footer.php");
+    ?>
 
 </body>
 

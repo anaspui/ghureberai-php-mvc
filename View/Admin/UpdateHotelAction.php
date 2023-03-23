@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Location = sanitize($_POST['Location']);
     $Description = sanitize($_POST['Description']);
     $Image = sanitize($_POST['Image']);
-    $now = new DateTime();
-    $CurrentTime = $now->format('Y-m-d H:i:s');
+    $date = new DateTime();
+    $CurrentTime = $date->format('Y-m-d H:i:s');
     $isValid = false;
 
 

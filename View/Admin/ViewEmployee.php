@@ -38,7 +38,7 @@ if ($_SESSION['role'] !== "admin") {
             if (!isset($_SESSION['message'])) {
                 $_SESSION['message'] = "";
             }
-            include("../Header.php");
+            include("Header.php");
             include("../Admin/AdminPanelMenu.php");
             ?>
             <div class="AdminDash">

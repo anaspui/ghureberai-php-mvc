@@ -26,7 +26,7 @@ if ($_SESSION['role'] !== "admin") {
             if (!isset($_SESSION['AddEmpError'])) {
                 $_SESSION['AddEmpError'] = "";
             }
-            include("../Header.php");
+            include("Header.php");
             include("../Admin/AdminPanelMenu.php");
             ?>
             <div class="AdminDash">
@@ -38,7 +38,7 @@ if ($_SESSION['role'] !== "admin") {
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="AddEmployeeAction.php">
+                        <form method="POST" action="../../Controller/Admin/AddEmployeeAction.php">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
@@ -85,9 +85,6 @@ if ($_SESSION['role'] !== "admin") {
                 </div>
             </div>
         </div>
-
-
-
 
         <?php
         include("../Footer.php");

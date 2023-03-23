@@ -15,16 +15,16 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <title>View Hotels</title>
     <link rel="stylesheet" href="../Assets/index.css">
     <style>
-    #viewEmp th,
-    tr,
-    td {
-        /* border: 1px solid black; */
-        width: 250px;
-        text-align: center;
-        border-bottom: 1px solid #3B577D;
-        border-right: 1px solid #3B577D;
-        ;
-    }
+        #viewEmp th,
+        tr,
+        td {
+            /* border: 1px solid black; */
+            width: 250px;
+            text-align: center;
+            border-bottom: 1px solid #3B577D;
+            border-right: 1px solid #3B577D;
+            ;
+        }
     </style>
 </head>
 
@@ -35,7 +35,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <div class="page">
         <div class="AdminPage">
             <?php
-            include("../Header.php");
+            include("Header.php");
             include("../Admin/AdminPanelMenu.php");
             ?>
             <div class="AdminDash">
