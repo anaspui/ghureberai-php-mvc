@@ -1,24 +1,6 @@
 <?php
-include 'Connection.php';
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-    $query = "select * from users where Username = '$username' limit 1";
-    $result = mysqli_query($con, $query);
-    $user_data = mysqli_fetch_assoc($result);
-
-
-    $firstName = $user_data['Firstname'];
-    $lastName = $user_data['Lastname'];
-    $gender = $user_data['Gender'];
-    $dob = $user_data['Dob'];
-    $email = $user_data['Email'];
-    $phone = $user_data['Phone'];
-    $password = $user_data['Password'];
-    $Picture = $user_data['Picture'];
-} else {
-    header('location: Index.php');
-}
-
+require('../Controller/ProfileController.php');
+$user_data = UserData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +24,8 @@ if (isset($_SESSION['username'])) {
                 </legend>
             </fieldset><br><br>
             <div>
-                <img src="<?php echo $Picture ?>" alt="Profile picture" class="profile-pic">
+                <img src="<?php
+                echo $user_data['Picture'] ?>" alt="Profile picture" class="profile-pic">
 
             </div>
             <table align="center" style="text-align: left">
@@ -50,35 +33,35 @@ if (isset($_SESSION['username'])) {
                     <td><label for="fname">First Name</label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $firstName ?>
+                        <?php echo $user_data['Firstname'] ?>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="lname">Last Name</label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $lastName ?>
+                        <?php echo $user_data['Lastname'] ?>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="male">Gender </label> </td>
                     <td>:</td>
                     <td>
-                        <?php echo $gender ?>
+                        <?php echo $user_data['Gender'] ?>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="dob">Date of Birth</label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $dob ?>
+                        <?php echo $user_data['Dob'] ?>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="email">Email </label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $email ?>
+                        <?php echo $user_data['Email'] ?>
                     </td>
 
                 </tr>
@@ -86,7 +69,7 @@ if (isset($_SESSION['username'])) {
                     <td><label for="phone">Phone/Mobile</label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $phone ?>
+                        <?php echo $user_data['Phone'] ?>
                     </td>
 
                 </tr>
@@ -94,7 +77,7 @@ if (isset($_SESSION['username'])) {
                     <td><label for="Username">Username </label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $username ?>
+                        <?php echo $user_data['Username'] ?>
                     </td>
 
                 </tr>
@@ -102,14 +85,14 @@ if (isset($_SESSION['username'])) {
                     <td><label for="password">Password </label></td>
                     <td>:</td>
                     <td>
-                        <?php echo $password ?>
+                        <?php echo $user_data['Password'] ?>
                     </td>
                 </tr>
 
 
             </table><br>
             <div class="button btn-crud">
-                <a href="UpdatePage.php">
+                <a href="ProfileUpdate.php">
                     Update
                 </a>
             </div>

@@ -21,7 +21,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
 <body>
     <div class="AdminPage">
         <?php
-        include("../Header.php");
+        include("Header.php");
         include('AdminPanelMenu.php');
         include('AdminDashboard.php');
         ?>
