@@ -11,6 +11,7 @@
 
 <body>
     <footer id="footer" class="site-footer">
+        <hr>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">

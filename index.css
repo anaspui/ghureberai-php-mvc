@@ -1,17 +1,23 @@
 * {
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
 }
 /* .page {
   background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
 } */
+
+/**************************************Header CSS*****************************************************************/
 .NavBar {
   margin: 0;
   /* border: 1px black solid; */
-  background-color: #3b577d;
+  border-radius: 20px;
+  background-color: #30454bca; /* changed to dark blue color */
+  backdrop-filter: blur(10px);
   height: 80px;
-  width: 100%;
+  width: 95%;
   top: 0;
+  margin-left: 2.5%;
   position: fixed;
   display: grid;
   align-items: center;
@@ -21,9 +27,6 @@
   padding: 0px 20px;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  box-shadow: 10px 10px 10px #3b577d;
 }
 
 .nav-left {
@@ -34,15 +37,16 @@
   font-size: 21px;
   text-decoration: none;
   display: flex;
-  color: #ddf5f7 !important;
+  color: #f1f6f2 !important ; /* changed to light green color */
   list-style-type: none;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
 .nav-left a {
-  color: #ddf5f7 !important;
+  color: #f1f6f2 !important ;
   text-decoration: none;
+  font-family: sans-serif;
 }
 
 .nav-right ul {
@@ -50,27 +54,44 @@
   font-size: 21px;
   text-decoration: none;
   display: flex;
-  color: #0c0f0f !important;
+  color: #f1f6f2 !important ;
   list-style-type: none;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
 .nav-right a {
-  color: #ddf5f7 !important;
+  color: #f1f6f2 !important ;
   text-decoration: none;
+  font-family: sans-serif;
 }
 .nav-right button {
-  color: #010a17 !important;
+  color: #30454b !important ; /* changed to dark blue color */
 }
 
 .button {
   padding: 2px;
   width: 80px;
-  color: #000000 !important;
-  background-color: #44679f;
+  color: #30454b !important;
+  background-color: #dc9e4a; /* changed to orange color */
   border: none;
   border-radius: 5px;
+}
+
+/* modified some hover effects */
+
+.nav-left a:hover,
+.nav-right a:hover,
+.button:hover {
+  transform: scale(1.1); /* make slightly bigger */
+  transition-duration: 0.3s; /* smooth transition */
+  box-shadow: none; /* remove shadow */
+}
+
+li:hover {
+  transform: scale(1.1); /* make slightly bigger */
+  transition-duration: 0.3s; /* smooth transition */
+  box-shadow: none; /* remove shadow */
 }
 .ppage {
   background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
@@ -131,8 +152,9 @@
 
 .Body {
   /* border: 1px black solid; */
-  background-color: #ddf5f7;
-  height: 700px;
+  background-image: url(images/bodyback.svg);
+  background-repeat: no-repeat;
+  height: 1070px;
   width: 100%;
   margin: auto;
 }
@@ -142,15 +164,16 @@ a {
 }
 /* Footer */
 .site-footer {
-  background-color: #333333;
+  /* background-color: #333333; */
+  background-image: url(images/footerback.svg);
   padding: 30px 0;
-  color: #ffffff;
+  color: #000;
   font-size: 14px;
   text-align: center;
 }
 
 .site-footer h3 {
-  color: #ffffff;
+  color: #000;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -161,7 +184,7 @@ a {
 }
 
 .bottom-footer {
-  background-color: #222222;
+  background-color: #dc9e4a;
   padding: 10px 0;
   text-align: center;
 }
@@ -175,17 +198,19 @@ a {
 /* css for admin body */
 
 .AdminPage {
-  background-color: #ddf5f7;
+  background-color: #fff;
   /* background-image: linear-gradient(, #c0d9e5, #b5cbee); */
   height: 800px;
   display: flex;
 }
 .AdminMenu {
-  /* border: black 1px solid; */
-  height: 680px;
+  height: 580px;
   width: 20%;
-  background-color: #44679f;
-  padding-top: 120px;
+  border-radius: 20px;
+  margin-top: 100px;
+  margin-left: 2.5%;
+  background-color: #30454bca;
+  padding-top: 50px;
   align-items: center;
   text-align: center;
 }
@@ -193,26 +218,34 @@ a {
   padding: 10px;
   width: 250px;
   color: #c0d9e5 !important;
-  background-color: #ddf5f7;
+  background-color: #f1f6f2;
   border: none;
   margin-top: 10px;
   border-radius: 5px;
 }
 .AdminDash {
-  /* border: black 1px solid; */
-  color: #3b577d;
+  border: black 1px solid;
+  color: #75914b;
   height: 715px;
-  width: 80%;
-  background-color: #ddf5f7;
-  padding-top: 85px;
-  padding-left: 20px;
+  width: 73.8%;
+  background-color: #fff;
+  margin-top: 80px;
+  margin-left: 20px;
+  box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+  .AdminDash {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    padding: 20px;
+  }
+}
+
 .AddEmpForm {
-  background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
   height: 800px;
   display: flex;
-  justify-content: center;
-  justify-items: center;
 }
 .AddEmpForm input[type="text"] {
   border-color: white;
@@ -224,11 +257,6 @@ a {
   /* position: relative; */
 }
 .EmpFormButton {
-  /* position: absolute; */
-  /* align-self: flex-start;
-  grid-column: 1/-1; */
-  /* bottom: -30%;
-  left: 35.5%; */
   display: grid;
   justify-content: flex-start;
 }
@@ -242,16 +270,25 @@ a {
 }
 .LandingBody {
   padding-top: 80px;
-  background-image: url("images/background.svg");
+  /* Use a linear-gradient with the color and some transparency */
+  background-image: linear-gradient(
+      rgba(48, 69, 75, 0.5),
+      rgba(48, 69, 75, 0.727)
+    ),
+    url("images/background2.jpg");
+  /* Blend the gradient and the image */
+  background-blend-mode: multiply;
   background-size: 100% 100%;
   width: 100%; /* adjust to your desired width */
-  height: 650px;
-  display: flex;
+  height: 850px;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 .LandingBox {
-  /* padding: 20px; */
+  margin-left: 8%;
+  margin-top: 3%;
+  padding: 20px;
   align-items: center;
   border: 10px solid rgba(255, 255, 255, 0.746);
   color: white;
@@ -260,12 +297,15 @@ a {
   width: 80%;
   text-align: center;
 }
+.LandingBox h1 {
+  font-family: sans-serif;
+}
 
 .btn-crud {
   padding: 2px;
   width: 80px;
   color: #000000 !important;
-  background-color: #59c757;
+  background-color: #75914b;
   border: none;
   border-radius: 5px;
 }
@@ -273,7 +313,7 @@ a {
   color: white !important ;
 }
 .btn-crud-2 {
-  background-color: red;
+  background-color: #f44336;
 }
 .btn-crud-2 a {
   color: white !important ;
@@ -281,13 +321,25 @@ a {
 .cardContainer {
   display: flex !important;
   justify-content: center;
-
+  width: 100%;
   gap: 50px;
+  overflow-x: auto;
 }
+
+@media (max-width: 768px) {
+  .cardContainer {
+    flex-wrap: wrap;
+    width: 100%;
+    overflow-x: visible;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+}
+
 .card {
   margin-top: 50px;
   text-align: center !important;
-  width: 330px;
+  width: 320px;
   height: 200px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -297,22 +349,25 @@ a {
 }
 
 .card-header {
-  background-color: #f8f9fa;
+  background-color: #dc9e4a;
   padding: 10px 20px;
   border-bottom: 1px solid #ddd;
 }
 
 .card-header h3 {
+  color: #fff;
   margin: 0;
   font-size: 25px;
   font-weight: 600;
 }
 
 .card-body {
+  background-color: #9fa8b2;
   padding: 20px;
 }
 
 .card-body p {
+  color: #f1f6f2;
   margin: 0;
   font-size: 80px;
   line-height: 1.5;
@@ -333,7 +388,7 @@ a {
   color: #3b577d;
   height: 800px;
   width: 99%;
-  background-color: #ddf5f7;
+  background-color: #fff;
   padding-top: 85px;
   padding-left: 20px;
 }
@@ -399,12 +454,9 @@ a {
 }
 /* bookbody */
 .BookBodyControl {
-  /* display: flex !important;
-  justify-content: center; */
-  /* margin-left: 100px; */
-  background-color: #ddf5f7;
-  border: 1px solid black;
-  height: 800px;
+  background-color: hsl(0, 0%, 100%);
+
+  height: 100%;
   width: 100%;
 }
 .BookBox {
@@ -412,24 +464,74 @@ a {
   display: flex;
   justify-content: center;
   justify-items: center;
-  background-color: #44679f;
+  background-color: #30454b;
   margin-top: 100px;
-  margin-left: 130px;
+  margin-left: 10%;
   /* border: 1px solid black; */
   box-shadow: 1px 1px 5px black;
   border-radius: 10px;
   height: 60px;
-  width: 1200px;
+  width: 80%;
 }
-.BookBox input[type="text"],
-select {
+.BookBoxResult {
+  background-color: #30454b;
+  margin-top: 20px;
+  margin-left: 130px;
+  /* border: 1px solid black; */
+  margin-left: 10%;
+
+  box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+  height: 550px;
+  width: 80%;
+}
+.BookBoxResult table {
+  background-color: #565555;
+  height: auto;
+  width: 100%;
+}
+
+.BookBox input[type="text"] {
   color: #3b577d;
   height: 30px;
+  width: 25%;
   font-size: 16px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
+}
+.BookBox select {
+  color: #3b577d;
+  height: 30px;
+  width: 25%;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.BookBox2 input[type="text"] {
+  color: #fff;
+  width: 900px;
+  height: 30px;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #dc9f4acc;
+  border: 1px solid #30454b56;
+  border-radius: 5px;
+  margin-top: 300px;
+}
+.BookBox button {
+  height: 100px;
+  width: 100px;
+}
+.BookBox2 input[type="text"]:focus {
+  outline: none;
+}
+.BookBox2 ::placeholder {
+  color: white;
 }
 .BookBox button[type="submit"] {
   height: 30px;
@@ -441,16 +543,7 @@ select {
   border-radius: 5px;
   cursor: pointer;
 }
-.BookBoxResult {
-  background-color: #44679f;
-  margin-top: 20px;
-  margin-left: 130px;
-  /* border: 1px solid black; */
-  box-shadow: 1px 1px 5px black;
-  border-radius: 10px;
-  height: 550px;
-  width: 1200px;
-}
+
 .BookBodyControl p {
   color: #ffffff;
 }

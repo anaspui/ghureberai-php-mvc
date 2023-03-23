@@ -14,6 +14,10 @@
         <div class="LandingBox">
             <br><br><br>
             <h1>Experience the magic of travel with GhureBerai's immersive experiences</h1>
+            <div class="BookBox2">
+                <input type="text" placeholder="Search...">
+
+            </div>
         </div>
     </div>
     <div class="Body">

@@ -43,6 +43,7 @@ if (isset($_SESSION['username'])) {
             </fieldset><br><br>
             <div>
                 <img src="<?php echo $Picture ?>" alt="Profile picture" class="profile-pic">
+
             </div>
             <table align="center" style="text-align: left">
                 <tr>

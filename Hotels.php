@@ -28,9 +28,11 @@ session_start();
 <body>
     <?php include('Header.php'); ?>
 
+
     <div class="BookBodyControl">
         <div class="BookBox">
             <form action="Hotels.php">
+
                 <input type="text" placeholder="Search...">
                 <?php
                 include('Connection.php');
@@ -61,7 +63,7 @@ session_start();
         </div>
         <div class="BookBoxResult">
             <br>
-            <table id="viewEmp">
+            <table>
                 <tr>
                     <th>Hotel Name</th>
                     <th>Location</th>

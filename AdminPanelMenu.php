@@ -19,6 +19,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
 <body>
     <div class="AdminMenu">
         <button class="button">
+
             <a href="AdminPanel.php">Dashboard</a>
         </button>
         <?php
