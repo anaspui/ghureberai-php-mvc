@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     header('location: ../UserLogin.php');
     exit();
@@ -57,7 +57,8 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                     </tr>
                     <?php
 
-                    require('../../Controller/CustomerController.php');
+                    require_once('../../Controller/CustomerController.php');
+                    include_once('../../Controller/Admin/DeleteAction.php');
                     $result = viewCustomers();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -68,7 +69,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Username"] . '</td>
                             <td>' . $row["Phone"] . '</td>
                             <td>' . $row["Address"] . '</td>
-                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteid=' . $row["User_Id"] . '">Delete</a></button></td>
+                            <td><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deleteid=' . $row["User_Id"] . '">Delete</a></button></td>
                             </tr>';
                         }
                     }

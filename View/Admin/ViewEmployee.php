@@ -61,6 +61,7 @@ if ($_SESSION['role'] !== "admin") {
                     </tr>
                     <?php
                     include('../../Model/Admin/EmployeeModel.php');
+                    include_once('../../Controller/Admin/DeleteAction.php');
                     $result = viewEmployee();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -72,7 +73,7 @@ if ($_SESSION['role'] !== "admin") {
                             <td>' . $row["Phone"] . '</td>
                             <td>' . $row["Address"] . '</td>
                             <td><button class="button btn-crud"><a href="UpdateEmployee.php?updateid=' . $row["User_Id"] . '">Update</a></button></td>
-                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteid=' . $row["User_Id"] . '">Delete</a></button></td>
+                            <td><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deleteid=' . $row["User_Id"] . '">Delete</a></button></td>
                             </tr>';
                         }
                     }

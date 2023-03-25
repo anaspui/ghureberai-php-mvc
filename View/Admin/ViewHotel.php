@@ -15,16 +15,16 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <title>View Hotels</title>
     <link rel="stylesheet" href="../Assets/index.css">
     <style>
-        #viewEmp th,
-        tr,
-        td {
-            /* border: 1px solid black; */
-            width: 250px;
-            text-align: center;
-            border-bottom: 1px solid #3B577D;
-            border-right: 1px solid #3B577D;
-            ;
-        }
+    #viewEmp th,
+    tr,
+    td {
+        /* border: 1px solid black; */
+        width: 250px;
+        text-align: center;
+        border-bottom: 1px solid #3B577D;
+        border-right: 1px solid #3B577D;
+        ;
+    }
     </style>
 </head>
 
@@ -56,8 +56,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                     </tr>
                     <?php
                     require('../../Controller/Admin/AdminDashboardController.php');
-
-
+                    include_once('../../Controller/Admin/DeleteAction.php');
                     $result = viewHotels();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -68,7 +67,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Description"] . '</td>
                             <td>' . $row["Created_at"] . '</td>
                             <td><button class="button btn-crud"><a href="UpdateHotel.php?updateid=' . $row["Hotel_Id"] . '">Update</a></button></td>
-                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '">Delete</a></button></td>
+                            <td><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '">Delete</a></button></td>
                             </tr>';
                         }
                     }

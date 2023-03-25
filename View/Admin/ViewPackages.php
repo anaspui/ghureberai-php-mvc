@@ -57,6 +57,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                     </tr>
                     <?php
                     require('../../Controller/PackagesController.php');
+                    include_once('../../Controller/Admin/DeleteAction.php');
                     $page = 2;
                     $result = viewAllPackages($page);
                     if ($result->num_rows > 0) {
@@ -69,7 +70,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Start_Date"] . '</td>
                             <td>' . $row["End_Date"] . '</td>
                             <td><button class="button btn-crud"><a href="UpdatePackage.php?updatePack=' . $row["Package_Id"] . '">Update</a></button></td>
-                            <td><button class="button btn-crud-2"><a href="DeleteAction.php?deletePack=' . $row["Package_Id"] . '">Delete</a></button></td>
+                            <td><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deletePack=' . $row["Package_Id"] . '">Delete</a></button></td>
                             </tr>';
                         }
                     }
