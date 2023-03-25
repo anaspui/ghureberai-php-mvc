@@ -7,7 +7,7 @@ session_start();
 <head>
     <title>Login</title>
     <link rel="icon" href="logo.svg">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./Assets/style.css">
 </head>
 
 <body>

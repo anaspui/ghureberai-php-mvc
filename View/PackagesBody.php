@@ -15,7 +15,8 @@
         <div class="PcardContainer">
             <?php
             include('../Controller/PackagesController.php');
-            echo showPackages();
+            $page = 1;
+            echo showPackages($page);
             ?>
 
         </div>

@@ -35,5 +35,22 @@ function getBookings()
     $num_rows = getBookingsNum();
     return $num_rows;
 }
-
+function viewHotels()
+{
+    include('../../Model/Admin/AdminDashboardModel.php');
+    $result = getHotel();
+    return $result;
+}
+function viewTopSelling()
+{
+    include('../../Model/Admin/AdminDashboardModel.php');
+    $result = getTopSellings();
+    return $result;
+}
+function viewBooking()
+{
+    include('../../Model/Admin/AdminDashboardModel.php');
+    $result = getBooking();
+    return $result;
+}
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
-    header('location: ../UserLogin.php');
+    header('location: ../../View/UserLogin.php');
     exit();
 }
 ?>
@@ -56,10 +56,9 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <th colspan="2">Action</th>
                     </tr>
                     <?php
-                    include('Connection.php');
-                    $sql = "SELECT * FROM packages;";
-
-                    $result = $con->query($sql);
+                    require('../../Controller/PackagesController.php');
+                    $page = 2;
+                    $result = viewAllPackages($page);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr>

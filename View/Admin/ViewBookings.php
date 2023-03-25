@@ -15,16 +15,16 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <title>Top Visited Places</title>
     <link rel="stylesheet" href="../Assets/index.css">
     <style>
-    #viewEmp th,
-    tr,
-    td {
-        /* border: 1px solid black; */
-        width: 250px;
-        text-align: center;
-        border-bottom: 1px solid #3B577D;
-        border-right: 1px solid #3B577D;
-        ;
-    }
+        #viewEmp th,
+        tr,
+        td {
+            /* border: 1px solid black; */
+            width: 250px;
+            text-align: center;
+            border-bottom: 1px solid #3B577D;
+            border-right: 1px solid #3B577D;
+            ;
+        }
     </style>
 </head>
 
@@ -54,12 +54,8 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
 
                     </tr>
                     <?php
-                    include('Connection.php');
-                    $sql = "SELECT bookings.*, packages.Name, users.Username
-                    FROM bookings
-                    LEFT JOIN packages ON bookings.package_id = packages.package_id
-                    LEFT JOIN users ON bookings.User_Id = users.User_Id;";
-                    $result = $con->query($sql);
+                    require('../../Controller/Admin/AdminDashboardController.php');
+                    $result = viewBooking();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr>

@@ -55,10 +55,10 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <th colspan="2">Action</th>
                     </tr>
                     <?php
-                    include('Connection.php');
-                    $sql = "SELECT * FROM hotels";
+                    require('../../Controller/Admin/AdminDashboardController.php');
 
-                    $result = $con->query($sql);
+
+                    $result = viewHotels();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr>

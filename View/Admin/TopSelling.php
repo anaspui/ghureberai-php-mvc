@@ -55,10 +55,9 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <th>Updated At</th>
                     </tr>
                     <?php
-                    include('Connection.php');
-                    $sql = "SELECT * FROM packages WHERE P_sold ORDER BY P_sold DESC LIMIT 10;";
 
-                    $result = $con->query($sql);
+                    require('../../Controller/Admin/AdminDashboardController.php');
+                    $result = viewTopSelling();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr><td>' . $row["Name"] . '</td><td>' . $row["Hotel_Name"] . '</td><td>' . $row["P_sold"] . '</td><td>' . $row["P_left"] . '</td><td>' . $row["Created_at"] . '</td><td>' . $row["Updated_at"] . '</td></tr>';

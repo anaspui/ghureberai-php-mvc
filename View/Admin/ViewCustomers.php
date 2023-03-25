@@ -56,11 +56,9 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <th colspan="2">Action</th>
                     </tr>
                     <?php
-                    include('Connection.php');
-                    // $conn = mysqli_connect("localhost", "root", "", "GhureBerai");
-                    $sql = "SELECT * FROM users WHERE role = 'customer'";
 
-                    $result = $con->query($sql);
+                    require('../../Controller/CustomerController.php');
+                    $result = viewCustomers();
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<tr>

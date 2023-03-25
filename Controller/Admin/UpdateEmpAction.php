@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("Connection.php");
+include("../../Model/Connection.php");
 $_SESSION['UpdateEmpError'] = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -15,51 +15,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $isValid = false;
 
 
-    $chkUsername = "select * from users where Username = '$username'";
-    $result1 = mysqli_query($con, $chkUsername);
-    $isValid = false;
-    $usernameValidity = false;
 
+    $usernameValidity = false;
+    require('../../Model/Admin/EmployeeModel.php');
     //check if username is valid or not
-    if (mysqli_num_rows($result1) > 0) {
-        $chkUsername2 = "select * from users where Username = '$username' and User_Id = '$userid'";
-        $result2 = mysqli_query($con, $chkUsername2);
-        if (mysqli_num_rows($result1) == 1) {
-            $usernameValidity = true;
-        } else {
-            $_SESSION['UpdateEmpError'] = "Username is taken, try again";
-            header('Location: UpdateEmployee.php?updateid=' . $userid . '');
-            exit();
-        }
-    } else if (mysqli_num_rows($result1) == 0) {
+    if (userValidity($username, $userid)) {
         $usernameValidity = true;
+    } else {
+        $_SESSION['UpdateEmpError'] = "Username is taken, try again";
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
+        exit();
     }
 
-    /////***********************************************////// /////***********************************************////// 
-    //old code
-    //checks if fields are filled or not
     if (
         empty($username) && empty($password) && empty($firstName) && empty($lastName)
     ) {
         $_SESSION['UpdateEmpError'] = "Please some valid information";
-        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
         exit();
 
     } else if (empty($firstName)) {
         $_SESSION['UpdateEmpError'] = "Please insert first name";
-        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (empty($lastName)) {
         $_SESSION['UpdateEmpError'] = "Please insert last name";
-        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (empty($username)) {
         $_SESSION['UpdateEmpError'] = "Please Enter a User Name";
-        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (empty($password)) {
         $_SESSION['UpdateEmpError'] = "Password cannot be empty";
-        header("Location: UpdateEmployee.php?updateid=$userid");
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
         exit();
     } else if (
         !empty($username) && !empty($password) && !empty($firstName) && !empty($lastName)
@@ -70,19 +59,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (
         !empty($username) && !empty($password) && !is_numeric($username) && !empty($firstName) && !empty($lastName) && $isValid === true && $usernameValidity === true
     ) {
+        require('../../Model/Admin/EmployeeModel.php');
+        if (update($username, $password, $firstName, $lastName, $userid)) {
+            $_SESSION['UpdateEmpError'] = "Updated Successfully";
+            header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
 
-        $query2 = "UPDATE users SET Username= '$username', Password='$password', firstName= '$firstName', Lastname='$lastName' WHERE User_Id = $userid";
-        mysqli_query($con, $query2);
-        $_SESSION['UpdateEmpError'] = "Updated Successfully";
-        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
-
+        }
 
     } else if (
         empty($username) || empty($password) || is_numeric($username) || empty($firstName) || empty($lastName) ||
         $isValid === false || $usernameValidity === false
     ) {
         $_SESSION['UpdateEmpError'] = "Please enter some valid information!";
-        header('Location: UpdateEmployee.php?updateid=' . $userid . '');
+        header('Location: ../../View/Admin/UpdateEmployee.php?updateid=' . $userid . '');
     }
 }
 
@@ -92,5 +81,22 @@ function sanitize($data)
     $data = htmlspecialchars($data);
     $data = trim($data);
     return $data;
+}
+
+function userType()
+{
+    if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
+        header('location: ../../View/UserLogin.php');
+        exit();
+    }
+}
+function EmpData($updateid)
+{
+    require('../../Model/Admin/EmployeeModel.php');
+
+    $userid = $updateid;
+    $user_data = getEmpData($userid);
+    return $user_data;
+
 }
 ?>

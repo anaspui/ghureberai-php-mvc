@@ -1,15 +1,10 @@
 <?php
-session_start();
-if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
-    header('location: UserLogin.php');
-    exit();
-}
-include 'Connection.php';
+// session_start();
+include('../../Controller/Admin/UpdateEmpAction.php');
+userType();
 if (isset($_GET['updateid'])) {
-    $userid = $_GET['updateid'];
-    $query = "select * from users where User_Id = '$userid' limit 1";
-    $result = mysqli_query($con, $query);
-    $user_data = mysqli_fetch_assoc($result);
+    $updateid = $_GET['updateid'];
+    $user_data = EmpData($updateid);
 }
 
 $username = $user_data['Username'];
@@ -25,22 +20,22 @@ $password = $user_data['Password'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Update Profile</title>
+    <link rel="stylesheet" href="../Assets/index.css">
+    <title>Update Employee</title>
     <style>
-        .check {
-            padding-top: 150px;
-            padding-left: 420px;
-            align-items: center;
-            color: #3B577D;
-            text-align: center;
-        }
+    .check {
+        padding-top: 150px;
+        padding-left: 420px;
+        align-items: center;
+        color: #3B577D;
+        text-align: center;
+    }
 
-        .check button {
-            color: white !important;
-            background-color: green;
-            align: center;
-        }
+    .check button {
+        color: white !important;
+        background-color: green;
+        align: center;
+    }
     </style>
 </head>
 
@@ -52,7 +47,7 @@ $password = $user_data['Password'];
         <div class="AdminPage">
             <?php
             include('Header.php');
-            include('AdminPanelMenu.php');
+            include('../Admin/AdminPanelMenu.php');
             ?>
             <div class="check ">
                 <fieldset
@@ -63,7 +58,8 @@ $password = $user_data['Password'];
                 </fieldset><br>
 
 
-                <form method="POST" action="UpdateEmpAction.php?updateid=<?php echo $userid ?>">
+                <form method="POST"
+                    action="../../Controller/Admin/UpdateEmpAction.php?updateid=<?php echo $updateid ?>">
                     <table align="center" style="text-align: left">
                         <tr>
                             <td><label for="fname">First Name</label></td>
@@ -111,7 +107,7 @@ $password = $user_data['Password'];
         </div>
     </div>
     <?php
-    include('Footer.php');
+    include('../Footer.php');
     ?>
 </body>
 

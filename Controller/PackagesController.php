@@ -1,8 +1,8 @@
 <?php
-function showPackages()
+function showPackages($page)
 {
-    require('../Model/PackagesModel.php');
-    $rows = getPackages();
+    require('../Model/Admin/PackagesModel.php');
+    $rows = getPackages($page);
     if ($rows) {
         while ($row = $rows->fetch_assoc()) {
             echo '<div class="Pcard">
@@ -42,6 +42,12 @@ function showPackages()
         }
     }
 
+}
+function viewAllPackages($page)
+{
+    require('../../Model/Admin/PackagesModel.php');
+    $result = getPackages($page);
+    return $result;
 }
 
 ?>

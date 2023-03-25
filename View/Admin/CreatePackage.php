@@ -4,6 +4,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     header('location: ../UserLogin.php');
     exit();
 }
+include('../../Controller/Admin/CreatePkgAction.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="CreatePkgAction.php">
+                        <form method="POST" action="../../Controller/Admin/CreatePkgAction.php">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
@@ -52,9 +53,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                                         <td>:</td>
                                         <td>
                                             <?php
-                                            include('Connection.php');
-                                            $sql = "SELECT Hotel_Name FROM hotels";
-                                            $result = $con->query($sql);
+                                            $result = getHotelNames();
                                             echo "<select class='hselect'name='Hotel_Name'>";
                                             while ($row = $result->fetch_assoc()) {
                                                 echo "<option value='" . $row["Hotel_Name"] . "'>" . $row["Hotel_Name"] . "</option>";
@@ -102,8 +101,8 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                                         <td colspan="3">
                                             <p style="color:red; font-weight:500">
                                                 <?php if (!empty($_SESSION['CreatePkgError'])) {
-                                                    echo $_SESSION['CreatePkgError'];
-                                                    unset($_SESSION['CreatePkgError']);
+                                                    print_r($_SESSION['CreatePkgError']);
+                                                    // unset($_SESSION['CreatePkgError']);
                                                 } ?>
                                             </p>
                                         </td>
@@ -118,10 +117,6 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                 </div>
             </div>
         </div>
-
-
-
-
         <?php
         include("../Footer.php");
         ?>

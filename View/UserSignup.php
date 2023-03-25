@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <title>Signup</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./Assets/style.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@ session_start();
 
     <div class="page">
         <div class="box reg" align="center">
-            <img src="images/logo.png" alt="logo" style="height: 100px"><br><br>
+            <img src="./Assets/images/logo.png" alt="logo" style="height: 100px"><br><br>
             <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
                     <h1 align="center">Sign Up</h1>

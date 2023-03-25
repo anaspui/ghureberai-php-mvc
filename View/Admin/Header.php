@@ -37,7 +37,7 @@
                     <li>
 
                         <p>
-                            <a href="MyBookings.php">My Bookings</a>
+                            <a href="../../View/MyBookings.php">My Bookings</a>
                         </p>
 
 
@@ -45,7 +45,7 @@
                     <li>
                         <?php
                         if (isset($_SESSION["username"])) { ?>
-                        <p><a href="Profile.php">
+                        <p><a href="../../View/Profile.php">
                                 <?php
                                     echo "Welcome, " . $_SESSION["username"];
                                     ?>
