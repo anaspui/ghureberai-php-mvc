@@ -25,100 +25,12 @@ include('../../Controller/Admin/AdminDashboardController.php');
                 <h1 align="center">Dashboard</h1>
             </legend>
         </fieldset>
-        <div class="cardContainer">
-            <a href="ViewCustomers.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Customers</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            <?php
-                            echo getCustomers();
-                            ?>
-                        </p>
-                    </div>
-                </div>
-            </a>
-            <?php
-            if ($_SESSION['role'] == "admin") {
-                ?>
-                <a href="ViewEmployee.php">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Employees</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                <?php
-
-                                echo getEmployees();
-                                ?>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            <?php } ?>
-            <a href="ViewHotel.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Hotels</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            <?php
-                            echo getHotels();
-                            ?>
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardContainer">
-            <a href="ViewPackages.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Packages</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            <?php echo getPackages(); ?>
-                        </p>
-                    </div>
-                </div>
-            </a>
-            <a href="TopSelling.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Packages Sold</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            <?php echo getTopSelling() ?>
-                        </p>
-                    </div>
-                </div>
-            </a>
-            <a href="ViewBookings.php">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Bookings</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                            <?php echo getBookings() ?>
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
 
 
-    <?php
-    include("../Footer.php");
-    ?>
-
+        <?php
+        include_once('../../Controller/Admin/AdminDashboardController.php');
+        renderDashboardCards();
+        ?>
 </body>
 
 </html>

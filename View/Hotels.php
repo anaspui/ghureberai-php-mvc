@@ -34,28 +34,29 @@ session_start();
 
                 <input type="text" placeholder="Search...">
                 <?php
-                include('Connection.php');
-                $sql = "SELECT Hotel_Name FROM hotels";
-                $result = $con->query($sql);
-                echo "<select class='hselect' name='Hotel_Name'>";
-                echo "<option value=''>Available Hotels</option>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row["Hotel_Name"] . "'>" . $row["Hotel_Name"] . "</option>";
-                }
-                echo "</select>";
-                ?>
+                // include('Connection.php');
+                // $sql = "SELECT Hotel_Name FROM hotels";
+                // $result = $con->query($sql);
+                // echo "<select class='hselect' name='Hotel_Name'>";
+                // echo "<option value=''>Available Hotels</option>";
+                // while ($row = $result->fetch_assoc()) {
+                //     echo "<option value='" . $row["Hotel_Name"] . "'>" . $row["Hotel_Name"] . "</option>";
+                // }
+                // echo "</select>";
+                // ?>
+                //
                 <?php
-                include('Connection.php');
-                $sql = "SELECT DISTINCT Location FROM hotels;";
-                $result = $con->query($sql);
-                // $die = mysqli_error($con);
-                // var_dump($die);
-                echo "<select class='hselect' name='Location'>";
-                echo "<option value=''>Location</option>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row["Location"] . "'>" . $row["Location"] . "</option>";
-                }
-                echo "</select>";
+                // include('Connection.php');
+                // $sql = "SELECT DISTINCT Location FROM hotels;";
+                // $result = $con->query($sql);
+                // // $die = mysqli_error($con);
+                // // var_dump($die);
+                // echo "<select class='hselect' name='Location'>";
+                // echo "<option value=''>Location</option>";
+                // while ($row = $result->fetch_assoc()) {
+                //     echo "<option value='" . $row["Location"] . "'>" . $row["Location"] . "</option>";
+                // }
+                // echo "</select>";
                 ?>
                 <button type="submit" name="search">Search</button>
             </form>
@@ -69,26 +70,26 @@ session_start();
                     <th>Description</th>
                 </tr>
                 <?php
-                include('Connection.php');
-                if (isset($_GET['search'])) {
-                    $hotelName = $_GET['Hotel_Name'];
-                    $location = $_GET['Location'];
-                    $sql = "SELECT * FROM hotels WHERE Hotel_Name LIKE '%$hotelName%' AND Location LIKE '%$location%'";
-                } else {
-                    $sql = "SELECT * FROM hotels";
-                }
-                $result = $con->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<tr>
-                        <td>' . $row["Hotel_Name"] . '</td>
-                        <td>' . $row["Location"] . '</td>
-                        <td>' . $row["Description"] . '</td>
-                        </tr>';
-                    }
-                } else {
-                    echo "<tr><td colspan='3'>No hotels found</td></tr>";
-                }
+                // include('Connection.php');
+                // if (isset($_GET['search'])) {
+                //     $hotelName = $_GET['Hotel_Name'];
+                //     $location = $_GET['Location'];
+                //     $sql = "SELECT * FROM hotels WHERE Hotel_Name LIKE '%$hotelName%' AND Location LIKE '%$location%'";
+                // } else {
+                //     $sql = "SELECT * FROM hotels";
+                // }
+                // $result = $con->query($sql);
+                // if ($result->num_rows > 0) {
+                //     while ($row = $result->fetch_assoc()) {
+                //         echo '<tr>
+                //         <td>' . $row["Hotel_Name"] . '</td>
+                //         <td>' . $row["Location"] . '</td>
+                //         <td>' . $row["Description"] . '</td>
+                //         </tr>';
+                //     }
+                // } else {
+                //     echo "<tr><td colspan='3'>No hotels found</td></tr>";
+                // }
                 ?>
             </table>
         </div>
@@ -96,7 +97,7 @@ session_start();
 
 
 
-    <?php include('../Footer.php'); ?>
+    <?php include('./Footer.php'); ?>
 </body>
 
 </html>

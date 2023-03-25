@@ -19,16 +19,18 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
 </head>
 
 <body>
-    <div class="AdminPage">
-        <?php
-        include("Header.php");
-        include('AdminPanelMenu.php');
-        include('AdminDashboard.php');
-        ?>
+    <div>
+        <div class="AdminPage">
+            <?php
+            include("Header.php");
+            include('AdminPanelMenu.php');
+            include('AdminDashboard.php');
+            ?>
+        </div>
     </div>
     <div>
         <?php
-        include("Footer.php");
+        include("../Footer.php");
         ?>
     </div>
 </body>
