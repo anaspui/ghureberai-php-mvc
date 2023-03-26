@@ -14,18 +14,10 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Hotels</title>
     <link rel="stylesheet" href="../Assets/index.css">
-    <style>
-    #viewEmp th,
-    tr,
-    td {
-        /* border: 1px solid black; */
-        width: 250px;
-        text-align: center;
-        border-bottom: 1px solid #3B577D;
-        border-right: 1px solid #3B577D;
-        ;
-    }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -45,7 +37,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <h1 align="center">Hotels</h1>
                     </legend>
                 </fieldset>
-                <table id="viewEmp">
+                <table class="customers">
                     <tr>
                         <th>Hotel Id</th>
                         <th>Hotel Name</th>
@@ -66,8 +58,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Location"] . '</td>
                             <td>' . $row["Description"] . '</td>
                             <td>' . $row["Created_at"] . '</td>
-                            <td><button class="button btn-crud"><a href="UpdateHotel.php?updateid=' . $row["Hotel_Id"] . '">Update</a></button></td>
-                            <td><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '">Delete</a></button></td>
+                            <td><button class="button btn-crud"><i class="bi bi-pencil-square"></i><a href="UpdateHotel.php?updateid=' . $row["Hotel_Id"] . '"></a></button><button class="button btn-crud-2"><i class="bi bi-trash-fill"></i><a href="../../Controller/Admin/DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '"></a></button></td>
                             </tr>';
                         }
                     }

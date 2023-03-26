@@ -77,7 +77,6 @@
   border: none;
   border-radius: 5px;
 }
-
 /* modified some hover effects */
 
 .nav-left a:hover,
@@ -225,7 +224,7 @@ a {
 }
 .AdminDash {
   border: black 1px solid;
-  color: #75914b;
+  color: #3b577d;
   height: 715px;
   width: 73.8%;
   background-color: #fff;
@@ -242,7 +241,37 @@ a {
     padding: 20px;
   }
 }
+/* //Admin PANEL TABLES */
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+.customers td,
+.customers th {
+  text-align: center;
+  width: 1%;
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+.customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.customers tr:hover {
+  background-color: #ddd;
+}
+
+.customers th {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #dc9e4a;
+  color: white;
+}
+/* ///////////////////////////////////////// */
 .AddEmpForm {
   height: 800px;
   display: flex;
@@ -312,12 +341,46 @@ a {
 .btn-crud a {
   color: white !important ;
 }
+.btn-crud {
+  background-color: transparent;
+  border: 1px solid #198754;
+  width: 40px;
+}
+.btn-crud:hover {
+  background-color: #198754;
+}
+.btn-crud:hover i {
+  color: rgb(255, 255, 255);
+}
+.btn-crud i {
+  font-size: 25px;
+  color: #198754;
+  cursor: pointer;
+}
+/* delete button */
 .btn-crud-2 {
-  background-color: #f44336;
+  margin-left: 18px;
+  background-color: transparent;
+  border: 1px solid red;
+  width: 40px;
 }
-.btn-crud-2 a {
+.btn-crud-2:hover {
+  background-color: red;
+}
+.btn-crud-2:hover i {
+  color: rgb(255, 255, 255);
+}
+.bi,
+.bi-trash-fill i {
+  font-size: 25px;
+  color: rgb(253, 1, 1);
+  cursor: pointer;
+}
+/* /// */
+/* .btn-crud-2 a {
   color: white !important ;
-}
+  width: 25px;
+} */
 .cardContainer {
   display: flex !important;
   justify-content: center;

@@ -14,18 +14,6 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Visited Places</title>
     <link rel="stylesheet" href="../Assets/index.css">
-    <style>
-        #viewEmp th,
-        tr,
-        td {
-            /* border: 1px solid black; */
-            width: 250px;
-            text-align: center;
-            border-bottom: 1px solid #3B577D;
-            border-right: 1px solid #3B577D;
-            ;
-        }
-    </style>
 </head>
 
 <body>
@@ -43,7 +31,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <h1 align="center">Bookings</h1>
                     </legend>
                 </fieldset>
-                <table id="viewEmp">
+                <table class="customers">
                     <tr>
                         <th>Booking Id</th>
                         <th>Booked By</th>
