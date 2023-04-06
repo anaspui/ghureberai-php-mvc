@@ -58,7 +58,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Location"] . '</td>
                             <td>' . $row["Description"] . '</td>
                             <td>' . $row["Created_at"] . '</td>
-                            <td><button class="button btn-crud"><i class="bi bi-pencil-square"></i><a href="UpdateHotel.php?updateid=' . $row["Hotel_Id"] . '"></a></button><button class="button btn-crud-2"><i class="bi bi-trash-fill"></i><a href="../../Controller/Admin/DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '"></a></button></td>
+                            <td><button class="button btn-crud"><a href="UpdateHotel.php?updateid=' . $row["Hotel_Id"] . '"><i class="bi bi-pencil-square"></i></a></button><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deleteHotel=' . $row["Hotel_Id"] . '"><i class="bi bi-trash-fill"></i></a></button></td>
                             </tr>';
                         }
                     }

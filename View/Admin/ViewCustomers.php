@@ -56,7 +56,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Username"] . '</td>
                             <td>' . $row["Phone"] . '</td>
                             <td>' . $row["Address"] . '</td>
-                            <td><button class="button btn-crud-2"><i class="bi bi-trash-fill"></i><a href="../../Controller/Admin/DeleteAction.php?deleteid=' . $row["User_Id"] . '"></a></button></td>
+                            <td><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deleteid=' . $row["User_Id"] . '"><i class="bi bi-trash-fill"></i></a></button></td>
                             </tr>';
                         }
                     }

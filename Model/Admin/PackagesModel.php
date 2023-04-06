@@ -14,7 +14,13 @@ function getPackages($page)
         $result = $con->query($sql);
         return $result;
     }
-
+}
+function getPackage($Package_Id)
+{
+    require('../../Model/Connection.php');
+    $sql = "select * from packages where Package_Id = $Package_Id";
+    $result = $con->query($sql);
+    return $result;
 }
 function getHotels()
 {
@@ -34,6 +40,13 @@ function validatePkgName($Name)
         return true;
     }
 }
+function c_validatePkgName($Name)
+{
+    require('../../Model/Connection.php');
+    $chkPkgName = "SELECT * FROM packages WHERE Name = '$Name' AND Package_Id = $Package_Id";
+    $result = mysqli_query($con, $chkPkgName);
+    return $result;
+}
 function createPackage($Name, $Hotel_Name, $Description, $Price, $Days, $P_left, $Start_Date, $End_Date, $Img_url)
 {
     require('../../Model/Connection.php');
@@ -43,4 +56,12 @@ function createPackage($Name, $Hotel_Name, $Description, $Price, $Days, $P_left,
         return true;
     }
 }
-?>
+function updatePackage($Package_Id, $Name, $Hotel_Name, $Description, $Price, $Days, $P_left, $Start_Date, $End_Date, $Image_url)
+{
+    require('../../Model/Connection.php');
+    $update = "UPDATE `packages` SET `Name`='$Name', `Hotel_Name`='$Hotel_Name', `Description`='$Description', `Price`=$Price, `Days`=$Days, `P_left`=$P_left, `Image_url`='$Image_url', `Start_Date` ='$Start_Date', `End_Date`='$End_Date' WHERE `Package_Id`=$Package_Id";
+    $result = mysqli_query($con, $update);
+    if ($update) {
+        return true;
+    } else return false;
+}

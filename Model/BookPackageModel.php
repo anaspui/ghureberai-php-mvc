@@ -15,5 +15,4 @@ function Book($User_Id, $Package_Id)
     $query2 = "insert into `bookings`(`Package_Id`, `User_Id`, `Start_Date`, `End_Date`, `Price`) VALUES('$Package_Id', '$User_Id', '$Start_Date', '$End_Date', '$Price')";
     $result2 = mysqli_query($con, $query2);
 }
-
 ?>

@@ -15,7 +15,7 @@
             <div class="nav-left">
 
                 <div class="logo">
-                    <a href="Index.php"><img src="../Assets/images/logo.png" alt="logo"> </a>
+                    <a href="../Index.php"><img src="../Assets/images/logo.png" alt="logo"> </a>
                 </div>
                 <ul>
                     <li><a href="../../View/index.php">Home</a></li>
@@ -27,8 +27,8 @@
 
                         if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'employee') {
                             ?>
-                    <li><a href="../Admin/AdminPanel.php">Admin Panel</a></li>
-                    <?php }
+                            <li><a href="../Admin/AdminPanel.php">Admin Panel</a></li>
+                        <?php }
                     } ?>
                 </ul>
             </div>
@@ -45,21 +45,21 @@
                     <li>
                         <?php
                         if (isset($_SESSION["username"])) { ?>
-                        <p><a href="../../View/Profile.php">
-                                <?php
+                            <p><a href="../../View/Profile.php">
+                                    <?php
                                     echo "Welcome, " . $_SESSION["username"];
                                     ?>
-                        </p>
+                            </p>
                         <?php } else { ?>
-                        <Button class="button"><a href="UserLogin.php">Login</a></Button>
+                            <Button class="button"><a href="UserLogin.php">Login</a></Button>
                         <?php } ?>
                     </li>
                     <li>
                         <?php
                         if (isset($_SESSION['username'])) {
                             ?>
-                        <Button class="button"><a href="../../Controller/UserLogout.php">Logout</a></Button>
-                        <?php
+                            <Button class="button"><a href="../../Controller/UserLogout.php">Logout</a></Button>
+                            <?php
                         } ?>
                     </li>
                 </ul>

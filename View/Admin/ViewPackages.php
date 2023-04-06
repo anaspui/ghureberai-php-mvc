@@ -59,7 +59,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                             <td>' . $row["Updated_at"] . '</td>
                             <td>' . $row["Start_Date"] . '</td>
                             <td>' . $row["End_Date"] . '</td>
-                            <td><button class="button btn-crud"><i class="bi bi-pencil-square"></i><a href="UpdatePackage.php?updatePack=' . $row["Package_Id"] . '"></a></button><button class="button btn-crud-2"><i class="bi bi-trash-fill"></i><a href="../../Controller/Admin/DeleteAction.php?deletePack=' . $row["Package_Id"] . '"></a></button></td>
+                            <td><button class="button btn-crud"><a href="UpdatePackage.php?updatePack=' . $row["Package_Id"] . '"><i class="bi bi-pencil-square"></i></a></button><button class="button btn-crud-2"><a href="../../Controller/Admin/DeleteAction.php?deletePack=' . $row["Package_Id"] . '"><i class="bi bi-trash-fill"></i></a></button></td>
                             </tr>';
                         }
                     }

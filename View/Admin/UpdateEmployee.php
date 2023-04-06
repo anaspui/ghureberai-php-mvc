@@ -1,5 +1,7 @@
 <?php
-// session_start();
+// if (session_status() === PHP_SESSION_NONE) {
+//     session_start();
+// }
 include('../../Controller/Admin/UpdateEmpAction.php');
 userType();
 if (isset($_GET['updateid'])) {
@@ -23,19 +25,19 @@ $password = $user_data['Password'];
     <link rel="stylesheet" href="../Assets/index.css">
     <title>Update Employee</title>
     <style>
-    .check {
-        padding-top: 150px;
-        padding-left: 420px;
-        align-items: center;
-        color: #3B577D;
-        text-align: center;
-    }
+        .check {
+            padding-top: 150px;
+            padding-left: 420px;
+            align-items: center;
+            color: #3B577D;
+            text-align: center;
+        }
 
-    .check button {
-        color: white !important;
-        background-color: green;
-        align: center;
-    }
+        .check button {
+            color: white !important;
+            background-color: green;
+            align: center;
+        }
     </style>
 </head>
 
@@ -50,36 +52,31 @@ $password = $user_data['Password'];
             include('../Admin/AdminPanelMenu.php');
             ?>
             <div class="check ">
-                <fieldset
-                    style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+                <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                     <legend style="text-align: center">
                         <h1 align="center">Update Employee</h1>
                     </legend>
                 </fieldset><br>
 
 
-                <form method="POST"
-                    action="../../Controller/Admin/UpdateEmpAction.php?updateid=<?php echo $updateid ?>">
+                <form method="POST" action="../../Controller/Admin/UpdateEmpAction.php?updateid=<?php echo $updateid ?>">
                     <table align="center" style="text-align: left">
                         <tr>
                             <td><label for="fname">First Name</label></td>
                             <td>:</td>
-                            <td><Input type="text" name="firstName" id="firstName"
-                                    value="<?php echo $firstName ?>"></Input>
+                            <td><Input type="text" name="firstName" id="firstName" value="<?php echo $firstName ?>"></Input>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="lname">Last Name</label></td>
                             <td>:</td>
-                            <td><Input type="text" name="lastName" id="lastName"
-                                    value="<?php echo $lastName ?>"></Input>
+                            <td><Input type="text" name="lastName" id="lastName" value="<?php echo $lastName ?>"></Input>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="Username">Username </label></td>
                             <td>:</td>
-                            <td><Input type="text" name="username" id="username"
-                                    value="<?php echo $username ?>"></Input>
+                            <td><Input type="text" name="username" id="username" value="<?php echo $username ?>"></Input>
                             </td>
                         </tr>
                         <tr>
