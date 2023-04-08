@@ -1,7 +1,9 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-include("Connection.php");
+
 $_SESSION['UpdateHotelError'] = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -15,42 +17,33 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $date = new DateTime();
     $CurrentTime = $date->format('Y-m-d H:i:s');
     $isValid = false;
-
-
-    $chkHotelname = "SELECT * FROM hotels WHERE Hotel_Name = '$Hotel_Name'";
-    $result1 = mysqli_query($con, $chkHotelname);
-    $isValid = false;
     $NameValidity = false;
 
+    include_once('../../Model/Admin/HotelModel.php');
+    $result = nameValidity($Hotel_Name, $Hotel_Id);
     //check if Hotel Name is valid or not
-    if (mysqli_num_rows($result1) > 0) {
-        $CheckHotel = "select * from hotels where Hotel_Name = '$Hotel_Name' and Hotel_Id = '$Hotel_Id'";
-        $result2 = mysqli_query($con, $CheckHotel);
-        if (mysqli_num_rows($result2) == 1) {
-            $NameValidity = true;
-        } else {
-            $_SESSION['UpdateHotelError'] = "Hotel Exists";
-            header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
-            exit();
-        }
-    } else if (mysqli_num_rows($result1) == 0) {
+    if ($result) {
         $NameValidity = true;
+    } else {
+        $_SESSION['UpdateHotelError'] = "Hotel Exists";
+        header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        exit();
     }
+
     //checks if fields are filled or not
     if (
         empty($Hotel_Name) && empty($Location)
     ) {
         $_SESSION['UpdateHotelError'] = "Please some valid information";
-        header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
         exit();
-
     } else if (empty($Hotel_Name)) {
         $_SESSION['UpdateHotelError'] = "Please insert Hotel name";
-        header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
         exit();
     } else if (empty($Location)) {
         $_SESSION['UpdateHotelError'] = "Please insert Hotels Location";
-        header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
         exit();
     } else if (
         !empty($Hotel_Name) && !empty($Location)
@@ -62,19 +55,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         !empty($Hotel_Name) && !empty($Location) && !is_numeric($Hotel_Name) && !is_numeric($Location) && $isValid === true && $NameValidity === true
     ) {
 
-        $query2 = "UPDATE hotels SET Hotel_Name= '$Hotel_Name', Location='$Location', Description= '$Description', Image='$Image', Created_at='$CurrentTime' WHERE Hotel_Id = '$Hotel_Id'";
-        mysqli_query($con, $query2);
+        // $query2 = "UPDATE hotels SET Hotel_Name= '$Hotel_Name', Location='$Location', Description= '$Description', Image='$Image', Created_at='$CurrentTime' WHERE Hotel_Id = '$Hotel_Id'";
+        // mysqli_query($con, $query2);
         // die(mysqli_error($con));
-        $_SESSION['UpdateHotelError'] = "Updated Successfully";
-        header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
-
-
+        include_once('../../Model/Admin/HotelModel.php');
+        $result = updateHotel($Hotel_Name, $Hotel_Id, $Description, $Location, $Image, $CurrentTime);
+        if ($result) {
+            $_SESSION['UpdateHotelError'] = "Updated Successfully";
+            header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        } else {
+            $_SESSION['UpdateHotelError'] = "Something Went Wrong";
+            header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        }
     } else if (
         empty($Hotel_Name) || empty($Location) || is_numeric($Hotel_Name) ||
         $isValid === false || $NameValidity === false
     ) {
         $_SESSION['UpdateHotelError'] = "Please enter some valid information!";
-        header('Location: UpdateHotel.php?updateid=' . $Hotel_Id . '');
+        header('Location: ../../View/Admin/UpdateHotel.php?updateid=' . $Hotel_Id . '');
     }
 }
 
@@ -85,4 +83,9 @@ function sanitize($data)
     $data = trim($data);
     return $data;
 }
-?>
+function getHotel($Hotel_Id)
+{
+    include_once('../../Model/Admin/HotelModel.php');
+    $result = getHotelData($Hotel_Id);
+    return $result;
+}

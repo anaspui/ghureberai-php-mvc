@@ -1,21 +1,21 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
-    header('location: UserLogin.php');
+    header('location: ../../View/UserLogin.php');
     exit();
 }
-include 'Connection.php';
 if (isset($_GET['updateid'])) {
     $Hotel_Id = $_GET['updateid'];
-    $query = "select * from hotels where Hotel_Id = '$Hotel_Id' limit 1";
-    $result = mysqli_query($con, $query);
-    $hotel_data = mysqli_fetch_assoc($result);
-}
-$Hotel_Name = $hotel_data['Hotel_Name'];
-$Location = $hotel_data['Location'];
-$Description = $hotel_data['Description'];
-$Image_url = $hotel_data['Image'];
+    include('../../Controller/Admin/UpdateHotelAction.php');
+    $hotel_data = getHotel($Hotel_Id);
 
+    $Hotel_Name = $hotel_data['Hotel_Name'];
+    $Location = $hotel_data['Location'];
+    $Description = $hotel_data['Description'];
+    $Image_url = $hotel_data['Image'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,19 +27,19 @@ $Image_url = $hotel_data['Image'];
     <link rel="stylesheet" href="index.css">
     <title>Update Hotel</title>
     <style>
-        .check {
-            padding-top: 150px;
-            padding-left: 420px;
-            align-items: center;
-            color: #3B577D;
-            text-align: center;
-        }
+    .check {
+        padding-top: 150px;
+        padding-left: 420px;
+        align-items: center;
+        color: #3B577D;
+        text-align: center;
+    }
 
-        .check button {
-            color: white !important;
-            background-color: green;
-            align: center;
-        }
+    .check button {
+        color: white !important;
+        background-color: green;
+        align: center;
+    }
     </style>
 </head>
 
@@ -62,7 +62,8 @@ $Image_url = $hotel_data['Image'];
                 </fieldset><br>
 
 
-                <form method="POST" action="UpdateHotelAction.php?updateid=<?php echo $Hotel_Id ?>">
+                <form method="POST"
+                    action="../../Controller/Admin/UpdateHotelAction.php?updateid=<?php echo $Hotel_Id ?>">
                     <table align="center" style="text-align: left">
                         <tr>
                             <td><label for="Hotel_Name">Hotel Name</label></td>
@@ -93,7 +94,8 @@ $Image_url = $hotel_data['Image'];
                         <tr>
                             <td colspan="3">
                                 <p style="color:red; font-weight:500">
-                                    <?php if (!empty($_SESSION['UpdateHotelError'])) {
+                                    <?php
+                                    if (!empty($_SESSION['UpdateHotelError'])) {
                                         echo $_SESSION['UpdateHotelError'];
                                         unset($_SESSION['UpdateHotelError']);
                                     } ?>

@@ -35,7 +35,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="AddHotelAction.php">
+                        <form method="POST" action="../../Controller/Admin/AddHotelAction.php">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>

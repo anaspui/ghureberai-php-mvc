@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("Connection.php");
+// include("Connection.php");
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -12,16 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $now = new DateTime();
     $CurrentTime = $now->format('Y-m-d H:i:s');
 
-
-    $CheckHotel = "SELECT * FROM hotels WHERE Hotel_Name = '" . $Hotel_Name . "'";
-    $result = mysqli_query($con, $CheckHotel);
-
+    //Moved to Model
+    // $CheckHotel = "SELECT * FROM hotels WHERE Hotel_Name = '" . $Hotel_Name . "'";
+    // $result = mysqli_query($con, $CheckHotel);
+    require_once('../../Model/Admin/HotelModel.php');
+    $result = checkHotel($Hotel_Name);
     $isValid = false;
     $HotelNameValid = false;
-
-    if (mysqli_num_rows($result) > 0) {
+    //Get from model
+    if (!$result) {
         $_SESSION['AddHotelError'] = "This Hotel already exists";
-        header("Location: AddHotel.php");
+        header("Location: ../../View/Admin/AddHotel.php");
         exit();
     } else {
         $HotelNameValid = true;
@@ -32,16 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         empty($Hotel_Name) && empty($Location)
     ) {
         $_SESSION['AddHotelError'] = "Please fill all the required fields";
-        header("Location: AddHotel.php");
+        header("Location: ../../View/Admin/AddHotel.php");
         exit();
-
     } else if (empty($Hotel_Name)) {
         $_SESSION['AddHotelError'] = "Hotel Name cannot be empty";
-        header("Location: AddHotel.php");
+        header("Location: ../../View/Admin/AddHotel.php");
         exit();
     } else if (empty($Location)) {
         $_SESSION['AddHotelError'] = "Location cannot be empty";
-        header("Location: AddHotel.php");
+        header("Location: ../../View/Admin/AddHotel.php");
         exit();
     } else if (
         !empty($Hotel_Name) && !empty($Location)
@@ -54,10 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         !empty($Hotel_Name) && !is_numeric($Hotel_Name) && !empty($Location) && !is_numeric($Location)
         && $isValid === true && $HotelNameValid == true
     ) {
-        $insert = "INSERT INTO `hotels`(`Hotel_Name`, `Location`, `Description`, `Image`, `Created_at`) VALUES ('$Hotel_Name', '$Location', '$Description', '$Img_url', '$CurrentTime');";
-        $result = mysqli_query($con, $insert);
-        $_SESSION['AddHotelError'] = "Hotel Added Successfully";
-        header("Location: AddHotel.php");
+        //Call Model
+        $result = insertHotel($Hotel_Name, $Location, $Description, $Img_url, $CurrentTime);
+        if ($result) {
+            $_SESSION['AddHotelError'] = "Hotel Added Successfully";
+            header("Location: ../../View/Admin/AddHotel.php");
+        }
     }
 }
 
@@ -68,4 +70,3 @@ function sanitize($data)
     $data = trim($data);
     return $data;
 }
-?>
