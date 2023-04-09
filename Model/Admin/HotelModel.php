@@ -12,7 +12,7 @@ function checkHotel($Hotel_Name)
 }
 function insertHotel($Hotel_Name, $Location, $Description, $Img_url, $CurrentTime)
 {
-    include_once('../../Model/Connection.php');
+    require('../../Model/Connection.php');
     $insert = "INSERT INTO `hotels`(`Hotel_Name`, `Location`, `Description`, `Image`, `Created_at`) VALUES ('$Hotel_Name', '$Location', '$Description', '$Img_url', '$CurrentTime');";
     $result = mysqli_query($con, $insert);
     if ($result) {
@@ -22,7 +22,7 @@ function insertHotel($Hotel_Name, $Location, $Description, $Img_url, $CurrentTim
 }
 function getHotelData($Hotel_Id)
 {
-    include_once('../../Model/Connection.php');
+    require('../../Model/Connection.php');
     $query = "select * from hotels where Hotel_Id = '$Hotel_Id' limit 1";
     $result = mysqli_query($con, $query);
     $hotel_data = mysqli_fetch_assoc($result);
@@ -31,7 +31,7 @@ function getHotelData($Hotel_Id)
 
 function nameValidity($Hotel_Name, $Hotel_Id)
 {
-    include_once('../../Model/Connection.php');
+    require('../../Model/Connection.php');
     $chkHotelname = "SELECT * FROM hotels WHERE Hotel_Name = '$Hotel_Name'";
     $result1 = mysqli_query($con, $chkHotelname);
 

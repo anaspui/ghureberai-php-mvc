@@ -1,5 +1,8 @@
 <?php
-$_SESSION['UpdateError'] = "";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+// $_SESSION['UpdateError'] = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -29,12 +32,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $emailValid = false;
     include('../Model/ProfileModel.php');
     //for checking username
-    if (checkUsername($data['username'])) {
+    if (checkUsername($data['username']) == true) {
         $isValid = true;
+    }else{
+        $_SESSION['UpdateError'] = "Username is taken, try again.";
+        header("Location: ../View/ProfileUpdate.php");
+        exit();
     }
     //for checking old password
-    if (passValidity($data['CurrPassword'])) {
+    if (passValidity($data['CurrPassword']) == true) {
         $passValid = true;
+    }else{
+        $_SESSION['UpdateError'] = "Incorrect password";
+        header("Location: ../View/ProfileUpdate.php");
+        exit();
     }
     //for checking email
     if (emailValidity()) {
@@ -42,21 +53,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     if (
-        !empty($username) && !empty($NewPassword) && !is_numeric($username) && !empty($firstName) && !empty($lastName) &&
-        !empty($dob) && !empty($phone) && !empty($email) && !empty($CurrPassword) && $isValid === true && $passValid === true && $emailValid === true
+        !empty($data['username']) && !empty($data['NewPassword']) && !is_numeric($data['username']) &&
+        !empty($data['firstName']) && !empty($data['lastName']) && !empty($data['dob']) &&
+        !empty($data['phone']) && !empty($data['email']) && !empty($data['CurrPassword']) &&
+        $isValid === true && $passValid === true && $emailValid === true
     ) {
         $result = Update($data);
         if ($result) {
             $_SESSION['username'] = $username;
             header("Location: ../View/Profile.php");
         }
+        // var_dump($data);
 
 
     } else if (
-        empty($username) || empty($NewPassword) || is_numeric($username) || empty($firstName) || empty($lastName) ||
-        empty($dob) || empty($phone) || empty($email) || empty($CurrPassword) || $isValid === false || $passValid === false || $email === false
+        empty($data['username']) || empty($data['NewPassword']) || is_numeric($data['username']) ||
+        empty($data['firstName']) || empty($data['lastName']) || empty($data['dob']) ||
+        empty($data['phone']) || empty($data['email']) || empty($data['CurrPassword']) ||
+        $isValid === false || $passValid === false || $emailValid === false
     ) {
-        session_start();
         $_SESSION['UpdateError'] = "Please enter some valid information!";
         header("Location: ../View/ProfileUpdate.php");
     }

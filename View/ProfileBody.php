@@ -91,7 +91,7 @@ $user_data = UserData();
 
 
             </table><br>
-            <div class="button btn-crud">
+            <div id="update-btn" class="button btn-crud">
                 <a href="ProfileUpdate.php">
                     Update
                 </a>

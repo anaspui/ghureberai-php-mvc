@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require('../Controller/ProfileUpdateController.php');
 $user_data = UserData();
 ?>
@@ -137,17 +139,19 @@ $user_data = UserData();
                         <td colspan="3">
                             <p>
 
-                                <?php if (isset($_SESSION['UpdateError']))
+                                <?php if (isset($_SESSION['UpdateError'])){
                                     echo $_SESSION['UpdateError'];
-                                // unset($_SESSION['UpdateError']);
+                                }
+                                unset($_SESSION['UpdateError']);
                                 ?>
                             </p>
                         </td>
                     </tr>
 
                 </table>
-                <div class="updatebutton">
-                    <button class="updatebutton" name="submit" type="submit" value="Update">Update</button><br><br><br>
+                <div>
+                    <button id="update-btn" class="button btn-crud" name=" submit" type="submit"
+                        value="Update">Update</button><br><br><br>
 
                 </div>
             </form>
