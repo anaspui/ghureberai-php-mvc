@@ -85,19 +85,17 @@ if (isset($_SESSION['User_Id'])) {
         ?>
 
 
-
-
         <?php
         if (isset($User_Id)) { ?>
 
 
-            <fieldset style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
-                <legend style="text-align: left">
-                    <h1 align="center">My Bookings</h1>
-                </legend>
-            </fieldset>
+        <fieldset style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+            <legend style="text-align: left">
+                <h1 align="center">My Bookings</h1>
+            </legend>
+        </fieldset>
 
-            <?php
+        <?php
             $sql = "SELECT bookings.*, packages.Name, packages.Hotel_Name, packages.Days
             FROM bookings 
             JOIN packages ON bookings.Package_Id = packages.Package_Id

@@ -1,6 +1,6 @@
 <?php
 if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
-    header('location: ../UserLogin.php');
+    header('location: ../../View/UserLogin.php');
     exit();
 }
 include('../../Controller/Admin/AdminDashboardController.php');
