@@ -4,74 +4,105 @@ if (!function_exists('ValidateEmpName')) {
     function ValidateEmpName($username)
     {
         include('../../Model/Connection.php');
-        $chkUsername = "select * from users where Username = '$username'";
-        $result1 = mysqli_query($con, $chkUsername);
-        if (mysqli_num_rows($result1) > 0) {
+        $stmt = $con->prepare("SELECT * FROM users WHERE Username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
             return false;
-        } else if (mysqli_num_rows($result1) == 0) {
+        } else {
             return true;
         }
+        $stmt->close();
     }
 }
+
 if (!function_exists('addEmployee')) {
     function addEmployee($username, $firstName, $lastName, $password)
     {
         include('../../Model/Connection.php');
-        $insert = "insert into Users (Username,Password,Firstname,Lastname,Role) values ('$username','$password','$firstName','$lastName', 'employee')";
-        mysqli_query($con, $insert);
+        $stmt = $con->prepare("INSERT INTO Users (Username, Password, Firstname, Lastname, Role) VALUES (?, ?, ?, ?, 'employee')");
+        $stmt->bind_param("ssss", $username, $password, $firstName, $lastName);
+        $stmt->execute();
+        $stmt->close();
     }
 }
+
 if (!function_exists('viewEmployee')) {
     function viewEmployee()
     {
         include('../../Model/Connection.php');
-        $sql = "SELECT * FROM users WHERE role = 'employee'";
-        $result = $con->query($sql);
+        $stmt = $con->prepare("SELECT * FROM users WHERE role = ?");
+        $role = 'employee';
+        $stmt->bind_param("s", $role);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
         if ($result->num_rows > 0) {
-            // $row = $result->fetch_assoc();
             return $result;
         }
         return 0;
     }
 }
+
 if (!function_exists('getEmpData')) {
     function getEmpData($userid)
     {
         include('../../Model/Connection.php');
-        $query = "select * from users where User_Id = '$userid' limit 1";
-        $result = mysqli_query($con, $query);
-        $user_data = mysqli_fetch_assoc($result);
+        $stmt = $con->prepare("SELECT * FROM users WHERE User_Id = ? LIMIT 1");
+        $stmt->bind_param("i", $userid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $user_data = $result->fetch_assoc();
         return $user_data;
     }
 }
+
 if (!function_exists('userValidity')) {
     function userValidity($username, $userid)
     {
         include('../../Model/Connection.php');
-        $chkUsername = "select * from users where Username = '$username'";
-        $result1 = mysqli_query($con, $chkUsername);
-        if (mysqli_num_rows($result1) > 0) {
-            $chkUsername2 = "select * from users where Username = '$username' and User_Id = '$userid'";
-            $result2 = mysqli_query($con, $chkUsername2);
-            if (mysqli_num_rows($result1) == 1) {
+        $stmt1 = $con->prepare("SELECT * FROM users WHERE Username = ?");
+        $stmt1->bind_param("s", $username);
+        $stmt1->execute();
+        $result1 = $stmt1->get_result();
+        $stmt1->close();
+
+        if ($result1->num_rows > 0) {
+            $stmt2 = $con->prepare("SELECT * FROM users WHERE Username = ? AND User_Id = ?");
+            $stmt2->bind_param("si", $username, $userid);
+            $stmt2->execute();
+            $result2 = $stmt2->get_result();
+            $stmt2->close();
+
+            if ($result2->num_rows == 1) {
                 return true;
             } else {
                 return false;
             }
-        } else if (mysqli_num_rows($result1) == 0) {
+        } else if ($result1->num_rows == 0) {
             return true;
         }
     }
 }
+
 if (!function_exists('update')) {
     function update($username, $password, $firstName, $lastName, $userid)
     {
         include('../../Model/Connection.php');
-        $query2 = "UPDATE users SET Username= '$username', Password='$password', firstName= '$firstName', Lastname='$lastName' WHERE User_Id = $userid";
-        $result = mysqli_query($con, $query2);
-        if ($result) {
+        
+        $stmt = $con->prepare("UPDATE users SET Username=?, Password=?, firstname=?, lastname=? WHERE User_Id=?");
+        $stmt->bind_param("ssssi", $username, $password, $firstName, $lastName, $userid);
+
+        if ($stmt->execute()) {
+            $stmt->close();
             return true;
+        } else {
+            $stmt->close();
+            return false;
         }
     }
 }
+
 ?>

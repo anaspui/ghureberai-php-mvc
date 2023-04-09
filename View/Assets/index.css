@@ -163,16 +163,16 @@ a {
 }
 /* Footer */
 .site-footer {
-  /* background-color: #333333; */
-  background-image: url(images/footerback.svg);
+  background-color: #333333d8;
+  /* background-image: url(images/footerback.svg); */
   padding: 30px 0;
-  color: #000;
+  color: white;
   font-size: 14px;
   text-align: center;
 }
 
 .site-footer h3 {
-  color: #000;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -223,7 +223,7 @@ a {
   border-radius: 5px;
 }
 .AdminDash {
-  border: black 1px solid;
+  /* border: black 1px solid; */
   color: #3b577d;
   height: 715px;
   width: 73.8%;

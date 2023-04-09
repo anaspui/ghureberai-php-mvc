@@ -3,17 +3,27 @@
 function getCustomersNum()
 {
     include('../../Model/Connection.php');
-    $sql = "SELECT * FROM users Where role = 'customer'";
-    $result = mysqli_query($con, $sql);
-    $num_rows = mysqli_num_rows($result);
+    $sql = "SELECT * FROM users Where role = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("s", $role);
+    $role = "customer";
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $num_rows = $result->num_rows;
+    $stmt->close();
     return $num_rows;
 }
 function getEmployeesNum()
 {
     include('../../Model/Connection.php');
-    $sql = "SELECT * FROM users Where role = 'employee'";
-    $result = mysqli_query($con, $sql);
-    $num_rows = mysqli_num_rows($result);
+    $sql = "SELECT * FROM users Where role = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("s", $role);
+    $role = "employee";
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $num_rows = $result->num_rows;
+    $stmt->close();
     return $num_rows;
 }
 function getHotelsNum()

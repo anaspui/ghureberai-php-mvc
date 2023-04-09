@@ -1,24 +1,41 @@
 <?php
 function deleteUser($id)
 {
-    include_once('../../Model/Connection.php');
-    $query = "delete from users where User_Id=$id";
-    $result = mysqli_query($con, $query);
+    require_once('../../Model/Connection.php');
+    $stmt = $con->prepare("DELETE FROM users WHERE User_Id=?");
+    $stmt->bind_param("i", $id);
+    $result = $stmt->execute();
+
+    $stmt->close();
+    $con->close();
+
     return $result;
 }
+
 function deleteHotel($id)
 {
-    include_once('../../Model/Connection.php');
-    $query = "delete from hotels where Hotel_Id=$id";
-    $result = mysqli_query($con, $query);
+    require_once('../../Model/Connection.php');
+    $stmt = $con->prepare("DELETE FROM hotels WHERE Hotel_Id=?");
+    $stmt->bind_param("i", $id);
+    $result = $stmt->execute();
+    $stmt->close();
+    $con->close();
+
     return $result;
 }
+
 function deletePack($id)
 {
-    include_once('../../Model/Connection.php');
-    $query = "delete from packages where Package_Id=$id";
-    $result = mysqli_query($con, $query);
+    require_once('../../Model/Connection.php');
+    $stmt = $con->prepare("DELETE FROM packages WHERE Package_Id=?");
+    $stmt->bind_param("i", $id);
+    $result = $stmt->execute();
+
+    $stmt->close();
+    $con->close();
+
     return $result;
 }
+
 
 ?>
