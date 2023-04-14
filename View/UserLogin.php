@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if (isset($_COOKIE['remember_me'])) {
+  list($username, $password) = explode(':', $_COOKIE['remember_me']);
+} else {
+  $username = '';
+  $password = '';
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +28,7 @@ session_start();
         <div class="box login" align="center">
             <div>
                 <fieldset
-                    style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+                    style=" border: 6px solid #dc9e4a; border-bottom: none; border-left: none; border-right: none;">
                     <legend style="text-align: center">
                         <h1 align="center">Sign In</h1>
                     </legend>
@@ -32,20 +39,24 @@ session_start();
                         <tr>
                             <td><label for="Username">Username </label></td>
                             <td>:</td>
-                            <td><Input type="text" name="username" id="username"></Input></td>
-                            <td>
+                            <td><Input type="text" name="username" id="username"
+                                    value="<?php echo htmlspecialchars($username); ?>"></Input></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
                                 <p class="ErrorMsg" id="usernameErr"></p>
                             </td>
                         </tr>
-
                         <tr>
                             <td><label for="password">Password </label></td>
                             <td>:</td>
-                            <td><input type="password" name="password" id="password"></td>
-                            <td>
+                            <td><input type="password" name="password" id="password"
+                                    value="<?php echo htmlspecialchars($password); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
                                 <p class="ErrorMsg" id="passErr"></p>
                             </td>
-
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -57,10 +68,18 @@ session_start();
                                 } ?>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="3">
+                                <label for="remember_me"><input type="checkbox" name="remember_me" id="remember_me"
+                                        value="1" <?php 
+                                        if(isset($_COOKIE['remember_me'])) echo 'checked';   ?>> Remember
+                                    me</label>
+                            </td>
+                        </tr>
                     </table>
                     <input class="button" type="submit" value="Login"><br><br>
                     <div style="display: flex; justify-content: center;">
-                        <a href="../View/UserSignup.php">Click to Signup
+                        <a class="link" href="../View/UserSignup.php">Click to Signup
                             <?php $_SESSION['LoginError'] = ""; ?>
                         </a>
                     </div>

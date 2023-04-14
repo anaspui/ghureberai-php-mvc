@@ -7,6 +7,11 @@ session_start();
 <head>
     <title>Signup</title>
     <link rel="stylesheet" href="./Assets/style.css">
+    <style>
+    .box.reg {
+        display: inline-block;
+    }
+    </style>
 </head>
 
 <body>
@@ -15,12 +20,12 @@ session_start();
     <div class="page">
         <div class="box reg" align="center">
             <img src="./Assets/images/logo.png" alt="logo" style="height: 100px"><br><br>
-            <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+            <fieldset style=" border: 6px solid #dc9e4a; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
                     <h1 align="center">Sign Up</h1>
                 </legend>
             </fieldset><br><br>
-            <form method="POST" action="SignUpAction.php">
+            <form method="POST" onsubmit="return checkSignUp()">
                 <table align="center" style="text-align: left">
                     <tr>
                         <td><label for="fname">First Name</label></td>
@@ -33,6 +38,9 @@ session_start();
                                 unset($_SESSION['fnameError']);
                             }
                             ?>
+                        </td>
+                        <td>
+                            <p class="ErrorMsg" id="fnameErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -47,6 +55,9 @@ session_start();
                             }
                             ?>
                         </td>
+                        <td>
+                            <p class="ErrorMsg" id="lnameErr"></p>
+                        </td>
                     </tr>
 
                     <tr>
@@ -57,7 +68,9 @@ session_start();
                             <label for="Male">Male</label>
                             <input type="radio" id="female" name="gender" value="Female">
                             <label for="Female">Female</label>
+
                         </td>
+
                         <td>
                             <?php
                             if (isset($_SESSION['genderError'])) {
@@ -65,6 +78,9 @@ session_start();
                                 unset($_SESSION['genderError']);
                             }
                             ?>
+                        </td>
+                        <td>
+                            <p class="ErrorMsg" id="genderErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -79,6 +95,9 @@ session_start();
                             }
                             ?>
                         </td>
+                        <td>
+                            <p class="ErrorMsg" id="dobErr"></p>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="email">Email </label></td>
@@ -91,6 +110,9 @@ session_start();
                                 unset($_SESSION['emailError']);
                             }
                             ?>
+                        </td>
+                        <td>
+                            <p class="ErrorMsg" id="emailErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -105,6 +127,9 @@ session_start();
                             }
                             ?>
                         </td>
+                        <td>
+                            <p class="ErrorMsg" id="phnErr"></p>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="Username">Username </label></td>
@@ -117,6 +142,9 @@ session_start();
                                 unset($_SESSION['usernameError']);
                             }
                             ?>
+                        </td>
+                        <td>
+                            <p class="ErrorMsg" id="usernameErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -131,6 +159,9 @@ session_start();
                             }
                             ?>
                         </td>
+                        <td>
+                            <p class="ErrorMsg" id="passErr"></p>
+                        </td>
                     </tr>
 
                 </table>
@@ -144,12 +175,13 @@ session_start();
                     <button class="button" name="submit" type="submit" value="Register">Register</button><br><br><br>
 
                 </div>
-                <a href=" UserLogin.php">Already have an account?
+                <a class="link" href=" UserLogin.php">Already have an account?
                     <?php $_SESSION['RegError'] = ""; ?>
                 </a>
             </form>
         </div>
     </div>
+    <script src="../View/js/SingUp.js"></script>
 </body>
 
 </html>

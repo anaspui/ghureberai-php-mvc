@@ -13,7 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (!empty($username) && !empty($password)) {
             if (validateUser($username, $password)) {
                 $_SESSION['role'] = userType($username);
+                if (isset($_POST['remember_me'])) {
+                    // Create a cookie that stores the username and password with a long expiration time
+                    $expiry_time = time() + (30 * 24 * 60 * 60); // 30 days
+                    setcookie('remember_me', "$username:$password", $expiry_time , "/");
+                  }
                 header('Location: ../View/Index.php');
+
             }
         }
     } else if (empty($username) && empty($password)) {
@@ -31,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             exit();
         }
     }
+    
 }
 
 
