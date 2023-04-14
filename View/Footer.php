@@ -35,6 +35,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <p>&copy; 2023 GhureBerai. All rights reserved.</p>
+
                     </div>
                 </div>
             </div>

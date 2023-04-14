@@ -26,19 +26,25 @@ session_start();
                         <h1 align="center">Sign In</h1>
                     </legend>
                 </fieldset> <br><br>
-                <form method="post" action="../Controller/UserLoginController.php">
+                <form method="post" action="../Controller/UserLoginController.php" onsubmit="return loginCheck()">
 
                     <table>
                         <tr>
                             <td><label for="Username">Username </label></td>
                             <td>:</td>
                             <td><Input type="text" name="username" id="username"></Input></td>
+                            <td>
+                                <p class="ErrorMsg" id="usernameErr"></p>
+                            </td>
                         </tr>
 
                         <tr>
                             <td><label for="password">Password </label></td>
                             <td>:</td>
                             <td><input type="password" name="password" id="password"></td>
+                            <td>
+                                <p class="ErrorMsg" id="passErr"></p>
+                            </td>
 
                         </tr>
                         <tr>
@@ -63,6 +69,7 @@ session_start();
             </div>
         </div>
     </div>
+    <script src="../View/js/Login.js"></script>
 </body>
 
 </html>

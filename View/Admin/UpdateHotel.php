@@ -27,19 +27,19 @@ if (isset($_GET['updateid'])) {
     <link rel="stylesheet" href="index.css">
     <title>Update Hotel</title>
     <style>
-        .check {
-            padding-top: 150px;
-            padding-left: 420px;
-            align-items: center;
-            color: #3B577D;
-            text-align: center;
-        }
+    .check {
+        padding-top: 150px;
+        padding-left: 420px;
+        align-items: center;
+        color: #3B577D;
+        text-align: center;
+    }
 
-        .check button {
-            color: white !important;
-            background-color: green;
-            align: center;
-        }
+    .check button {
+        color: white !important;
+        background-color: green;
+        align: center;
+    }
     </style>
 </head>
 
@@ -54,31 +54,43 @@ if (isset($_GET['updateid'])) {
             include('AdminPanelMenu.php');
             ?>
             <div class="check ">
-                <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+                <fieldset
+                    style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                     <legend style="text-align: center">
                         <h1 align="center">Update Hotel</h1>
                     </legend>
                 </fieldset><br>
 
 
-                <form method="POST" action="../../Controller/Admin/UpdateHotelAction.php?updateid=<?php echo $Hotel_Id ?>">
+                <form method="POST"
+                    action="../../Controller/Admin/UpdateHotelAction.php?updateid=<?php echo $Hotel_Id ?>"
+                    onsubmit="return upHotelCheck()">
                     <table align="center" style="text-align: left">
                         <tr>
                             <td><label for="Hotel_Name">Hotel Name</label></td>
                             <td>:</td>
-                            <td><Input type="text" name="Hotel_Name" id="Hotel_Name" value="<?php echo $Hotel_Name ?>"></Input>
+                            <td><Input type="text" name="Hotel_Name" id="Hotel_Name"
+                                    value="<?php echo $Hotel_Name ?>"></Input>
+                            </td>
+                            <td>
+                                <p class="ErrorMsg" id="HotelErr"></p>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="Location">Location</label></td>
                             <td>:</td>
-                            <td><Input type="text" name="Location" id="Location" value="<?php echo $Location ?>"></Input>
+                            <td><Input type="text" name="Location" id="Location"
+                                    value="<?php echo $Location ?>"></Input>
+                            </td>
+                            <td>
+                                <p class="ErrorMsg" id="LocationErr"></p>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="Description">Description </label></td>
                             <td>:</td>
-                            <td><Input type="text" name="Description" id="Description" value="<?php echo $Description ?>"></Input>
+                            <td><Input type="text" name="Description" id="Description"
+                                    value="<?php echo $Description ?>"></Input>
                             </td>
                         </tr>
                         <tr>
@@ -107,8 +119,9 @@ if (isset($_GET['updateid'])) {
         </div>
     </div>
     <?php
-    include('Footer.php');
+    include('../Footer.php');
     ?>
+    <script src="../../View/js/AdminPanel.js"></script>
 </body>
 
 </html>

@@ -60,14 +60,17 @@ $password = $user_data['Password'];
                 </fieldset><br>
 
 
-                <form method="POST"
-                    action="../../Controller/Admin/UpdateEmpAction.php?updateid=<?php echo $updateid ?>">
+                <form method="POST" action="../../Controller/Admin/UpdateEmpAction.php?updateid=<?php echo $updateid ?>"
+                    onsubmit="return UptEmpCheck()">
                     <table align="center" style="text-align: left">
                         <tr>
                             <td><label for="fname">First Name</label></td>
                             <td>:</td>
                             <td><Input type="text" name="firstName" id="firstName"
                                     value="<?php echo $firstName ?>"></Input>
+                            </td>
+                            <td>
+                                <p class="ErrorMsg" id="fnameError"></p>
                             </td>
                         </tr>
                         <tr>
@@ -76,6 +79,9 @@ $password = $user_data['Password'];
                             <td><Input type="text" name="lastName" id="lastName"
                                     value="<?php echo $lastName ?>"></Input>
                             </td>
+                            <td>
+                                <p class="ErrorMsg" id="lnameError"></p>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="Username">Username </label></td>
@@ -83,11 +89,17 @@ $password = $user_data['Password'];
                             <td><Input type="text" name="username" id="username"
                                     value="<?php echo $username ?>"></Input>
                             </td>
+                            <td>
+                                <p class="ErrorMsg" id="usernameError"></p>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="password">Password </label></td>
                             <td>:</td>
                             <td><input type="text" name="password" id="password"></td>
+                            <td>
+                                <p class="ErrorMsg" id="passwordError"></p>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -102,7 +114,7 @@ $password = $user_data['Password'];
 
                     </table>
                     <div>
-                        <button class="button" name="submit" type="submit" value="Update">Update</button><br><br><br>
+                        <button class="button" name="submit" type="submit" value="submit">Update</button><br><br><br>
                     </div>
                 </form>
             </div>
@@ -111,6 +123,7 @@ $password = $user_data['Password'];
     <?php
     include('../Footer.php');
     ?>
+    <script src="../js/AdminPanel.js"></script>
 </body>
 
 </html>

@@ -39,7 +39,9 @@ include('../../Controller/Admin/CreatePkgAction.php');
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="../../Controller/Admin/CreatePkgAction.php">
+
+                        <form method="POST" action="../../Controller/Admin/CreatePkgAction.php"
+                            onsubmit="return createPackError()">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
@@ -47,6 +49,9 @@ include('../../Controller/Admin/CreatePkgAction.php');
                                         <td>:</td>
                                         <td><Input type="text" name="Name" id="Name"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="nameError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Hotel Name</td>
@@ -62,6 +67,9 @@ include('../../Controller/Admin/CreatePkgAction.php');
                                             ?>
                                         </td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="hotelError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Description">Description </label></td>
@@ -73,24 +81,36 @@ include('../../Controller/Admin/CreatePkgAction.php');
                                         <td>:</td>
                                         <td><input type="text" name="Price" id="Price"></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="priceError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Days">Trip Duration</label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="Days" id="Days"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="tripError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="TotalPackages">Total Package </label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="TotalPackages" id="TotalPackages"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="tpackError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Start_Date">Start Date </label></td>
                                         <td>:</td>
                                         <td><Input type="date" name="Start_Date" id="Start_Date"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="dateError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="img">Image Link </label></td>
@@ -121,6 +141,7 @@ include('../../Controller/Admin/CreatePkgAction.php');
         include("../Footer.php");
         ?>
     </div>
+    <script src="../../View/js/AdminPanel.js"></script>
 </body>
 
 </html>

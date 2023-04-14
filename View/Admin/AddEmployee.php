@@ -38,7 +38,8 @@ if ($_SESSION['role'] !== "admin") {
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="../../Controller/Admin/AddEmployeeAction.php">
+                        <form method="POST" action="../../Controller/Admin/AddEmployeeAction.php"
+                            onsubmit="return addEmpCheck()">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
@@ -46,24 +47,36 @@ if ($_SESSION['role'] !== "admin") {
                                         <td>:</td>
                                         <td><Input type="text" name="firstName" id="fname"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="fnameError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="lname">Last Name</label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="lastName" id="lname"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="lnameError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Username">Username </label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="username" id="username"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="usernameError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="password">Password </label></td>
                                         <td>:</td>
                                         <td><input type="text" name="password" id="password"></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="passwordError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">
@@ -90,6 +103,7 @@ if ($_SESSION['role'] !== "admin") {
         include("../Footer.php");
         ?>
     </div>
+    <script src="../js/AdminPanel.js"></script>
 </body>
 
 </html>

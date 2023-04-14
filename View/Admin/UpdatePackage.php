@@ -35,19 +35,19 @@ if (isset($_GET['updatePack'])) {
     <link rel="stylesheet" href="index.css">
     <title>Update Hotel</title>
     <style>
-        .check {
-            padding-top: 150px;
-            padding-left: 420px;
-            align-items: center;
-            color: #3B577D;
-            text-align: center;
-        }
+    .check {
+        padding-top: 150px;
+        padding-left: 420px;
+        align-items: center;
+        color: #3B577D;
+        text-align: center;
+    }
 
-        .check button {
-            color: white !important;
-            background-color: green;
-            /* align: center; */
-        }
+    .check button {
+        color: white !important;
+        background-color: green;
+        /* align: center; */
+    }
     </style>
 </head>
 
@@ -62,22 +62,27 @@ if (isset($_GET['updatePack'])) {
             include("AdminPanelMenu.php");
             ?>
             <div class="AdminDash">
-                <fieldset style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+                <fieldset
+                    style=" border: 4px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
                     <legend style="text-align: left">
                         <h1 align="center">Update Package</h1>
                     </legend>
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="../../Controller/Admin/UpdatePackageController.php?updateid=<?php echo $Package_Id ?>">
+                        <form method="POST"
+                            action="../../Controller/Admin/UpdatePackageController.php?updateid=<?php echo $Package_Id ?>"
+                            onsubmit="return updatePackCheck()">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
                                         <td><label for="Name">Package Name</label></td>
                                         <td>:</td>
-                                        <td><Input type="text" name="Name" id="Name" value="<?php echo $Package_Name; ?>"></Input></td>
+                                        <td><Input type="text" name="Name" id="Name"
+                                                value="<?php echo $Package_Name; ?>"></Input></td>
+                                        <td>*</td>
                                         <td>
-                                            *
+                                            <p class="ErrorMsg" id="nameError"></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -100,11 +105,15 @@ if (isset($_GET['updatePack'])) {
                                             ?>
                                         </td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="hotelError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Description">Description </label></td>
                                         <td>:</td>
-                                        <td><Input type="text" name="Description" id="Description" value="<?php echo $Description; ?>"></Input></td>
+                                        <td><Input type="text" name="Description" id="Description"
+                                                value="<?php echo $Description; ?>"></Input></td>
                                     </tr>
                                     <tr>
                                         <td><label for="Price">Price </label></td>
@@ -112,24 +121,39 @@ if (isset($_GET['updatePack'])) {
                                         <td><input type="text" name="Price" id="Price" value="<?php echo $Price; ?>">
                                         </td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="priceError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Days">Trip Duration</label></td>
                                         <td>:</td>
-                                        <td><Input type="text" name="Days" id="Days" value="<?php echo $Days; ?>"></Input></td>
+                                        <td><Input type="text" name="Days" id="Days"
+                                                value="<?php echo $Days; ?>"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="daysError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="TotalPackages">Total Package </label></td>
                                         <td>:</td>
-                                        <td><Input type="text" name="TotalPackages" id="TotalPackages" value="<?php echo $P_left; ?>"></Input></td>
+                                        <td><Input type="text" name="TotalPackages" id="TotalPackages"
+                                                value="<?php echo $P_left; ?>"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="totPackError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Start_Date">Start Date </label></td>
                                         <td>:</td>
-                                        <td><Input type="date" name="Start_Date" id="Start_Date" value="<?php echo $Start_Date; ?>"></Input></td>
+                                        <td><Input type="date" name="Start_Date" id="Start_Date"
+                                                value="<?php echo $Start_Date; ?>"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="dateError"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="img">Image Link </label></td>
@@ -161,6 +185,7 @@ if (isset($_GET['updatePack'])) {
         <?php
         include('../../View/Footer.php');
         ?>
+        <script src="../../View/js/AdminPanel.js"></script>
 </body>
 
 </html>

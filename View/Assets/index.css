@@ -611,16 +611,19 @@ a {
   color: #ffffff;
 }
 /* profie////////////////////// */
-#update-btn{
+#update-btn {
   height: 25px;
   border: none;
   width: 80px;
   background-color: #4caf50;
 }
-#update-btn a{
+#update-btn a {
   width: 80px;
   text-color: #198754;
 }
-#update-btn:hover{
+#update-btn:hover {
   width: 80px;
+}
+.ErrorMsg {
+  color: red;
 }

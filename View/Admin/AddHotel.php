@@ -35,7 +35,8 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                 </fieldset>
                 <div class="" align="center">
                     <div>
-                        <form method="POST" action="../../Controller/Admin/AddHotelAction.php">
+                        <form method="POST" action="../../Controller/Admin/AddHotelAction.php"
+                            onsubmit="return addHotelCheck()">
                             <div>
                                 <table align="center" style="text-align: left">
                                     <tr>
@@ -43,12 +44,18 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                                         <td>:</td>
                                         <td><Input type="text" name="Hotel_Name" id="Hotel_Name"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="HotelErr"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Location">Location </label></td>
                                         <td>:</td>
                                         <td><Input type="text" name="Location" id="Location"></Input></td>
                                         <td>*</td>
+                                        <td>
+                                            <p class="ErrorMsg" id="LocationErr"></p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label for="Description">Description </label></td>
@@ -85,6 +92,7 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
         include("../Footer.php");
         ?>
     </div>
+    <script src="../../View/js/AdminPanel.js"></script>
 </body>
 
 </html>
