@@ -14,6 +14,20 @@ $user_data = UserData();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Update Profile</title>
+    <style>
+    #btnupt p {
+        color: white;
+        font-size: 20px;
+    }
+
+    #btnupt button {
+        height: 30px;
+    }
+
+    #updateBox {
+        width: 750px;
+    }
+    </style>
 </head>
 
 <body>
@@ -21,13 +35,13 @@ $user_data = UserData();
     include('Header.php');
     ?>
     <div class="ppage profile-page">
-        <div class="box reg" align="center">
-            <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+        <div id="updateBox" class="box reg" align="center">
+            <fieldset style=" border: 6px solid #dc9e4a; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
                     <h1 align="center">Update Information</h1>
                 </legend>
             </fieldset><br>
-            <form method="post" action="../Controller/ProfileUpdateController.php">
+            <form method="post" action="../Controller/ProfileUpdateController.php" onsubmit="return updateProfileChk()">
                 <table align="center" style="text-align: left">
                     <tr>
                         <td><label for="fname">First Name</label></td>
@@ -42,6 +56,7 @@ $user_data = UserData();
                                 // unset($_SESSION['fnameError']);
                             }
                             ?>
+                            <p class="ErrorMsg" id="fnameErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -57,6 +72,7 @@ $user_data = UserData();
                                 // unset($_SESSION['lnameError']);
                             }
                             ?>
+                            <p class="ErrorMsg" id="lnameErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -74,6 +90,7 @@ $user_data = UserData();
                                 // unset($_SESSION['dobError']);
                             }
                             ?>
+                            <p class="ErrorMsg" id="dobErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -88,6 +105,7 @@ $user_data = UserData();
                                 // unset($_SESSION['emailError']);
                             }
                             ?>
+                            <p class="ErrorMsg" id="emailErr"></p>
                         </td>
 
                     </tr>
@@ -102,6 +120,7 @@ $user_data = UserData();
                                 // unset($_SESSION['phnError']);
                             }
                             ?>
+                            <p class="ErrorMsg" id="phnErr"></p>
                         </td>
                     </tr>
                     <tr>
@@ -122,6 +141,7 @@ $user_data = UserData();
                                 // unset($_SESSION['usernameError']);
                             }
                             ?>
+                            <p class="ErrorMsg" id="usernameErr"></p>
                         </td>
                         </td>
                     </tr>
@@ -129,15 +149,23 @@ $user_data = UserData();
                         <td><label for="CurrPassword">Current Password </label></td>
                         <td>:</td>
                         <td><input type="Password" name="CurrPassword" id="CurrPassword"></td>
+                        <td>
+
+                            <p class="ErrorMsg" id="currPassErr"></p>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="NewPassword">New Password </label></td>
                         <td>:</td>
                         <td><input type="Password" name="NewPassword" id="NewPassword"></td>
+                        <td>
+                            <p class="ErrorMsg" id="newPassErr"></p>
+
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <p>
+                            <p class="ErrorMsg">
 
                                 <?php if (isset($_SESSION['UpdateError'])){
                                     echo $_SESSION['UpdateError'];
@@ -149,9 +177,10 @@ $user_data = UserData();
                     </tr>
 
                 </table>
-                <div>
-                    <button id="update-btn" class="button btn-crud" name=" submit" type="submit"
-                        value="Update">Update</button><br><br><br>
+                <div id="btnupt">
+                    <button id="update-btn" class="button btn-crud" name=" submit" type="submit" value="Update">
+                        <p>Update</p>
+                    </button><br><br><br>
 
                 </div>
             </form>
@@ -160,6 +189,7 @@ $user_data = UserData();
     <?php
     include('Footer.php');
     ?>
+    <script src="../View/js/Profile.js"></script>
 </body>
 
 </html>

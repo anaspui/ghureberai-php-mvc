@@ -87,14 +87,12 @@ function checkSignUp() {
     document.getElementById("usernameErr").innerHTML = "";
   }
 
-  //   if (password == "") {
-  //     document.getElementById("passwordErr").innerHTML =
-  //       "Please enter your Password";
-  //     isValid = false;
-  //   }
-  // else {
-  //   document.getElementById("passwordErr").innerHTML = "";
-  // }
+  if (password == "") {
+    document.getElementById("passErr").innerHTML = "Please enter your Password";
+    isValid = false;
+  } else {
+    document.getElementById("passErr").innerHTML = "";
+  }
 
   return isValid;
 }

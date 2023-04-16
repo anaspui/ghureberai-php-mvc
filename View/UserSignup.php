@@ -25,7 +25,7 @@ session_start();
                     <h1 align="center">Sign Up</h1>
                 </legend>
             </fieldset><br><br>
-            <form method="POST" onsubmit="return checkSignUp()">
+            <form method="POST" action="../Controller/SignUpAction.php" onsubmit="return checkSignUp()">
                 <table align="center" style="text-align: left">
                     <tr>
                         <td><label for="fname">First Name</label></td>
@@ -160,7 +160,10 @@ session_start();
                             ?>
                         </td>
                         <td>
-                            <p class="ErrorMsg" id="passErr"></p>
+                            <a class="ErrorMsg" id="passErr">
+                            </a>
+
+
                         </td>
                     </tr>
 

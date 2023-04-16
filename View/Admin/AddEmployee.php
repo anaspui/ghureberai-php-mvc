@@ -19,7 +19,16 @@ if ($_SESSION['role'] !== "admin") {
 <body>
 
 
-
+    <div class="s-messageBox">
+        <label>
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert success">
+                <span class="alertClose">X</span>
+                <span class="alertText">Employee Added
+                    <br class="clear" /></span>
+            </div>
+        </label>
+    </div>
     <div>
         <div class="AddEmpForm">
             <?php
@@ -82,6 +91,13 @@ if ($_SESSION['role'] !== "admin") {
                                         <td colspan="3">
                                             <p style="color:red; font-weight:500">
                                                 <?php if (!empty($_SESSION['AddEmpError'])) {
+                                                    if($_SESSION['AddEmpError'] == 'Employee Added Successfully'){ ?>
+
+                                                <script>
+                                                document.getElementsByClassName("s-messageBox")[0].style.display =
+                                                    "block";
+                                                </script>
+                                                <?php }
                                                     echo $_SESSION['AddEmpError'];
                                                     unset($_SESSION['AddEmpError']);
                                                 } ?>
@@ -97,7 +113,9 @@ if ($_SESSION['role'] !== "admin") {
                     </div>
                 </div>
             </div>
+
         </div>
+
 
         <?php
         include("../Footer.php");

@@ -18,7 +18,7 @@ $user_data = UserData();
 
     <div class="ppage profile-page">
         <div class="box reg" align="center">
-            <fieldset style=" border: 6px solid #3B577D; border-bottom: none; border-left: none; border-right: none;">
+            <fieldset style=" border: 6px solid #dc9e4a; border-bottom: none; border-left: none; border-right: none;">
                 <legend style="text-align: center">
                     <h1 align="center">Profile Informations</h1>
                 </legend>

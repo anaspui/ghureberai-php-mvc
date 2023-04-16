@@ -113,8 +113,8 @@ $password = $user_data['Password'];
                         </tr>
 
                     </table>
-                    <div>
-                        <button class="button" name="submit" type="submit" value="submit">Update</button><br><br><br>
+                    <div class="EmpFormButton">
+                        <input class="input-btn" type="submit">
                     </div>
                 </form>
             </div>

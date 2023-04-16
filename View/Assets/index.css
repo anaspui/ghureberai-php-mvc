@@ -93,7 +93,7 @@ li:hover {
   box-shadow: none; /* remove shadow */
 }
 .ppage {
-  background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee);
+  /* background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee); */
   height: 100vh;
   display: flex;
   align-items: center;
@@ -104,11 +104,21 @@ li:hover {
 }
 
 .box {
-  font-size: 20px;
+  /* font-size: 20px;
   border-radius: 10px;
   color: #3b577d;
-  background-color: #ddf5f7;
+  background-color: #cacaca;
   margin: auto;
+  box-shadow: 1px 1px 10px #3b577d; */
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  /* background-color: #ddf5f7; */
+  background-color: #30454b94;
+  /* backdrop-filter: blur(10px);
+  z-index: 0;
+  position: relative; */
+  /* margin: auto; */
   box-shadow: 1px 1px 10px #3b577d;
 }
 .reg {
@@ -292,10 +302,15 @@ a {
 .input-btn {
   border: none;
   padding: 5px 20px;
-  background-color: #3b577d;
-  color: #e2eaee;
+  background-color: #dc9e4a;
+  color: white;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 15px;
+}
+.input-btn:hover {
+  transform: scale(1.1); /* make slightly bigger */
+  transition-duration: 0.3s;
 }
 .LandingBody {
   padding-top: 80px;
@@ -615,15 +630,94 @@ a {
   height: 25px;
   border: none;
   width: 80px;
-  background-color: #4caf50;
+  background-color: #dc9e4a;
 }
 #update-btn a {
   width: 80px;
-  text-color: #198754;
+  color: #ffffff !important;
 }
 #update-btn:hover {
   width: 80px;
 }
 .ErrorMsg {
   color: red;
+}
+/* addemp popup message() */
+.s-messageBox {
+  display: none;
+  position: absolute;
+  height: 100px;
+  width: 350px;
+  margin-left: 75%;
+  margin-top: 650px;
+}
+.alert {
+  position: relative;
+  top: 10;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  line-height: 1.8;
+  border-radius: 5px;
+  cursor: hand;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.alertCheckbox {
+  display: none;
+}
+
+:checked + .alert {
+  display: none;
+}
+
+.alertText {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.alertClose {
+  float: right;
+  padding-top: 5px;
+  font-size: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+.info {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  color: #999;
+}
+
+.success {
+  background-color: #efe;
+  border: 1px solid #ded;
+  color: #9a9;
+}
+
+.notice {
+  background-color: #eff;
+  border: 1px solid #dee;
+  color: #9aa;
+}
+
+.warning {
+  background-color: #fdf7df;
+  border: 1px solid #feec6f;
+  color: #c9971c;
+}
+
+.error {
+  background-color: #fee;
+  border: 1px solid #edd;
+  color: #a66;
 }

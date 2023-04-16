@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     header('location: ../../View/UserLogin.php');
     exit();
-}
+} 
 if (isset($_GET['updateid'])) {
     $Hotel_Id = $_GET['updateid'];
     include('../../Controller/Admin/UpdateHotelAction.php');
@@ -111,8 +111,8 @@ if (isset($_GET['updateid'])) {
                         </tr>
 
                     </table>
-                    <div>
-                        <button class="button" name="submit" type="submit" value="Update">Update</button><br><br><br>
+                    <div class="EmpFormButton">
+                        <input class="input-btn" type="submit">
                     </div>
                 </form>
             </div>

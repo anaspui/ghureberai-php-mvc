@@ -5,6 +5,9 @@
   /* color: #3b577d !important; */
 }
 
+h3 {
+  color: #3b577d !important;
+}
 .page {
   /* background-image: linear-gradient(#ddf5f7, #c0d9e5, #b5cbee); */
   background-image: url(images/bodyback.svg);
@@ -34,6 +37,11 @@
   margin-top: 10px;
   border-radius: 5px;
 }
+.button:hover {
+  transform: scale(1.1); /* make slightly bigger */
+  transition-duration: 0.3s;
+  cursor: pointer !important;
+}
 
 .reg {
   min-width: 650px;
@@ -48,7 +56,37 @@ input[type="date"] {
   border-radius: 5px;
   width: 102%;
 }
+input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+}
+input[type="radio"] {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 15px;
 
+  -webkit-appearance: button;
+
+  border: double 2px #dc9e4a;
+
+  background-color: #dc9e4a;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+
+  width: 15px;
+  height: 15px;
+}
+
+input[type="radio"]:checked {
+  background-color: #000;
+  border-left-color: #dc9e4a;
+  border-right-color: #dc9e4a;
+}
+
+input[type="radio"]:hover {
+  box-shadow: 0px 0px 10px #dc9e4a;
+}
 .login {
   width: 400px;
   height: 380px;
@@ -69,11 +107,11 @@ input[type="date"] {
   /* margin: auto; */
   box-shadow: 1px 1px 10px #3b577d;
 }
-.box p {
+/* .box p {
   color: red !important;
   font-size: 18px;
   margin-left: 10px;
-}
+} */
 .box input[type="text"] {
   height: 20px;
   border-radius: 5px;
@@ -101,4 +139,8 @@ input[type="date"] {
   background-color: transparent;
   text-shadow: 1px 1px 10px #ffffff97;
   text-decoration: underline;
+}
+.ErrorMsg {
+  margin-left: 10px;
+  color: #ff3838 !important;
 }

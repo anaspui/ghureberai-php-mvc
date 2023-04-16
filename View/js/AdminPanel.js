@@ -3,7 +3,7 @@ function addEmpCheck() {
   var lname = document.getElementById("lname").value;
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
-  let valid = true;
+  var valid = true;
   if (fname == "") {
     document.getElementById("fnameError").innerHTML = "First name is required!";
     valid = false;
@@ -32,6 +32,7 @@ function addEmpCheck() {
   }
   return valid;
 }
+
 function UptEmpCheck() {
   var firstName = document.getElementById("firstName").value;
   var lastName = document.getElementById("lastName").value;
