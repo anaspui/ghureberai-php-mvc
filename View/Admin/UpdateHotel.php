@@ -38,7 +38,7 @@ if (isset($_GET['updateid'])) {
     .check button {
         color: white !important;
         background-color: green;
-        align: center;
+        /* align: center; */
     }
     </style>
 </head>

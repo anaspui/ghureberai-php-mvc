@@ -19,8 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     setcookie('remember_me', "$username:$password", $expiry_time , "/");
                   }
                 header('Location: ../View/Index.php');
-                
 
+            }else{
+                header('Location: ../View/UserLogin.php');
+                $_SESSION['LoginError'] = "Wrong Username or Password";
             }
         }
     } else if (empty($username) && empty($password)) {

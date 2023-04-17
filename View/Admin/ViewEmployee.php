@@ -20,7 +20,29 @@ if ($_SESSION['role'] !== "admin") {
 
 <body>
 
-
+    <!-- Msg box success -->
+    <div class="s-messageBox">
+        <label>
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert success">
+                <span class="alertClose">X</span>
+                <span class="alertText">User Removed
+                    <br class="clear" /></span>
+            </div>
+        </label>
+    </div>
+    <!-- Msg Box Error -->
+    <div class="s-messageBox e-messageBox">
+        <label>
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert error">
+                <span class="alertClose">X</span>
+                <span class="alertText">Error, Try Again
+                    <br class="clear" /></span>
+            </div>
+        </label>
+    </div>
+    <!-- end of msg Box -->
 
     <div class="page">
         <div class="AdminPage">
@@ -71,6 +93,19 @@ if ($_SESSION['role'] !== "admin") {
                         <td colspan="8">
                             <p style="color:red; font-weight:500">
                                 <?php if (!empty($_SESSION['message'])) {
+                                    if($_SESSION['message'] == "Operation completed successfully"){ ?>
+                                <script>
+                                document.getElementsByClassName("s-messageBox")[0].style.display =
+                                    "block";
+                                </script>
+                                <?php }else {?>
+
+                                <script>
+                                document.getElementsByClassName("e-messageBox")[0].style.display =
+                                    "block";
+                                </script>
+
+                                <?php }
                                     echo $_SESSION['message'];
                                     unset($_SESSION['message']);
                                 } ?>

@@ -18,7 +18,7 @@ if ($_SESSION['role'] !== "admin") {
 
 <body>
 
-
+    <!-- Msg box success -->
     <div class="s-messageBox">
         <label>
             <input type="checkbox" class="alertCheckbox" autocomplete="off" />
@@ -29,6 +29,18 @@ if ($_SESSION['role'] !== "admin") {
             </div>
         </label>
     </div>
+    <!-- Msg Box Error -->
+    <div class="s-messageBox e-messageBox">
+        <label>
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert error">
+                <span class="alertClose">X</span>
+                <span class="alertText">Error, Try Again
+                    <br class="clear" /></span>
+            </div>
+        </label>
+    </div>
+    <!-- end of msg Box -->
     <div>
         <div class="AddEmpForm">
             <?php
@@ -97,6 +109,13 @@ if ($_SESSION['role'] !== "admin") {
                                                 document.getElementsByClassName("s-messageBox")[0].style.display =
                                                     "block";
                                                 </script>
+                                                <?php }else {?>
+
+                                                <script>
+                                                document.getElementsByClassName("e-messageBox")[0].style.display =
+                                                    "block";
+                                                </script>
+
                                                 <?php }
                                                     echo $_SESSION['AddEmpError'];
                                                     unset($_SESSION['AddEmpError']);

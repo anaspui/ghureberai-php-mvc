@@ -17,6 +17,29 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 </head>
+<!-- Msg box success -->
+<div class="s-messageBox">
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert success">
+            <span class="alertClose">X</span>
+            <span class="alertText">Customer Removed
+                <br class="clear" /></span>
+        </div>
+    </label>
+</div>
+<!-- Msg Box Error -->
+<div class="s-messageBox e-messageBox">
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert error">
+            <span class="alertClose">X</span>
+            <span class="alertText">Error, Try Again
+                <br class="clear" /></span>
+        </div>
+    </label>
+</div>
+<!-- end of msg Box -->
 
 <body>
     <div class="page">
@@ -65,6 +88,19 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <td colspan="8">
                             <p style="color:red; font-weight:500">
                                 <?php if (!empty($_SESSION['message'])) {
+                                    if($_SESSION['message'] == "Operation completed successfully"){ ?>
+                                <script>
+                                document.getElementsByClassName("s-messageBox")[0].style.display =
+                                    "block";
+                                </script>
+                                <?php }else {?>
+
+                                <script>
+                                document.getElementsByClassName("e-messageBox")[0].style.display =
+                                    "block";
+                                </script>
+
+                                <?php }
                                     echo $_SESSION['message'];
                                     unset($_SESSION['message']);
                                 } ?>

@@ -15,6 +15,29 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
     <title>Add Hotel</title>
     <link rel="stylesheet" href="../Assets/index.css">
 </head>
+<!-- Msg box success -->
+<div class="s-messageBox">
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert success">
+            <span class="alertClose">X</span>
+            <span class="alertText">Hotel Added
+                <br class="clear" /></span>
+        </div>
+    </label>
+</div>
+<!-- Msg Box Error -->
+<div class="s-messageBox e-messageBox">
+    <label>
+        <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+        <div class="alert error">
+            <span class="alertClose">X</span>
+            <span class="alertText">Error, Try Again
+                <br class="clear" /></span>
+        </div>
+    </label>
+</div>
+<!-- end of msg Box -->
 
 <body>
     <div>
@@ -72,6 +95,19 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                                         <td colspan="3">
                                             <p style="color:red; font-weight:500">
                                                 <?php if (!empty($_SESSION['AddHotelError'])) {
+                                                    if($_SESSION['AddHotelError'] == "Hotel Added Successfully"){ ?>
+                                                <script>
+                                                document.getElementsByClassName("s-messageBox")[0].style.display =
+                                                    "block";
+                                                </script>
+                                                <?php }else {?>
+
+                                                <script>
+                                                document.getElementsByClassName("e-messageBox")[0].style.display =
+                                                    "block";
+                                                </script>
+
+                                                <?php }
                                                     echo $_SESSION['AddHotelError'];
                                                     unset($_SESSION['AddHotelError']);
                                                 } ?>

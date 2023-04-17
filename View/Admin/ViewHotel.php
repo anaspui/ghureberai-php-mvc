@@ -22,7 +22,29 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
 
 <body>
 
-
+    <!-- Msg box success -->
+    <div class="s-messageBox">
+        <label>
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert success">
+                <span class="alertClose">X</span>
+                <span class="alertText">Hotel Removed
+                    <br class="clear" /></span>
+            </div>
+        </label>
+    </div>
+    <!-- Msg Box Error -->
+    <div class="s-messageBox e-messageBox">
+        <label>
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert warning">
+                <span class="alertClose">X</span>
+                <span class="alertText">Error, Remove packages listed under this hotel first!
+                    <br class="clear" /></span>
+            </div>
+        </label>
+    </div>
+    <!-- end of msg Box -->
 
     <div class="page">
         <div class="AdminPage">
@@ -67,6 +89,19 @@ if ($_SESSION['role'] !== "admin" && $_SESSION['role'] !== "employee") {
                         <td colspan="8">
                             <p style="color:red; font-weight:500">
                                 <?php if (!empty($_SESSION['message'])) {
+                                    if($_SESSION['message'] == "Operation completed successfully"){ ?>
+                                <script>
+                                document.getElementsByClassName("s-messageBox")[0].style.display =
+                                    "block";
+                                </script>
+                                <?php }else {?>
+
+                                <script>
+                                document.getElementsByClassName("e-messageBox")[0].style.display =
+                                    "block";
+                                </script>
+
+                                <?php }
                                     echo $_SESSION['message'];
                                     unset($_SESSION['message']);
                                 } ?>

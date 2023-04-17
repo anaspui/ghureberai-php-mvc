@@ -36,7 +36,7 @@ $password = $user_data['Password'];
     .check button {
         color: white !important;
         background-color: green;
-        align: center;
+        /* align: center; */
     }
     </style>
 </head>

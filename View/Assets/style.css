@@ -65,8 +65,6 @@ input[type="radio"] {
   padding-right: 5px;
   border-radius: 15px;
 
-  -webkit-appearance: button;
-
   border: double 2px #dc9e4a;
 
   background-color: #dc9e4a;
