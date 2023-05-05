@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotels</title>
-    <link rel="stylesheet" href="../Assets/index.css">
+    <link rel="stylesheet" href="../View/Assets/index.css">
     <style>
     #viewEmp th,
     tr {
@@ -34,43 +34,43 @@ session_start();
 
                 <input type="text" placeholder="Search...">
                 <?php
-                // include('Connection.php');
-                // $sql = "SELECT Hotel_Name FROM hotels";
-                // $result = $con->query($sql);
-                // echo "<select class='hselect' name='Hotel_Name'>";
-                // echo "<option value=''>Available Hotels</option>";
-                // while ($row = $result->fetch_assoc()) {
-                //     echo "<option value='" . $row["Hotel_Name"] . "'>" . $row["Hotel_Name"] . "</option>";
-                // }
-                // echo "</select>";
+                include('../Model/Connection.php');
+                $sql = "SELECT Hotel_Name FROM hotels";
+                $result = $con->query($sql);
+                echo "<select class='hselect' name='Hotel_Name'>";
+                echo "<option value=''>Available Hotels</option>";
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row["Hotel_Name"] . "'>" . $row["Hotel_Name"] . "</option>";
+                }
+                echo "</select>";
                 // ?>
-                //
+
                 <?php
-                // include('Connection.php');
-                // $sql = "SELECT DISTINCT Location FROM hotels;";
-                // $result = $con->query($sql);
-                // // $die = mysqli_error($con);
-                // // var_dump($die);
-                // echo "<select class='hselect' name='Location'>";
-                // echo "<option value=''>Location</option>";
-                // while ($row = $result->fetch_assoc()) {
-                //     echo "<option value='" . $row["Location"] . "'>" . $row["Location"] . "</option>";
-                // }
-                // echo "</select>";
+                include('../Model/Connection.php');
+                $sql = "SELECT DISTINCT Location FROM hotels;";
+                $result = $con->query($sql);
+                // $die = mysqli_error($con);
+                // var_dump($die);
+                echo "<select class='hselect' name='Location'>";
+                echo "<option value=''>Location</option>";
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row["Location"] . "'>" . $row["Location"] . "</option>";
+                }
+                echo "</select>";
                 ?>
                 <button type="submit" name="search">Search</button>
             </form>
         </div>
         <div class="BookBoxResult">
             <br>
-            <table>
+            <!-- <table>
                 <tr>
                     <th>Hotel Name</th>
                     <th>Location</th>
                     <th>Description</th>
-                </tr>
-                <?php
-                // include('Connection.php');
+                </tr> -->
+            <?php
+                // include('../Model/Connection.php');
                 // if (isset($_GET['search'])) {
                 //     $hotelName = $_GET['Hotel_Name'];
                 //     $location = $_GET['Location'];
@@ -91,13 +91,15 @@ session_start();
                 //     echo "<tr><td colspan='3'>No hotels found</td></tr>";
                 // }
                 ?>
-            </table>
+            <!-- </table> -->
+            <p id="data"></p>
         </div>
     </div>
 
 
 
     <?php include('./Footer.php'); ?>
+    <script src="./js/Hotel.js"></script>
 </body>
 
 </html>

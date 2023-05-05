@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Body</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../View/Assets/index.css">
+    <script src="https://kit.fontawesome.com/770386d574.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="home-body">
     <div class="LandingBody">
         <div class="LandingBox">
             <br><br><br>
             <h1>Experience the magic of travel with GhureBerai's immersive experiences</h1>
             <div class="BookBox2">
                 <input type="text" placeholder="Search...">
-
             </div>
         </div>
     </div>
@@ -70,6 +70,44 @@
                 </a>
             </legend>
         </fieldset>
+    </div>
+    <div>
+        <div class="modal-btn-container">
+            <button class="chat-btn">
+                <i class="far fa-comment" style="color: #ffffff;"></i>
+            </button>
+
+            <div class="chat-modal">
+                <div class="modal-header">
+                    <div>
+                        <h1>Support Message</h1>
+                    </div>
+                    <div class="modal-control">
+                        <!-- <i class="fas fa-minus modal-minus-btn"></i> -->
+                        <i class="fas fa-times modal-close-btn"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="chat sender">
+                        <div class="container">
+                            <p>This is sender</p>
+                        </div>
+                    </div>
+                    <div class="chat receiver">
+                        <div class="container">
+                            <p>This is receiver</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="modal-footer">
+                    <input type="text" placeholder="Enter your query" name="chat-box" id="chat-box">
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
     </div>
 </body>
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="Assets/index.css">
+    <link rel="stylesheet" href="../View/Assets/index.css">
 </head>
 
 <body>
@@ -18,6 +18,7 @@
         include("Footer.php");
         ?>
     </div>
+    <script src="../View/js/chatModal.js"></script>
 </body>
 
 </html>

@@ -319,7 +319,8 @@ a {
       rgba(48, 69, 75, 0.5),
       rgba(48, 69, 75, 0.727)
     ),
-    url("images/background2.jpg");
+    url("");
+  /* images/background2.jpg */
   /* Blend the gradient and the image */
   background-blend-mode: multiply;
   background-size: 100% 100%;
@@ -720,4 +721,144 @@ a {
   background-color: #fee;
   border: 1px solid #edd;
   color: #a66;
+}
+
+/* Modal Style */
+
+.home-body {
+  position: relative;
+}
+
+/* .modal-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.modal-btn-container .chat-btn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.chat-modal {
+  position: fixed;
+  right: -100vw;
+  bottom: 90px;
+  width: 0%;
+  height: 500px;
+  max-width: 400px;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  /* display: none; */
+  opacity: 0;
+  background: white;
+  transition: all 300ms ease;
+}
+
+.chat-modal.active {
+  width: 350px;
+  height: 500px;
+  right: 16px;
+  opacity: 1;
+}
+
+.chat-modal.inActive {
+  opacity: 0;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border-bottom: 1px solid grey; */
+  padding: 15px 20px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.modal-header h1 {
+  font-size: 20px;
+}
+
+.modal-control i {
+  font-size: 18px;
+}
+
+.modal-control i:nth-last-child(1) {
+  margin-left: 15px;
+}
+
+.modal-control .modal-close-btn {
+  color: red;
+}
+
+.modal-body {
+  height: 370px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 10px 20px;
+}
+
+.modal-body .chat {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.modal-body .chat.sender {
+  justify-content: end;
+}
+
+.modal-body .chat.receiver {
+  justify-content: start;
+}
+
+.modal-body .chat.sender .container {
+  background: #c4c4c4;
+}
+
+.modal-body .chat.receiver .container {
+  background: #115dfc;
+  color: #fff;
+}
+
+.modal-body .chat .container {
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.modal-footer {
+  padding: 5px 10px;
+}
+
+.modal-footer #chat-box {
+  width: 85%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+  background: #ebebed;
+}
+
+.modal-footer button {
+  width: 10%;
+  border: 1px solid grey;
+  background: #115dfc;
+  border: none;
+  font-size: 14px;
+  margin: 0;
+  height: 40px;
+  border-radius: 10px;
+  color: white;
 }
