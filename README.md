@@ -13,6 +13,8 @@ The website was built using the following technologies:
 - HTML
 - CSS
 - PHP
+- JavaScript 
+- jQuery 
 - MySQL
 
 
